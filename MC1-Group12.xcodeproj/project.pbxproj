@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		39B497B127FF295F009B4FFA /* GradientViewClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B497B027FF295F009B4FFA /* GradientViewClass.swift */; };
 		5F1A069F27FE9E61000BEC17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1A069E27FE9E61000BEC17 /* AppDelegate.swift */; };
 		5F1A06A127FE9E61000BEC17 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1A06A027FE9E61000BEC17 /* SceneDelegate.swift */; };
 		5F1A06A327FE9E61000BEC17 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1A06A227FE9E61000BEC17 /* ViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		39B497B027FF295F009B4FFA /* GradientViewClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientViewClass.swift; sourceTree = "<group>"; };
 		5F1A069B27FE9E61000BEC17 /* MC1-Group12.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MC1-Group12.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F1A069E27FE9E61000BEC17 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5F1A06A027FE9E61000BEC17 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 				5F1A069E27FE9E61000BEC17 /* AppDelegate.swift */,
 				5F1A06A027FE9E61000BEC17 /* SceneDelegate.swift */,
 				5F1A06A227FE9E61000BEC17 /* ViewController.swift */,
+				39B497B027FF295F009B4FFA /* GradientViewClass.swift */,
 				5F1A06A427FE9E61000BEC17 /* Main.storyboard */,
 				5F1A06AA27FE9E62000BEC17 /* Assets.xcassets */,
 				5F1A06AC27FE9E62000BEC17 /* LaunchScreen.storyboard */,
@@ -144,6 +147,7 @@
 				5F1A06A927FE9E61000BEC17 /* MC1_Group12.xcdatamodeld in Sources */,
 				5F1A06A327FE9E61000BEC17 /* ViewController.swift in Sources */,
 				5F1A069F27FE9E61000BEC17 /* AppDelegate.swift in Sources */,
+				39B497B127FF295F009B4FFA /* GradientViewClass.swift in Sources */,
 				5F1A06A127FE9E61000BEC17 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
