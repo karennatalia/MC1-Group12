@@ -19,6 +19,17 @@
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LRb-oO-fiZ" customClass="CornerClass" customModule="MC1_Group12" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="204" width="414" height="692"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lag-aI-7Gt">
+                                        <rect key="frame" x="130" y="534" width="155" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="View Onboarding"/>
+                                        <connections>
+                                            <segue destination="Qtq-ZY-cMp" kind="show" id="IeZ-Tv-cLP"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -46,6 +57,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="79.710144927536234" y="32.8125"/>
+        </scene>
+        <!--onboardingStoryboard-->
+        <scene sceneID="H7h-NP-ld7">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Onboarding" referencedIdentifier="onboardingStoryboard" id="Qtq-ZY-cMp" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="0Xj-Cb-JgJ"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P6d-dw-W9i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="674" y="294"/>
         </scene>
     </scenes>
     <resources>
