@@ -35,9 +35,8 @@
                                     <action selector="pageChanged:" destination="Y6W-OH-hqX" eventType="valueChanged" id="GDK-lm-8zL"/>
                                 </connections>
                             </pageControl>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wuc-lb-OF7">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wuc-lb-OF7">
                                 <rect key="frame" x="0.0" y="44" width="390" height="553"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <viewLayoutGuide key="contentLayoutGuide" id="oAd-ci-8iQ"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="pdt-BO-Ywx"/>
                             </scrollView>
@@ -46,8 +45,12 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="zyn-HL-G1N" secondAttribute="trailing" constant="22" id="5UM-mZ-hy2"/>
+                            <constraint firstItem="o7w-xQ-21g" firstAttribute="top" secondItem="Wuc-lb-OF7" secondAttribute="bottom" constant="16" id="NQu-Qu-Vzf"/>
+                            <constraint firstItem="Wuc-lb-OF7" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="SFq-Pn-9Mc"/>
+                            <constraint firstItem="Wuc-lb-OF7" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="SZW-2m-BmG"/>
                             <constraint firstItem="o7w-xQ-21g" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Uyb-D2-EEy"/>
                             <constraint firstItem="zyn-HL-G1N" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="22" id="gO2-EV-95t"/>
+                            <constraint firstItem="Wuc-lb-OF7" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="nAN-yP-dHv"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="zyn-HL-G1N" secondAttribute="bottom" constant="90" id="npa-T7-Kms"/>
                             <constraint firstItem="zyn-HL-G1N" firstAttribute="top" secondItem="o7w-xQ-21g" secondAttribute="bottom" constant="32" id="yiU-gE-8Zk"/>
                         </constraints>
