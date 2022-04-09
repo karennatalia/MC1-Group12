@@ -26,6 +26,9 @@
                                     <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="14"/>
                                     <color key="baseBackgroundColor" red="0.50196078430000002" green="0.23137254900000001" blue="0.58039215690000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="goBackToMain:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Cwa-wx-jZJ"/>
+                                </connections>
                             </button>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="o7w-xQ-21g">
                                 <rect key="frame" x="138.66666666666666" y="613" width="112.66666666666666" height="25"/>

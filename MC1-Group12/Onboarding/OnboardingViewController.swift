@@ -106,4 +106,9 @@ class OnboardingViewController: UIViewController, UIScrollViewDelegate {
         let page = (scrollView?.contentOffset.x)!/scrollWidth
         pageControl?.currentPage = Int(page)
     }
+    
+    //Fungsi sementara buat balik ke Main Storyboard
+    @IBAction func goBackToMain(_ sender: UIButton) {
+        dismiss(animated: true)
+    }
 }
