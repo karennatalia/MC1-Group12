@@ -14,6 +14,8 @@
 		5F1A06A927FE9E61000BEC17 /* MC1_Group12.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5F1A06A727FE9E61000BEC17 /* MC1_Group12.xcdatamodeld */; };
 		5F1A06AB27FE9E62000BEC17 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F1A06AA27FE9E62000BEC17 /* Assets.xcassets */; };
 		5F1A06AE27FE9E62000BEC17 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F1A06AC27FE9E62000BEC17 /* LaunchScreen.storyboard */; };
+		E9DB169128012A0D004DD687 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9DB169028012A0D004DD687 /* Onboarding.storyboard */; };
+		E9DB169328012A1A004DD687 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DB169228012A1A004DD687 /* OnboardingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		5F1A06AA27FE9E62000BEC17 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5F1A06AD27FE9E62000BEC17 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5F1A06AF27FE9E62000BEC17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E9DB169028012A0D004DD687 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		E9DB169228012A1A004DD687 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,7 @@
 		5F1A069D27FE9E61000BEC17 /* MC1-Group12 */ = {
 			isa = PBXGroup;
 			children = (
+				E9DB168F280129F5004DD687 /* Onboarding */,
 				5F1A069E27FE9E61000BEC17 /* AppDelegate.swift */,
 				5F1A06A027FE9E61000BEC17 /* SceneDelegate.swift */,
 				5F1A06A227FE9E61000BEC17 /* ViewController.swift */,
@@ -68,6 +73,15 @@
 				5F1A06A727FE9E61000BEC17 /* MC1_Group12.xcdatamodeld */,
 			);
 			path = "MC1-Group12";
+			sourceTree = "<group>";
+		};
+		E9DB168F280129F5004DD687 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				E9DB169028012A0D004DD687 /* Onboarding.storyboard */,
+				E9DB169228012A1A004DD687 /* OnboardingViewController.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -131,6 +145,7 @@
 				5F1A06AE27FE9E62000BEC17 /* LaunchScreen.storyboard in Resources */,
 				5F1A06AB27FE9E62000BEC17 /* Assets.xcassets in Resources */,
 				5F1A06A627FE9E61000BEC17 /* Main.storyboard in Resources */,
+				E9DB169128012A0D004DD687 /* Onboarding.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,6 +158,7 @@
 			files = (
 				5F1A06A927FE9E61000BEC17 /* MC1_Group12.xcdatamodeld in Sources */,
 				5F1A06A327FE9E61000BEC17 /* ViewController.swift in Sources */,
+				E9DB169328012A1A004DD687 /* OnboardingViewController.swift in Sources */,
 				5F1A069F27FE9E61000BEC17 /* AppDelegate.swift in Sources */,
 				5F1A06A127FE9E61000BEC17 /* SceneDelegate.swift in Sources */,
 			);
