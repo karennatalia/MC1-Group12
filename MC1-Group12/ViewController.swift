@@ -12,8 +12,21 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        askPermissionNotifications()
     }
 
-
+    func askPermissionNotifications() {
+        let notifCenter = UNUserNotificationCenter.current()
+        
+        notifCenter.requestAuthorization(options: [.alert]) { granted, error in
+            if granted == true {
+                print("Permission Granted")
+            }
+            else {
+                print("Permission Not Granted")
+            }
+        }
+    }
+    
 }
 
