@@ -6,19 +6,16 @@
 //
 
 import UIKit
+import UserNotifications
 
 class ViewController: UIViewController {
-
+    
+    let notifCenter = UNUserNotificationCenter.current()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        askPermissionNotifications()
-    }
-
-    func askPermissionNotifications() {
-        let notifCenter = UNUserNotificationCenter.current()
-        
-        notifCenter.requestAuthorization(options: [.alert]) { granted, error in
+        notifCenter.requestAuthorization(options: [.alert, .sound]) { granted, error in
             if granted == true {
                 print("Permission Granted")
             }
@@ -26,6 +23,10 @@ class ViewController: UIViewController {
                 print("Permission Not Granted")
             }
         }
+    }
+    
+    @IBAction func ToReminderTestPage(_ sender: Any) {
+        performSegue(withIdentifier: "toReminderTestPage", sender: self)
     }
     
 }
