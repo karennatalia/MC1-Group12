@@ -31,6 +31,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         getWelcomeTime()
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view.
         notifCenter.requestAuthorization(options: [.alert, .sound]) { granted, error in
             if granted == true {
@@ -47,6 +48,10 @@ class ViewController: UIViewController {
     }
     
     @IBAction func unwindToHome(_ unwindSegue: UIStoryboardSegue) {
+    }
+    
+    @IBAction func toActivityDetails(_ sender: Any) {
+        performSegue(withIdentifier: "toActivityDetail", sender: self)
     }
     
 }
