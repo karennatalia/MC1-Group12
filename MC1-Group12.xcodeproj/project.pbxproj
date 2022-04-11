@@ -117,7 +117,7 @@
 				E9A56E1E2803DB9F00683C57 /* InformationViewController.swift */,
 			);
 			path = Information;
-
+};
 		C2F6ECD72803DAE000072047 /* fonts */ = {
 			isa = PBXGroup;
 			children = (
