@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view.
         notifCenter.requestAuthorization(options: [.alert, .sound]) { granted, error in
             if granted == true {
