@@ -43,6 +43,16 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction func toReminderPage(_ sender: Any) {
+        guard let addReminderPage = storyboard?.instantiateViewController(withIdentifier: "AddReminderStoryboard")
+          as? AddReminderViewController else {
+              return
+          }
+          
+          addReminderPage.modalPresentationStyle = .fullScreen
+          self.present(addReminderPage, animated: false, completion: nil)
+    }
+    
     @IBAction func unwindToHome(_ unwindSegue: UIStoryboardSegue) {
     }
     

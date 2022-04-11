@@ -150,7 +150,7 @@
                                     <color key="baseForegroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="lfW-Eh-Xgq" kind="show" id="Nz9-NB-6Jv"/>
+                                    <action selector="toReminderPage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wEt-Ye-j8I"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -185,6 +185,7 @@
                     <connections>
                         <outlet property="welcomeLabel" destination="ued-fc-gnA" id="Vtu-Op-vTj"/>
                         <segue destination="JPo-tZ-w4d" kind="presentation" identifier="toActivityDetail" id="8IM-G6-uES"/>
+                        <segue destination="lfW-Eh-Xgq" kind="show" identifier="" id="g4T-MU-XiJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -220,16 +221,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="daydreamer" translatesAutoresizingMaskIntoConstraints="NO" id="mVR-N6-9cg">
-                                <rect key="frame" x="-2397" y="0.0" width="5184" height="3456"/>
+                                <rect key="frame" x="-2397" y="0.0" width="5184" height="844"/>
                             </imageView>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7lL-KB-h31">
-                                <rect key="frame" x="-2397" y="-44" width="5184" height="3500"/>
+                                <rect key="frame" x="-2397" y="-44" width="5184" height="888"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="gzQ-bD-lDz">
-                                    <rect key="frame" x="0.0" y="0.0" width="5184" height="3500"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="5184" height="888"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lrE-hN-PdD" customClass="CornerClass" customModule="MC1_Group12" customModuleProvider="target">
-                                            <rect key="frame" x="2385" y="270" width="414" height="3231"/>
+                                            <rect key="frame" x="2385" y="270" width="414" height="619"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Age" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Pe-FX-tJX">
                                                     <rect key="frame" x="79" y="41" width="26" height="17"/>
@@ -263,7 +264,7 @@
                                                         <constraint firstAttribute="width" constant="35" id="G1v-eD-T3V"/>
                                                     </constraints>
                                                 </imageView>
-                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kUP-bi-uUz">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kUP-bi-uUz">
                                                     <rect key="frame" x="207" y="281" width="0.0" height="20"/>
                                                     <color key="backgroundColor" systemColor="systemGrayColor"/>
                                                 </view>
@@ -317,7 +318,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EWE-qM-Tnx">
-                                                    <rect key="frame" x="28" y="3112" width="358" height="35"/>
+                                                    <rect key="frame" x="28" y="500" width="358" height="35"/>
                                                     <color key="tintColor" systemColor="systemPurpleColor"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="filled">

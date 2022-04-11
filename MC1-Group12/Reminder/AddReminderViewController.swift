@@ -21,14 +21,22 @@ class AddReminderViewController: UIViewController {
     @IBOutlet weak var saturdayBtnUI: UIButton!
     @IBOutlet weak var timePicker: UIDatePicker!
     
+    @IBOutlet weak var addReminderTopConstraint: NSLayoutConstraint!
+    
     let notifCenter = UNUserNotificationCenter.current()
     var selectedWeekday:[Int] = [0,0,0,0,0,0,0]
+    var startingTopConstant:CGFloat = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         let grayTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapGrayView(_:)))
         grayView.addGestureRecognizer(grayTapRecognizer)
+        
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(didPanGesture(recognizer:)))
+        panGestureRecognizer.delaysTouchesBegan = false
+        panGestureRecognizer.delaysTouchesEnded = false
+        addReminderView.addGestureRecognizer(panGestureRecognizer)
         
         sundayBtnUI.layer.cornerRadius = 5
         mondayBtnUI.layer.cornerRadius = 5
@@ -43,74 +51,88 @@ class AddReminderViewController: UIViewController {
         dismiss(animated: true)
     }
     
-    @IBAction func SundayClicked(_ sender: Any) {
+    @objc func didPanGesture(recognizer: UIPanGestureRecognizer) {
+        let translation = recognizer.translation(in: self.view)
+        switch recognizer.state {
+            case .began:
+            self.startingTopConstant = addReminderTopConstraint.constant
+            case .changed:
+                if self.startingTopConstant + translation.y > 30.0 {
+                    self.addReminderTopConstraint.constant = self.startingTopConstant + translation.y
+                }
+            default:
+                break
+            }
+    }
+    
+    @IBAction func SundayClicked(_ sender: UIButton) {
         if checkDay(weekday: 0) == 1 {
-            sundayBtnUI.backgroundColor = UIColor.purple
-            sundayBtnUI.setTitleColor(UIColor.green, for: .normal)
+            sender.backgroundColor = UIColor.purple
+            sender.tintColor = UIColor.white
         }
         else {
-            sundayBtnUI.backgroundColor = UIColor.systemGray4
-            sundayBtnUI.setTitleColor(.black , for: .normal)
+            sender.backgroundColor = UIColor.systemGray4
+            sender.tintColor = UIColor.black
         }
     }
-    @IBAction func MondayClicked(_ sender: Any) {
+    @IBAction func MondayClicked(_ sender: UIButton) {
         if checkDay(weekday: 1) == 1 {
-            mondayBtnUI.backgroundColor = UIColor.purple
-            mondayBtnUI.setTitleColor(UIColor.green, for: .normal)
+            sender.backgroundColor = UIColor.purple
+            sender.tintColor = UIColor.white
         }
         else {
-            mondayBtnUI.backgroundColor = UIColor.systemGray4
-            mondayBtnUI.setTitleColor(.black , for: .normal)
+            sender.backgroundColor = UIColor.systemGray4
+            sender.setTitleColor(.black , for: .normal)
         }
     }
-    @IBAction func TuesdayClicked(_ sender: Any) {
+    @IBAction func TuesdayClicked(_ sender: UIButton) {
         if checkDay(weekday: 2) == 1 {
-            tuesdayBtnUI.backgroundColor = UIColor.purple
-            tuesdayBtnUI.setTitleColor(UIColor.green, for: .normal)
+            sender.backgroundColor = UIColor.purple
+            sender.tintColor = UIColor.white
         }
         else {
-            tuesdayBtnUI.backgroundColor = UIColor.systemGray4
-            tuesdayBtnUI.setTitleColor(.black , for: .normal)
+            sender.backgroundColor = UIColor.systemGray4
+            sender.setTitleColor(.black , for: .normal)
         }
     }
-    @IBAction func WednesdayClicked(_ sender: Any) {
+    @IBAction func WednesdayClicked(_ sender: UIButton) {
         if checkDay(weekday: 3) == 1 {
-            wednesdayBtnUI.backgroundColor = UIColor.purple
-            wednesdayBtnUI.setTitleColor(UIColor.green, for: .normal)
+            sender.backgroundColor = UIColor.purple
+            sender.tintColor = UIColor.white
         }
         else {
-            wednesdayBtnUI.backgroundColor = UIColor.systemGray4
-            wednesdayBtnUI.setTitleColor(.black , for: .normal)
+            sender.backgroundColor = UIColor.systemGray4
+            sender.setTitleColor(.black , for: .normal)
         }
     }
-    @IBAction func ThursdayClicked(_ sender: Any) {
+    @IBAction func ThursdayClicked(_ sender: UIButton) {
         if checkDay(weekday: 4) == 1 {
-            thursdayBtnUI.backgroundColor = UIColor.purple
-            thursdayBtnUI.setTitleColor(UIColor.green, for: .normal)
+            sender.backgroundColor = UIColor.purple
+            sender.tintColor = UIColor.white
         }
         else {
-            thursdayBtnUI.backgroundColor = UIColor.systemGray4
-            thursdayBtnUI.setTitleColor(.black , for: .normal)
+            sender.backgroundColor = UIColor.systemGray4
+            sender.setTitleColor(.black , for: .normal)
         }
     }
-    @IBAction func FridayClicked(_ sender: Any) {
+    @IBAction func FridayClicked(_ sender: UIButton) {
         if checkDay(weekday: 5) == 1 {
-            fridayBtnUI.backgroundColor = UIColor.purple
-            fridayBtnUI.setTitleColor(UIColor.green, for: .normal)
+            sender.backgroundColor = UIColor.purple
+            sender.tintColor = UIColor.white
         }
         else {
-            fridayBtnUI.backgroundColor = UIColor.systemGray4
-            fridayBtnUI.setTitleColor(.black , for: .normal)
+            sender.backgroundColor = UIColor.systemGray4
+            sender.setTitleColor(.black , for: .normal)
         }
     }
-    @IBAction func SaturdayClicked(_ sender: Any) {
+    @IBAction func SaturdayClicked(_ sender: UIButton) {
         if checkDay(weekday: 6) == 1 {
-            saturdayBtnUI.backgroundColor = UIColor.purple
-            saturdayBtnUI.setTitleColor(UIColor.green, for: .normal)
+            sender.backgroundColor = UIColor.purple
+            sender.tintColor = UIColor.white
         }
         else {
-            saturdayBtnUI.backgroundColor = UIColor.systemGray4
-            saturdayBtnUI.setTitleColor(.black , for: .normal)
+            sender.backgroundColor = UIColor.systemGray4
+            sender.setTitleColor(.black , for: .normal)
         }
     }
     
