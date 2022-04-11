@@ -34,8 +34,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func toActivityDetails(_ sender: Any) {
-        let vc = storyboard?.instantiateViewController(identifier: "activitydetails") as! ActivityDetailsViewController
-        navigationController?.pushViewController(vc, animated: true)
+        performSegue(withIdentifier: "toActivityDetail", sender: self)
     }
     
 }

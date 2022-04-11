@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bMc-TG-gwH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -17,11 +17,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LRb-oO-fiZ" customClass="CornerClass" customModule="MC1_Group12" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="292" width="299.5" height="604"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LRb-oO-fiZ" customClass="CornerClass" customModule="MC1_Group12" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="248" width="414" height="648"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YH3-lo-M30">
-                                        <rect key="frame" x="64" y="286" width="172" height="31"/>
+                                        <rect key="frame" x="64" y="330" width="172" height="31"/>
                                         <color key="tintColor" name="AccentColor"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="To Reminder Test Page"/>
@@ -39,10 +39,9 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KMU-zi-zSh">
-                                        <rect key="frame" x="80" y="377" width="139.5" height="35"/>
+                                        <rect key="frame" x="80" y="421" width="139.5" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="ctj-gN-uzr"/>
-                                            <constraint firstAttribute="width" constant="151" id="yv1-Mq-UlT"/>
                                         </constraints>
                                         <color key="tintColor" name="AccentColor"/>
                                         <state key="normal" title="Button"/>
@@ -79,7 +78,6 @@
                             <constraint firstItem="LRb-oO-fiZ" firstAttribute="leading" secondItem="BU2-Ih-AMM" secondAttribute="leading" id="VJ0-cc-Lbc"/>
                             <constraint firstItem="LRb-oO-fiZ" firstAttribute="top" secondItem="BU2-Ih-AMM" secondAttribute="top" constant="204" id="X55-lc-z3a"/>
                             <constraint firstAttribute="bottomMargin" secondItem="LRb-oO-fiZ" secondAttribute="bottom" constant="-34" id="aJe-LF-OqN"/>
-                            <constraint firstItem="LRb-oO-fiZ" firstAttribute="centerX" secondItem="BU2-Ih-AMM" secondAttribute="centerX" id="fpA-1R-lCO"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="startColor">
@@ -94,6 +92,7 @@
                     <navigationItem key="navigationItem" id="UHi-FF-BnZ"/>
                     <connections>
                         <segue destination="w3j-t0-mPU" kind="presentation" identifier="toReminderTestPage" id="wzj-8H-3MV"/>
+                        <segue destination="JPo-tZ-w4d" kind="presentation" identifier="toActivityDetail" id="8IM-G6-uES"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -229,7 +228,7 @@
         <!--Activity Details View Controller-->
         <scene sceneID="KD3-MK-d5Y">
             <objects>
-                <viewController storyboardIdentifier="activitydetails" id="JPo-tZ-w4d" customClass="ActivityDetailsViewController" customModule="MC1_Group12" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="activitydetails" modalPresentationStyle="fullScreen" id="JPo-tZ-w4d" customClass="ActivityDetailsViewController" customModule="MC1_Group12" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8Sp-O4-gGq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -468,24 +467,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jI5-Jf-1d8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1692.753623188406" y="748.66071428571422"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="RNW-vj-D9V">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bMc-TG-gwH" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="iSG-KG-qMC">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="cUi-74-aqB"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="acB-mM-BGu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="34.782608695652179" y="69.642857142857139"/>
         </scene>
     </scenes>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
