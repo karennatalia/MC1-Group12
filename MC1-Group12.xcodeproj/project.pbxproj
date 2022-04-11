@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		39837A3C2803CA9500BA3192 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39837A3B2803CA9500BA3192 /* Onboarding.storyboard */; };
+		39837A3E2803CAC500BA3192 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39837A3D2803CAC500BA3192 /* OnboardingViewController.swift */; };
 		39B497B127FF295F009B4FFA /* GradientViewClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B497B027FF295F009B4FFA /* GradientViewClass.swift */; };
 		39B497B327FF2A61009B4FFA /* CornerClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B497B227FF2A61009B4FFA /* CornerClass.swift */; };
 		5F1A069F27FE9E61000BEC17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1A069E27FE9E61000BEC17 /* AppDelegate.swift */; };
@@ -16,9 +18,12 @@
 		5F1A06A927FE9E61000BEC17 /* MC1_Group12.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5F1A06A727FE9E61000BEC17 /* MC1_Group12.xcdatamodeld */; };
 		5F1A06AB27FE9E62000BEC17 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F1A06AA27FE9E62000BEC17 /* Assets.xcassets */; };
 		5F1A06AE27FE9E62000BEC17 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F1A06AC27FE9E62000BEC17 /* LaunchScreen.storyboard */; };
+		5F9390CE2802E4E9005D319A /* ReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9390CD2802E4E9005D319A /* ReminderViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		39837A3B2803CA9500BA3192 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		39837A3D2803CAC500BA3192 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		39B497B027FF295F009B4FFA /* GradientViewClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientViewClass.swift; sourceTree = "<group>"; };
 		39B497B227FF2A61009B4FFA /* CornerClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerClass.swift; sourceTree = "<group>"; };
 		5F1A069B27FE9E61000BEC17 /* MC1-Group12.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MC1-Group12.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -30,6 +35,7 @@
 		5F1A06AA27FE9E62000BEC17 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5F1A06AD27FE9E62000BEC17 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5F1A06AF27FE9E62000BEC17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5F9390CD2802E4E9005D319A /* ReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +49,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		39837A3A2803C9F100BA3192 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				39837A3B2803CA9500BA3192 /* Onboarding.storyboard */,
+				39837A3D2803CAC500BA3192 /* OnboardingViewController.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
 		5F1A069227FE9E61000BEC17 = {
 			isa = PBXGroup;
 			children = (
@@ -62,6 +77,7 @@
 		5F1A069D27FE9E61000BEC17 /* MC1-Group12 */ = {
 			isa = PBXGroup;
 			children = (
+				39837A3A2803C9F100BA3192 /* Onboarding */,
 				5F1A069E27FE9E61000BEC17 /* AppDelegate.swift */,
 				5F1A06A027FE9E61000BEC17 /* SceneDelegate.swift */,
 				5F1A06A227FE9E61000BEC17 /* ViewController.swift */,
@@ -72,6 +88,7 @@
 				5F1A06AC27FE9E62000BEC17 /* LaunchScreen.storyboard */,
 				5F1A06AF27FE9E62000BEC17 /* Info.plist */,
 				5F1A06A727FE9E61000BEC17 /* MC1_Group12.xcdatamodeld */,
+				5F9390CD2802E4E9005D319A /* ReminderViewController.swift */,
 			);
 			path = "MC1-Group12";
 			sourceTree = "<group>";
@@ -137,6 +154,7 @@
 				5F1A06AE27FE9E62000BEC17 /* LaunchScreen.storyboard in Resources */,
 				5F1A06AB27FE9E62000BEC17 /* Assets.xcassets in Resources */,
 				5F1A06A627FE9E61000BEC17 /* Main.storyboard in Resources */,
+				39837A3C2803CA9500BA3192 /* Onboarding.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,6 +168,8 @@
 				5F1A06A927FE9E61000BEC17 /* MC1_Group12.xcdatamodeld in Sources */,
 				39B497B327FF2A61009B4FFA /* CornerClass.swift in Sources */,
 				5F1A06A327FE9E61000BEC17 /* ViewController.swift in Sources */,
+				39837A3E2803CAC500BA3192 /* OnboardingViewController.swift in Sources */,
+				5F9390CE2802E4E9005D319A /* ReminderViewController.swift in Sources */,
 				5F1A069F27FE9E61000BEC17 /* AppDelegate.swift in Sources */,
 				39B497B127FF295F009B4FFA /* GradientViewClass.swift in Sources */,
 				5F1A06A127FE9E61000BEC17 /* SceneDelegate.swift in Sources */,
