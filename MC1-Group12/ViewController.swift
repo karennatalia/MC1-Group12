@@ -16,9 +16,9 @@ class ViewController: UIViewController {
         switch hour {
             case 6..<12 :
             welcomeLabel.text = "Good " +  NSLocalizedString("Morning", comment: "Morning")
-            case 12..<17 :
+            case 12..<15 :
             welcomeLabel.text = "Good " +  NSLocalizedString("Afternoon", comment: "Afternoon")
-            case 17..<22 :
+            case 15..<18 :
             welcomeLabel.text = "Good " +  NSLocalizedString("Evening", comment: "Evening")
             default:
             welcomeLabel.text = "Good " +  NSLocalizedString("Night", comment: "Night")
