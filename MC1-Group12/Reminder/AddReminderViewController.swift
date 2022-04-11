@@ -27,7 +27,16 @@ class AddReminderViewController: UIViewController {
     let notifCenter = UNUserNotificationCenter.current()
     var selectedWeekday:[Int] = [0,0,0,0,0,0,0]
     var startingTopConstant:CGFloat = 0.0
+    var defaultTopConstant:CGFloat = 0.0
+    var topSafeArea:CGFloat = 0.0
+    var bottomSafeArea:CGFloat = 0.0
     var snapshot:UIImage?
+    
+    enum AddReminderViewState {
+        case expanded
+        case normal
+    }
+    var currentState:AddReminderViewState = .normal
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +50,13 @@ class AddReminderViewController: UIViewController {
         panGestureRecognizer.delaysTouchesBegan = false
         panGestureRecognizer.delaysTouchesEnded = false
         addReminderView.addGestureRecognizer(panGestureRecognizer)
+        
+        defaultTopConstant = addReminderTopConstraint.constant
+        
+//        let window = UIApplication.shared.windows[0]
+//        let safeFrame = window.safeAreaLayoutGuide.layoutFrame
+//        topSafeArea = safeFrame.minY
+//        bottomSafeArea = window.frame.maxY - safeFrame.maxY
         
         sundayBtnUI.layer.cornerRadius = 5
         mondayBtnUI.layer.cornerRadius = 5
@@ -63,6 +79,10 @@ class AddReminderViewController: UIViewController {
             case .changed:
                 if self.startingTopConstant + translation.y > 30.0 {
                     self.addReminderTopConstraint.constant = self.startingTopConstant + translation.y
+                }
+            case .ended:
+                if self.startingTopConstant + translation.y > defaultTopConstant {
+                    dismiss(animated: false)
                 }
             default:
                 break
