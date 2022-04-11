@@ -126,9 +126,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ued-fc-gnA">
-                                <rect key="frame" x="20" y="83" width="324" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ued-fc-gnA">
+                                <rect key="frame" x="22" y="84" width="224" height="40"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Good Morning">
                                         <attributes>
@@ -140,9 +139,8 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vEb-Xe-ZkS">
-                                <rect key="frame" x="20" y="100" width="305" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vEb-Xe-ZkS">
+                                <rect key="frame" x="21.999999999999986" y="104" width="238.66666666666663" height="41"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Are you ready for today’s activity?">
                                         <attributes>
@@ -154,9 +152,8 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Imi-Xb-T8f">
-                                <rect key="frame" x="333" y="85" width="61" height="38"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Imi-Xb-T8f">
+                                <rect key="frame" x="326.33333333333331" y="85" width="45.666666666666686" height="38"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain">
@@ -169,10 +166,19 @@
                         <viewLayoutGuide key="safeArea" id="BU2-Ih-AMM"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="ued-fc-gnA" firstAttribute="top" secondItem="BU2-Ih-AMM" secondAttribute="top" constant="40" id="0sW-VW-ti4"/>
+                            <constraint firstItem="vEb-Xe-ZkS" firstAttribute="leading" secondItem="BU2-Ih-AMM" secondAttribute="leading" constant="22" id="5pM-9N-qGK"/>
                             <constraint firstItem="LRb-oO-fiZ" firstAttribute="leading" secondItem="BU2-Ih-AMM" secondAttribute="leading" id="7bc-mi-VXI"/>
+                            <constraint firstItem="ued-fc-gnA" firstAttribute="leading" secondItem="BU2-Ih-AMM" secondAttribute="leading" constant="22" id="AJL-fv-b8l"/>
+                            <constraint firstItem="vEb-Xe-ZkS" firstAttribute="top" secondItem="BU2-Ih-AMM" secondAttribute="top" constant="60" id="Acp-gH-rnr"/>
                             <constraint firstItem="LRb-oO-fiZ" firstAttribute="trailing" secondItem="BU2-Ih-AMM" secondAttribute="trailing" id="C0M-j6-rhn"/>
                             <constraint firstItem="LRb-oO-fiZ" firstAttribute="top" secondItem="BU2-Ih-AMM" secondAttribute="top" constant="152" id="JUR-69-fYl"/>
+                            <constraint firstItem="BU2-Ih-AMM" firstAttribute="trailing" secondItem="Imi-Xb-T8f" secondAttribute="trailing" constant="18" id="KB2-nD-f9b"/>
+                            <constraint firstItem="vEb-Xe-ZkS" firstAttribute="leading" secondItem="BU2-Ih-AMM" secondAttribute="leading" constant="22" id="WtF-cD-8UO"/>
+                            <constraint firstItem="Imi-Xb-T8f" firstAttribute="centerY" secondItem="ued-fc-gnA" secondAttribute="centerY" id="aly-yT-zma"/>
                             <constraint firstAttribute="bottom" secondItem="LRb-oO-fiZ" secondAttribute="bottom" id="blL-gd-8LJ"/>
+                            <constraint firstItem="Imi-Xb-T8f" firstAttribute="top" secondItem="BU2-Ih-AMM" secondAttribute="top" constant="41" id="dtP-bF-CI9"/>
+                            <constraint firstItem="LRb-oO-fiZ" firstAttribute="top" secondItem="Imi-Xb-T8f" secondAttribute="bottom" constant="73" id="ncu-fK-sOn"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="startColor">
