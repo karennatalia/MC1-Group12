@@ -29,6 +29,15 @@
                                             <action selector="ToReminderTestPage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UI9-N3-x81"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lag-aI-7Gt">
+                                        <rect key="frame" x="130" y="534" width="155" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="View Onboarding"/>
+                                        <connections>
+                                            <segue destination="Qtq-ZY-cMp" kind="show" id="IeZ-Tv-cLP"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <userDefinedRuntimeAttributes>
@@ -176,6 +185,16 @@
                 <exit id="TYq-Kv-yxI" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="784" y="70"/>
+        </scene>
+        <!--onboardingStoryboard-->
+        <scene sceneID="H7h-NP-ld7">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Onboarding" referencedIdentifier="onboardingStoryboard" id="Qtq-ZY-cMp" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="0Xj-Cb-JgJ"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P6d-dw-W9i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="674" y="294"/>
         </scene>
     </scenes>
     <resources>
