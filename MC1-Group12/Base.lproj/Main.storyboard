@@ -16,9 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LRb-oO-fiZ" customClass="CornerClass" customModule="MC1_Group12" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="204" width="414" height="692"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LRb-oO-fiZ" customClass="CornerClass" customModule="MC1_Group12" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="248" width="414" height="648"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YH3-lo-M30">
                                         <rect key="frame" x="121" y="330" width="172" height="31"/>
@@ -52,6 +51,12 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="LRb-oO-fiZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="VJ0-cc-Lbc"/>
+                            <constraint firstItem="LRb-oO-fiZ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="204" id="X55-lc-z3a"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="LRb-oO-fiZ" secondAttribute="bottom" constant="-34" id="aJe-LF-OqN"/>
+                            <constraint firstItem="LRb-oO-fiZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fpA-1R-lCO"/>
+                        </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="startColor">
                                 <color key="value" red="0.47450980392156861" green="0.22352941176470587" blue="0.60784313725490191" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
