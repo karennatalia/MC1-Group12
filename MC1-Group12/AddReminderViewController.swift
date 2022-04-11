@@ -8,7 +8,7 @@
 import UIKit
 import UserNotifications
 
-class ReminderViewController: UIViewController {
+class AddReminderViewController: UIViewController {
 
     @IBOutlet weak var sundayBtnUI: UIButton!
     @IBOutlet weak var mondayBtnUI: UIButton!

@@ -213,7 +213,6 @@
                     <navigationItem key="navigationItem" title="Settings" id="xbC-2X-8n3">
                         <barButtonItem key="backBarButtonItem" title="Back" id="KAB-bG-Tcc"/>
                     </navigationItem>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="navigationBar" destination="xbC-2X-8n3" id="r5s-0v-nMT"/>
                     </connections>
