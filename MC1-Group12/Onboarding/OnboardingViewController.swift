@@ -9,6 +9,13 @@ import UIKit
 
 class OnboardingViewController: UIViewController, UIScrollViewDelegate {
 
+    //Lock device orientation hehe
+    var orientation = UIInterfaceOrientationMask.portrait
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        get { return self.orientation }
+        set { self.orientation = newValue }
+    }
+    
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var getStartedBtn: UIButton!
@@ -105,5 +112,10 @@ class OnboardingViewController: UIViewController, UIScrollViewDelegate {
     func setIndiactorForCurrentPage()  {
         let page = (scrollView?.contentOffset.x)!/scrollWidth
         pageControl?.currentPage = Int(page)
+    }
+    
+    //Fungsi sementara buat balik ke Main Storyboard
+    @IBAction func goBackToMain(_ sender: UIButton) {
+        dismiss(animated: true)
     }
 }
