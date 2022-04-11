@@ -24,6 +24,7 @@
 		5F4C128028040ED300381BE6 /* AddReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4C127F28040ED300381BE6 /* AddReminderViewController.swift */; };
 		5F4C128228040EE600381BE6 /* AddReminder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F4C128128040EE600381BE6 /* AddReminder.storyboard */; };
 		5F9390CE2802E4E9005D319A /* ReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9390CD2802E4E9005D319A /* ReminderViewController.swift */; };
+		5F9488652804D441004DC812 /* UIVIewSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9488642804D441004DC812 /* UIVIewSnapshot.swift */; };
 		C2F6ED3F2803DB5900072047 /* SF-Pro-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C2F6ECF92803DAF500072047 /* SF-Pro-Italic.ttf */; };
 		C2F6ED5E2803DB5900072047 /* SF-Pro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C2F6ECE02803DAF100072047 /* SF-Pro.ttf */; };
 /* End PBXBuildFile section */
@@ -48,6 +49,7 @@
 		5F4C127F28040ED300381BE6 /* AddReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReminderViewController.swift; sourceTree = "<group>"; };
 		5F4C128128040EE600381BE6 /* AddReminder.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddReminder.storyboard; sourceTree = "<group>"; };
 		5F9390CD2802E4E9005D319A /* ReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderViewController.swift; sourceTree = "<group>"; };
+		5F9488642804D441004DC812 /* UIVIewSnapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIVIewSnapshot.swift; sourceTree = "<group>"; };
 		C2F6ECE02803DAF100072047 /* SF-Pro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro.ttf"; sourceTree = "<group>"; };
 		C2F6ECF92803DAF500072047 /* SF-Pro-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Italic.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -107,6 +109,7 @@
 				5F1A06A727FE9E61000BEC17 /* MC1_Group12.xcdatamodeld */,
 				5F9390CD2802E4E9005D319A /* ReminderViewController.swift */,
 				58076D992803DD7F00CFA4BF /* ActivityDetailsViewController.swift */,
+				5F9488642804D441004DC812 /* UIVIewSnapshot.swift */,
 			);
 			path = "MC1-Group12";
 			sourceTree = "<group>";
@@ -222,6 +225,7 @@
 				5F4C128028040ED300381BE6 /* AddReminderViewController.swift in Sources */,
 				5F9390CE2802E4E9005D319A /* ReminderViewController.swift in Sources */,
 				5F1A069F27FE9E61000BEC17 /* AppDelegate.swift in Sources */,
+				5F9488652804D441004DC812 /* UIVIewSnapshot.swift in Sources */,
 				39B497B127FF295F009B4FFA /* GradientViewClass.swift in Sources */,
 				5F1A06A127FE9E61000BEC17 /* SceneDelegate.swift in Sources */,
 				5F4C127D2803F11F00381BE6 /* InformationViewController.swift in Sources */,

@@ -20,16 +20,20 @@ class AddReminderViewController: UIViewController {
     @IBOutlet weak var fridayBtnUI: UIButton!
     @IBOutlet weak var saturdayBtnUI: UIButton!
     @IBOutlet weak var timePicker: UIDatePicker!
+    @IBOutlet weak var snapshotImage: UIImageView!
     
     @IBOutlet weak var addReminderTopConstraint: NSLayoutConstraint!
     
     let notifCenter = UNUserNotificationCenter.current()
     var selectedWeekday:[Int] = [0,0,0,0,0,0,0]
     var startingTopConstant:CGFloat = 0.0
+    var snapshot:UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        snapshotImage.image = snapshot
+        
         let grayTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapGrayView(_:)))
         grayView.addGestureRecognizer(grayTapRecognizer)
         
@@ -48,7 +52,7 @@ class AddReminderViewController: UIViewController {
     }
     
     @objc func didTapGrayView(_ sender: Any) {
-        dismiss(animated: true)
+        dismiss(animated: false)
     }
     
     @objc func didPanGesture(recognizer: UIPanGestureRecognizer) {

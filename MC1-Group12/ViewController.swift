@@ -48,7 +48,9 @@ class ViewController: UIViewController {
           as? AddReminderViewController else {
               return
           }
-          
+        
+        /// take view snapshot
+        addReminderPage.snapshot = self.view.asImage()
           addReminderPage.modalPresentationStyle = .fullScreen
           self.present(addReminderPage, animated: false, completion: nil)
     }
