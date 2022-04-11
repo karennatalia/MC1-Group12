@@ -106,6 +106,9 @@
                                                 <buttonConfiguration key="configuration" style="plain" title="Save">
                                                     <fontDescription key="titleFontDescription" type="system" pointSize="17"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="SetReminderAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Ikn-lH-ORj"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f9b-MX-UkZ">
                                                 <rect key="frame" x="139" y="87" width="33" height="31"/>
