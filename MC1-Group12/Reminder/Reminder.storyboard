@@ -30,7 +30,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cF2-2C-JWu" customClass="CornerClass" customModule="MC1_Group12" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="179" width="414" height="717"/>
+                                <rect key="frame" x="0.0" y="108" width="414" height="788"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum dolor sit amet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MtK-Qs-MOU">
                                         <rect key="frame" x="28" y="89" width="152" height="14.5"/>
@@ -80,9 +80,9 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="cF2-2C-JWu" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="8wm-Xq-gYQ"/>
                             <constraint firstItem="cF2-2C-JWu" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="HZR-vP-JDb"/>
                             <constraint firstAttribute="bottom" secondItem="cF2-2C-JWu" secondAttribute="bottom" id="MyZ-yn-tLZ"/>
-                            <constraint firstItem="cF2-2C-JWu" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="0.8" id="bPb-gP-xZb"/>
                             <constraint firstItem="dM8-jv-lbb" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="cSp-cE-NDE"/>
                             <constraint firstAttribute="trailing" secondItem="cF2-2C-JWu" secondAttribute="trailing" id="ikm-Rk-x50"/>
                             <constraint firstAttribute="trailing" secondItem="dM8-jv-lbb" secondAttribute="trailing" id="jGF-o1-DLE"/>
