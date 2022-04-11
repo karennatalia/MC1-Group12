@@ -32,5 +32,10 @@ class ViewController: UIViewController {
     @IBAction func unwindToHome(_ unwindSegue: UIStoryboardSegue) {
     }
     
+    @IBAction func toActivityDetails(_ sender: Any) {
+        let vc = storyboard?.instantiateViewController(identifier: "activitydetails") as! ActivityDetailsViewController
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
 }
 
