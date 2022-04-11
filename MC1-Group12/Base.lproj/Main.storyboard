@@ -319,10 +319,10 @@
                                                     </buttonConfiguration>
                                                 </button>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="wrW-Nw-cke">
-                                                    <rect key="frame" x="23" y="142" width="363" height="128"/>
+                                                    <rect key="frame" x="23" y="142" width="363" height="194"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="128" id="8XD-iU-tBV"/>
+                                                        <constraint firstAttribute="height" constant="194" id="8XD-iU-tBV"/>
                                                     </constraints>
                                                     <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                     <color key="textColor" systemColor="labelColor"/>
@@ -330,7 +330,7 @@
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="A23-dQ-rpH">
-                                                    <rect key="frame" x="23" y="324" width="363" height="128"/>
+                                                    <rect key="frame" x="23" y="384" width="363" height="197"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                     <color key="textColor" systemColor="labelColor"/>
@@ -344,7 +344,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Post Activity Reflection" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gi5-DT-ap6">
-                                                    <rect key="frame" x="28" y="289" width="294" height="32.5"/>
+                                                    <rect key="frame" x="28" y="355" width="294" height="32.5"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="27"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -400,7 +400,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="Wwy-2L-9ZA" secondAttribute="trailing" constant="42" id="UX5-h2-F3o"/>
                                                 <constraint firstItem="l8I-Pu-w80" firstAttribute="leading" secondItem="gi5-DT-ap6" secondAttribute="leading" id="X5R-M3-oO7"/>
                                                 <constraint firstItem="Xi4-Ck-hWF" firstAttribute="leading" secondItem="5d6-iP-kU8" secondAttribute="trailing" constant="1" id="YcA-eB-qen"/>
-                                                <constraint firstItem="EWE-qM-Tnx" firstAttribute="top" secondItem="A23-dQ-rpH" secondAttribute="bottom" constant="144" id="Yrb-ds-KQT"/>
+                                                <constraint firstItem="EWE-qM-Tnx" firstAttribute="top" secondItem="A23-dQ-rpH" secondAttribute="bottom" constant="15" id="Yrb-ds-KQT"/>
                                                 <constraint firstItem="pXc-8g-cgz" firstAttribute="leading" secondItem="0wN-xi-fY0" secondAttribute="trailing" constant="6.5" id="Ytt-bP-s89"/>
                                                 <constraint firstItem="pXc-8g-cgz" firstAttribute="baseline" secondItem="6Pe-FX-tJX" secondAttribute="firstBaseline" id="ZCr-ge-Ki9"/>
                                                 <constraint firstItem="l8I-Pu-w80" firstAttribute="leading" secondItem="lrE-hN-PdD" secondAttribute="leading" constant="28" id="c6c-4E-8bu"/>
@@ -409,7 +409,7 @@
                                                 <constraint firstItem="0wN-xi-fY0" firstAttribute="leading" secondItem="7Fq-AO-H3O" secondAttribute="trailing" constant="23" id="d4P-Aa-0UX"/>
                                                 <constraint firstItem="7Fq-AO-H3O" firstAttribute="baseline" secondItem="MIZ-bo-fjF" secondAttribute="firstBaseline" id="dzv-L9-DCj"/>
                                                 <constraint firstItem="pXc-8g-cgz" firstAttribute="baseline" secondItem="Wwy-2L-9ZA" secondAttribute="firstBaseline" id="eY0-92-3qk"/>
-                                                <constraint firstItem="A23-dQ-rpH" firstAttribute="top" secondItem="gi5-DT-ap6" secondAttribute="bottom" constant="2.5" id="eb0-Uh-LJD"/>
+                                                <constraint firstItem="A23-dQ-rpH" firstAttribute="top" secondItem="gi5-DT-ap6" secondAttribute="bottom" constant="-3.5" id="eb0-Uh-LJD"/>
                                                 <constraint firstItem="wrW-Nw-cke" firstAttribute="leading" secondItem="A23-dQ-rpH" secondAttribute="leading" id="ep9-yt-mOs"/>
                                                 <constraint firstItem="6Pe-FX-tJX" firstAttribute="leading" secondItem="Beh-xa-ICh" secondAttribute="trailing" id="f4R-Pd-cn9"/>
                                                 <constraint firstItem="MIZ-bo-fjF" firstAttribute="leading" secondItem="lrE-hN-PdD" secondAttribute="leading" constant="39" id="fB3-FR-Foe"/>
