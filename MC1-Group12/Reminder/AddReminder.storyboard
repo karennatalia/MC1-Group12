@@ -44,7 +44,7 @@
                                         <color key="tintColor" systemColor="labelColor"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="S"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="S" cornerStyle="large"/>
+                                        <buttonConfiguration key="configuration" style="gray" title="S" cornerStyle="large"/>
                                         <connections>
                                             <action selector="SundayClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Asn-Wx-aFq"/>
                                         </connections>
@@ -53,7 +53,7 @@
                                         <rect key="frame" x="86" y="87" width="37" height="31"/>
                                         <color key="tintColor" systemColor="labelColor"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="M" cornerStyle="large"/>
+                                        <buttonConfiguration key="configuration" style="gray" title="M" cornerStyle="large"/>
                                         <connections>
                                             <action selector="MondayClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="gA3-Bh-7E9"/>
                                         </connections>
@@ -62,7 +62,7 @@
                                         <rect key="frame" x="188" y="87" width="38" height="31"/>
                                         <color key="tintColor" systemColor="labelColor"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="W" cornerStyle="large"/>
+                                        <buttonConfiguration key="configuration" style="gray" title="W" cornerStyle="large"/>
                                         <connections>
                                             <action selector="WednesdayClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="sGD-LW-YF6"/>
                                         </connections>
@@ -71,7 +71,7 @@
                                         <rect key="frame" x="242" y="87" width="33" height="31"/>
                                         <color key="tintColor" systemColor="labelColor"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="T" cornerStyle="large"/>
+                                        <buttonConfiguration key="configuration" style="gray" title="T" cornerStyle="large"/>
                                         <connections>
                                             <action selector="ThursdayClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="uRG-u4-Kwa"/>
                                         </connections>
@@ -80,7 +80,7 @@
                                         <rect key="frame" x="291" y="87" width="32" height="31"/>
                                         <color key="tintColor" systemColor="labelColor"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="F" cornerStyle="large"/>
+                                        <buttonConfiguration key="configuration" style="gray" title="F" cornerStyle="large"/>
                                         <connections>
                                             <action selector="FridayClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="XpK-ab-1DD"/>
                                         </connections>
@@ -89,7 +89,7 @@
                                         <rect key="frame" x="339" y="88" width="33" height="31"/>
                                         <color key="tintColor" systemColor="labelColor"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="S" cornerStyle="large"/>
+                                        <buttonConfiguration key="configuration" style="gray" title="S" cornerStyle="large"/>
                                         <connections>
                                             <action selector="SaturdayClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="X3H-po-LZF"/>
                                         </connections>
@@ -112,7 +112,7 @@
                                         <rect key="frame" x="139" y="87" width="33" height="31"/>
                                         <color key="tintColor" systemColor="labelColor"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="T" cornerStyle="large"/>
+                                        <buttonConfiguration key="configuration" style="gray" title="T" cornerStyle="large"/>
                                         <connections>
                                             <action selector="TuesdayClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="zWm-Xv-XLf"/>
                                         </connections>

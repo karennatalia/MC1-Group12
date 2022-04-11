@@ -75,7 +75,7 @@ class AddReminderViewController: UIViewController {
             sender.tintColor = UIColor.white
         }
         else {
-            sender.backgroundColor = UIColor.systemGray4
+            sender.backgroundColor = UIColor.systemGray6
             sender.tintColor = UIColor.black
         }
     }
@@ -85,8 +85,8 @@ class AddReminderViewController: UIViewController {
             sender.tintColor = UIColor.white
         }
         else {
-            sender.backgroundColor = UIColor.systemGray4
-            sender.setTitleColor(.black , for: .normal)
+            sender.backgroundColor = UIColor.systemGray6
+            sender.tintColor = UIColor.black
         }
     }
     @IBAction func TuesdayClicked(_ sender: UIButton) {
@@ -95,8 +95,8 @@ class AddReminderViewController: UIViewController {
             sender.tintColor = UIColor.white
         }
         else {
-            sender.backgroundColor = UIColor.systemGray4
-            sender.setTitleColor(.black , for: .normal)
+            sender.backgroundColor = UIColor.systemGray6
+            sender.tintColor = UIColor.black
         }
     }
     @IBAction func WednesdayClicked(_ sender: UIButton) {
@@ -105,8 +105,8 @@ class AddReminderViewController: UIViewController {
             sender.tintColor = UIColor.white
         }
         else {
-            sender.backgroundColor = UIColor.systemGray4
-            sender.setTitleColor(.black , for: .normal)
+            sender.backgroundColor = UIColor.systemGray6
+            sender.tintColor = UIColor.black
         }
     }
     @IBAction func ThursdayClicked(_ sender: UIButton) {
@@ -115,8 +115,8 @@ class AddReminderViewController: UIViewController {
             sender.tintColor = UIColor.white
         }
         else {
-            sender.backgroundColor = UIColor.systemGray4
-            sender.setTitleColor(.black , for: .normal)
+            sender.backgroundColor = UIColor.systemGray6
+            sender.tintColor = UIColor.black
         }
     }
     @IBAction func FridayClicked(_ sender: UIButton) {
@@ -125,8 +125,8 @@ class AddReminderViewController: UIViewController {
             sender.tintColor = UIColor.white
         }
         else {
-            sender.backgroundColor = UIColor.systemGray4
-            sender.setTitleColor(.black , for: .normal)
+            sender.backgroundColor = UIColor.systemGray6
+            sender.tintColor = UIColor.black
         }
     }
     @IBAction func SaturdayClicked(_ sender: UIButton) {
@@ -135,8 +135,8 @@ class AddReminderViewController: UIViewController {
             sender.tintColor = UIColor.white
         }
         else {
-            sender.backgroundColor = UIColor.systemGray4
-            sender.setTitleColor(.black , for: .normal)
+            sender.backgroundColor = UIColor.systemGray6
+            sender.tintColor = UIColor.black
         }
     }
     
