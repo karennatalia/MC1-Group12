@@ -9,6 +9,13 @@ import UIKit
 
 class OnboardingViewController: UIViewController, UIScrollViewDelegate {
 
+    //Lock device orientation hehe
+    var orientation = UIInterfaceOrientationMask.portrait
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        get { return self.orientation }
+        set { self.orientation = newValue }
+    }
+    
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var getStartedBtn: UIButton!

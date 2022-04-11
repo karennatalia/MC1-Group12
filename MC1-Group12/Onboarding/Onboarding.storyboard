@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
-    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,11 +13,11 @@
             <objects>
                 <viewController storyboardIdentifier="onboardingStoryboard" modalPresentationStyle="fullScreen" id="Y6W-OH-hqX" customClass="OnboardingViewController" customModule="MC1_Group12" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zyn-HL-G1N">
-                                <rect key="frame" x="22" y="670" width="346" height="50"/>
+                                <rect key="frame" x="22" y="722" width="370" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="fPH-Xe-OAd"/>
                                 </constraints>
@@ -31,17 +31,15 @@
                                 </connections>
                             </button>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="o7w-xQ-21g">
-                                <rect key="frame" x="138.66666666666666" y="613" width="112.66666666666666" height="25"/>
+                                <rect key="frame" x="149.5" y="664" width="115.5" height="26"/>
                                 <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="currentPageIndicatorTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <action selector="pageChanged:" destination="Y6W-OH-hqX" eventType="valueChanged" id="GDK-lm-8zL"/>
                                 </connections>
                             </pageControl>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wuc-lb-OF7">
-                                <rect key="frame" x="0.0" y="44" width="390" height="553"/>
-                                <viewLayoutGuide key="contentLayoutGuide" id="oAd-ci-8iQ"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="pdt-BO-Ywx"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wuc-lb-OF7">
+                                <rect key="frame" x="0.0" y="44" width="414" height="604"/>
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
