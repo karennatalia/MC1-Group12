@@ -125,43 +125,60 @@ class AddReminderViewController: UIViewController {
         return selectedWeekday[weekday]
     }
     
-    @IBAction func SetReminderAction(_ sender: Any) {
-        /// Check if user have allowed notifications permission
-        notifCenter.getNotificationSettings { settings in
-            
-            if settings.authorizationStatus != .authorized {
-                DispatchQueue.main.async {
-                    let alert = UIAlertController(title: "Notifications Permissions", message: "To use this feature, you need to allow notification permission.\nWould you like to allow it?", preferredStyle: .alert)
-
-                    /// Open settings if user want to allow permissions
-                    let yesAction = UIAlertAction(title: "Yes", style: .default) { action in
-                        guard let settingsURL = URL(string: UIApplication.openSettingsURLString)
-                        else {
-                            return
-                        }
+    func checkIfDaySelected() -> Int {
+        for weekday in selectedWeekday {
+            if weekday == 1 {
+                return 1;
+            }
+        }
+        return 0;
+    }
     
-                        if(UIApplication.shared.canOpenURL(settingsURL)) {
-                            UIApplication.shared.open(settingsURL) { (_) in
+    @IBAction func SetReminderAction(_ sender: Any) {
+        if checkIfDaySelected() == 1 {
+            /// Check if user have allowed notifications permission
+            notifCenter.getNotificationSettings { settings in
+                
+                if settings.authorizationStatus != .authorized {
+                    DispatchQueue.main.async {
+                        let alert = UIAlertController(title: "Notifications Permissions", message: "To use this feature, you need to allow notification permission.\nWould you like to allow it?", preferredStyle: .alert)
+
+                        /// Open settings if user want to allow permissions
+                        let yesAction = UIAlertAction(title: "Yes", style: .default) { action in
+                            guard let settingsURL = URL(string: UIApplication.openSettingsURLString)
+                            else {
+                                return
+                            }
+        
+                            if(UIApplication.shared.canOpenURL(settingsURL)) {
+                                UIApplication.shared.open(settingsURL) { (_) in
+                                }
                             }
                         }
-                    }
-                    let noAction = UIAlertAction(title: "No", style: .destructive, handler: nil)
-    
-                    alert.addAction(yesAction)
-                    alert.addAction(noAction)
-                    self.present(alert, animated: true, completion: nil)
-                }
-            }
-            else {
-                for (index, weekday) in self.selectedWeekday.enumerated() {
-                    if weekday == 1 {
-                        self.setReminder(weekday: index+1)
+                        let noAction = UIAlertAction(title: "No", style: .destructive, handler: nil)
+        
+                        alert.addAction(yesAction)
+                        alert.addAction(noAction)
+                        self.present(alert, animated: true, completion: nil)
                     }
                 }
-                DispatchQueue.main.async {
-                    self.dismiss(animated: true)
+                else {
+                    for (index, weekday) in self.selectedWeekday.enumerated() {
+                        if weekday == 1 {
+                            self.setReminder(weekday: index+1)
+                        }
+                    }
+                    DispatchQueue.main.async {
+                        self.dismiss(animated: true)
+                    }
                 }
             }
+        }
+        else {
+            let alert = UIAlertController(title: "Choose a Day", message: "Pleas choose minimum 1 day to add the reminder", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alert.addAction(okAction)
+            present(alert, animated: true, completion: nil)
         }
         
     }
