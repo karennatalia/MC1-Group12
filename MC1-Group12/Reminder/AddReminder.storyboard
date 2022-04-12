@@ -45,36 +45,54 @@
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="S"/>
                                         <buttonConfiguration key="configuration" style="gray" title="S" cornerStyle="large"/>
+                                        <connections>
+                                            <action selector="SundayClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="szI-UP-BSv"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TH6-BQ-MMj">
                                         <rect key="frame" x="86" y="87" width="37" height="31"/>
                                         <color key="tintColor" systemColor="labelColor"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="gray" title="M" cornerStyle="large"/>
+                                        <connections>
+                                            <action selector="MondayClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="gZC-MD-vzC"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bcH-4O-CrV">
                                         <rect key="frame" x="188" y="87" width="38" height="31"/>
                                         <color key="tintColor" systemColor="labelColor"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="gray" title="W" cornerStyle="large"/>
+                                        <connections>
+                                            <action selector="WednesdayClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Gs2-l3-Bef"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XV6-Nt-j3m">
                                         <rect key="frame" x="242" y="87" width="33" height="31"/>
                                         <color key="tintColor" systemColor="labelColor"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="gray" title="T" cornerStyle="large"/>
+                                        <connections>
+                                            <action selector="ThursdayClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="HGq-Fm-lqd"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Enm-Vr-ACS">
                                         <rect key="frame" x="291" y="87" width="32" height="31"/>
                                         <color key="tintColor" systemColor="labelColor"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="gray" title="F" cornerStyle="large"/>
+                                        <connections>
+                                            <action selector="FridayClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="NhC-d2-fq1"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PhG-UO-EDb">
                                         <rect key="frame" x="339" y="88" width="33" height="31"/>
                                         <color key="tintColor" systemColor="labelColor"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="gray" title="S" cornerStyle="large"/>
+                                        <connections>
+                                            <action selector="SaturdayClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="8pg-97-h1Y"/>
+                                        </connections>
                                     </button>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="TYp-Kn-09a">
                                         <rect key="frame" x="47" y="167" width="320" height="216"/>
@@ -86,12 +104,18 @@
                                         <buttonConfiguration key="configuration" style="plain" title="Save">
                                             <fontDescription key="titleFontDescription" type="system" pointSize="17"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="SetReminderAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="9ds-9w-yHY"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f9b-MX-UkZ">
                                         <rect key="frame" x="139" y="87" width="33" height="31"/>
                                         <color key="tintColor" systemColor="labelColor"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="gray" title="T" cornerStyle="large"/>
+                                        <connections>
+                                            <action selector="TuesdayClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="NK7-iX-JsC"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -143,6 +167,19 @@
                         </constraints>
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="addReminderView" destination="t1Z-SO-lgL" id="0T6-n9-H9U"/>
+                        <outlet property="fridayBtnUI" destination="Enm-Vr-ACS" id="AVd-5H-adj"/>
+                        <outlet property="grayView" destination="Cvk-GZ-E4F" id="b0T-rH-2eB"/>
+                        <outlet property="mondayBtnUI" destination="TH6-BQ-MMj" id="5pB-EC-Abt"/>
+                        <outlet property="saturdayBtnUI" destination="PhG-UO-EDb" id="r6h-cO-j4v"/>
+                        <outlet property="snapshotImage" destination="w0g-8E-vCd" id="3Qz-qF-8pz"/>
+                        <outlet property="sundayBtnUI" destination="Xew-Hx-onW" id="lDA-NZ-GDf"/>
+                        <outlet property="thursdayBtnUI" destination="XV6-Nt-j3m" id="VZZ-Oa-rfa"/>
+                        <outlet property="timePicker" destination="TYp-Kn-09a" id="dHF-NN-lQW"/>
+                        <outlet property="tuesdayBtnUI" destination="f9b-MX-UkZ" id="Sv2-az-7mX"/>
+                        <outlet property="wednesdayBtnUI" destination="bcH-4O-CrV" id="nEF-5s-5um"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
