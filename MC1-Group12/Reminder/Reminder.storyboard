@@ -63,7 +63,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system"/>
                                                 <connections>
-                                                    <segue destination="Vuz-6E-XEm" kind="show" id="H3c-tI-hoa"/>
+                                                    <action selector="toAddReminder:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="wCv-Pt-CSH"/>
                                                 </connections>
                                             </button>
                                         </subviews>
