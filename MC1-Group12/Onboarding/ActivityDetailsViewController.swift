@@ -5,6 +5,7 @@
 //  Created by Robby Suliantoro on 11/04/22.
 //
 
+import Foundation
 import UIKit
 
 class ActivityDetailsViewController: UIViewController {
@@ -17,6 +18,7 @@ class ActivityDetailsViewController: UIViewController {
     @IBOutlet weak var detailReflect: UITextView!
     
     var selectedAct : ActivityClass!
+    var nameActivity:String!
     
     override func viewDidLoad() {
         super.viewDidLoad()

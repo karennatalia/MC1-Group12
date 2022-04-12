@@ -72,9 +72,8 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isSearching {
             return filteredActList.count
-        } else {
-            return activityList.count
         }
+        return activityList.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -94,6 +93,25 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
             actCell.ActivityPreparation.setTitle(activityList[indexPath.row].preparation, for: .normal)
         }
         return actCell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "toActivityDetail", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toActivityDetail" {
+            let indexPath = self.ActTableView.indexPathForSelectedRow!
+            let tableViewDetail = segue.destination as? ActivityDetailsViewController
+            
+            if isSearching {
+                tableViewDetail?.selectedAct = filteredActList[indexPath.row]
+            } else {
+                tableViewDetail?.selectedAct = activityList[indexPath.row]
+            }
+            
+            self.ActTableView.deselectRow(at: indexPath, animated: true)
+        }
     }
 }
 
