@@ -168,6 +168,7 @@
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="addReminderTopConstraint" destination="g1A-JU-Olz" id="lAu-bP-z3d"/>
                         <outlet property="addReminderView" destination="t1Z-SO-lgL" id="0T6-n9-H9U"/>
                         <outlet property="fridayBtnUI" destination="Enm-Vr-ACS" id="AVd-5H-adj"/>
                         <outlet property="grayView" destination="Cvk-GZ-E4F" id="b0T-rH-2eB"/>
