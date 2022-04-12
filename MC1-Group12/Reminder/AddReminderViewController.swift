@@ -31,6 +31,7 @@ class AddReminderViewController: UIViewController {
     var topSafeArea:CGFloat = 0.0
     var bottomSafeArea:CGFloat = 0.0
     var snapshot:UIImage?
+    var screenHeight:CGFloat = 0.0
     
     enum AddReminderViewState {
         case expanded
@@ -53,11 +54,6 @@ class AddReminderViewController: UIViewController {
         
         defaultTopConstant = addReminderTopConstraint.constant
         
-//        let window = UIApplication.shared.windows[0]
-//        let safeFrame = window.safeAreaLayoutGuide.layoutFrame
-//        topSafeArea = safeFrame.minY
-//        bottomSafeArea = window.frame.maxY - safeFrame.maxY
-        
         sundayBtnUI.layer.cornerRadius = 5
         mondayBtnUI.layer.cornerRadius = 5
         tuesdayBtnUI.layer.cornerRadius = 5
@@ -65,10 +61,65 @@ class AddReminderViewController: UIViewController {
         thursdayBtnUI.layer.cornerRadius = 5
         fridayBtnUI.layer.cornerRadius = 5
         saturdayBtnUI.layer.cornerRadius = 5
+        
+        let keyWindow = UIApplication.shared.connectedScenes.filter({$0.activationState == .foregroundActive}).map({$0 as? UIWindowScene}).compactMap({$0}).first?.windows.filter({$0.isKeyWindow}).first
+
+        topSafeArea = (keyWindow?.safeAreaInsets.top)!
+        
+        let screenSize: CGRect = UIScreen.main.bounds
+        screenHeight = screenSize.height
+        
+        addReminderTopConstraint.constant = screenHeight - topSafeArea
+        grayView.alpha = 0.0
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        showAddReminderView()
+    }
+    
+    func showAddReminderView() {
+        self.view.layoutIfNeeded()
+        addReminderTopConstraint.constant = defaultTopConstant
+        let showCard = UIViewPropertyAnimator(duration: 0.25, curve: .easeIn, animations: {
+            self.view.layoutIfNeeded()
+        })
+        showCard.addAnimations({
+            self.grayView.alpha = 0.7
+        })
+        showCard.startAnimation()
+    }
+    
+    func showFullAddReminderView() {
+        self.view.layoutIfNeeded()
+        addReminderTopConstraint.constant = topSafeArea
+        let showFullCard = UIViewPropertyAnimator(duration: 0.25, curve: .easeIn, animations: {
+            self.view.layoutIfNeeded()
+        })
+        showFullCard.startAnimation()
+    }
+    
+    func dismissAddReminderView() {
+        self.view.layoutIfNeeded()
+        addReminderTopConstraint.constant = screenHeight - topSafeArea
+        let dismissCard = UIViewPropertyAnimator(duration: 0.25, curve: .easeIn, animations: {
+            self.view.layoutIfNeeded()
+        })
+        dismissCard.addAnimations({
+            self.grayView.alpha = 0.0
+        })
+        dismissCard.addCompletion { position in
+            if position == .end {
+                if(self.presentingViewController != nil) {
+                    self.dismiss(animated: false, completion: nil)
+                }
+            }
+        }
+        dismissCard.startAnimation()
     }
     
     @objc func didTapGrayView(_ sender: Any) {
-        dismiss(animated: false)
+        dismissAddReminderView()
     }
     
     @objc func didPanGesture(recognizer: UIPanGestureRecognizer) {
@@ -82,7 +133,13 @@ class AddReminderViewController: UIViewController {
                 }
             case .ended:
                 if self.startingTopConstant + translation.y > defaultTopConstant {
-                    dismiss(animated: false)
+                    dismissAddReminderView()
+                }
+                else if self.startingTopConstant == topSafeArea && translation.y > 0 {
+                    showAddReminderView()
+                }
+                else {
+                    showFullAddReminderView()
                 }
             default:
                 break
@@ -231,7 +288,6 @@ class AddReminderViewController: UIViewController {
                     /// Set trigger "WHEN" to send the notifications
                     var reminderTime = Calendar.current.dateComponents([.hour, .minute], from: time)
                     reminderTime.weekday = weekday
-                    print(reminderTime)
                     let timeTrigger = UNCalendarNotificationTrigger(dateMatching: reminderTime, repeats: true)
                     
                     /// Send notifications request ke Notification Center
