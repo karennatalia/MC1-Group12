@@ -22,7 +22,6 @@
 		5F4C127B2803F0F000381BE6 /* Information.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F4C127A2803F0F000381BE6 /* Information.storyboard */; };
 		5F4C127D2803F11F00381BE6 /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4C127C2803F11F00381BE6 /* InformationViewController.swift */; };
 		5F4C128228040EE600381BE6 /* AddReminder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F4C128128040EE600381BE6 /* AddReminder.storyboard */; };
-		5F9488652804D441004DC812 /* UIVIewSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9488642804D441004DC812 /* UIVIewSnapshot.swift */; };
 		A128114F280473FA00D50963 /* ReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128114D280473FA00D50963 /* ReminderViewController.swift */; };
 		A1281150280473FA00D50963 /* Reminder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A128114E280473FA00D50963 /* Reminder.storyboard */; };
 		A12DF22A2804762E00CE3AEF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A12DF2292804762E00CE3AEF /* Main.storyboard */; };
@@ -49,7 +48,6 @@
 		5F4C127A2803F0F000381BE6 /* Information.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Information.storyboard; sourceTree = "<group>"; };
 		5F4C127C2803F11F00381BE6 /* InformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
 		5F4C128128040EE600381BE6 /* AddReminder.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddReminder.storyboard; sourceTree = "<group>"; };
-		5F9488642804D441004DC812 /* UIVIewSnapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIVIewSnapshot.swift; sourceTree = "<group>"; };
 		A128114D280473FA00D50963 /* ReminderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderViewController.swift; sourceTree = "<group>"; };
 		A128114E280473FA00D50963 /* Reminder.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Reminder.storyboard; sourceTree = "<group>"; };
 		A12DF2292804762E00CE3AEF /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -113,7 +111,6 @@
 				5F1A06AF27FE9E62000BEC17 /* Info.plist */,
 				5F1A06A727FE9E61000BEC17 /* MC1_Group12.xcdatamodeld */,
 				58076D992803DD7F00CFA4BF /* ActivityDetailsViewController.swift */,
-				5F9488642804D441004DC812 /* UIVIewSnapshot.swift */,
 			);
 			path = "MC1-Group12";
 			sourceTree = "<group>";
@@ -232,7 +229,6 @@
 				5F1F7E3F280528BA003F91F2 /* AddReminderViewController.swift in Sources */,
 				58076D9A2803DD7F00CFA4BF /* ActivityDetailsViewController.swift in Sources */,
 				5F1A069F27FE9E61000BEC17 /* AppDelegate.swift in Sources */,
-				5F9488652804D441004DC812 /* UIVIewSnapshot.swift in Sources */,
 				39B497B127FF295F009B4FFA /* GradientViewClass.swift in Sources */,
 				A128114F280473FA00D50963 /* ReminderViewController.swift in Sources */,
 				5F1A06A127FE9E61000BEC17 /* SceneDelegate.swift in Sources */,
