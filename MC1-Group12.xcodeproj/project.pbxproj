@@ -42,7 +42,7 @@
 		39837A4A280495CB00BA3192 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TableViewCell.swift; path = "MC1-Group12/TableView/TableViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		39B497B027FF295F009B4FFA /* GradientViewClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientViewClass.swift; sourceTree = "<group>"; };
 		39B497B227FF2A61009B4FFA /* CornerClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerClass.swift; sourceTree = "<group>"; };
-		58076D992803DD7F00CFA4BF /* ActivityDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ActivityDetailsViewController.swift; path = Onboarding/ActivityDetailsViewController.swift; sourceTree = "<group>"; };
+		58076D992803DD7F00CFA4BF /* ActivityDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsViewController.swift; sourceTree = "<group>"; };
 		5F1A069B27FE9E61000BEC17 /* MC1-Group12.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MC1-Group12.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F1A069E27FE9E61000BEC17 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5F1A06A027FE9E61000BEC17 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +78,7 @@
 		394089A22805025D00817A2B /* Activity */ = {
 			isa = PBXGroup;
 			children = (
+				58076D992803DD7F00CFA4BF /* ActivityDetailsViewController.swift */,
 				39837A432804759000BA3192 /* ActivityClass.swift */,
 				39837A452804882500BA3192 /* ActivitySeeder.swift */,
 			);
@@ -137,7 +138,6 @@
 				5F1A06AC27FE9E62000BEC17 /* LaunchScreen.storyboard */,
 				5F1A06AF27FE9E62000BEC17 /* Info.plist */,
 				5F1A06A727FE9E61000BEC17 /* MC1_Group12.xcdatamodeld */,
-				58076D992803DD7F00CFA4BF /* ActivityDetailsViewController.swift */,
 				5F9488642804D441004DC812 /* UIVIewSnapshot.swift */,
 			);
 			path = "MC1-Group12";

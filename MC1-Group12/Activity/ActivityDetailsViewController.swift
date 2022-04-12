@@ -17,6 +17,8 @@ class ActivityDetailsViewController: UIViewController {
     @IBOutlet weak var detailDesc: UITextView!
     @IBOutlet weak var detailReflect: UITextView!
     
+    
+    
     var selectedAct : ActivityClass!
     var nameActivity:String!
     
@@ -33,6 +35,13 @@ class ActivityDetailsViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    func makeItDone() {
+        selectedAct.isDone = true
+    }
+    
+    func resetFromDone() {
+        selectedAct.isDone = false
+    }
 
     /*
     // MARK: - Navigation

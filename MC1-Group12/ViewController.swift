@@ -65,28 +65,33 @@ class ViewController: UIViewController {
 }
 //
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
         if isSearching {
             return filteredActList.count
         }
         return activityList.count
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let actCell = tableView.dequeueReusableCell(withIdentifier: "tableViewCellAct") as! TableViewCell
         
         if isSearching {
-            actCell.ActivityTitle?.text = filteredActList[indexPath.row].title
-            actCell.ActivityAge?.text = filteredActList[indexPath.row].age
-            actCell.ActivityDuration.setTitle(filteredActList[indexPath.row].duration, for: .normal)
+            actCell.ActivityTitle?.text = filteredActList[indexPath.section].title
+            actCell.ActivityAge?.text = filteredActList[indexPath.section].age
+            actCell.ActivityDuration.setTitle(filteredActList[indexPath.section].duration, for: .normal)
             actCell.ActivityDuration.titleLabel?.font = UIFont(name: "SF Pro", size: 8)
-            actCell.ActivityPreparation.setTitle(filteredActList[indexPath.row].preparation, for: .normal)
+            actCell.ActivityPreparation.setTitle(filteredActList[indexPath.section].preparation, for: .normal)
         } else {
-            actCell.ActivityTitle?.text = activityList[indexPath.row].title
-            actCell.ActivityAge?.text = activityList[indexPath.row].age
-            actCell.ActivityDuration.setTitle(activityList[indexPath.row].duration, for: .normal)
+            actCell.ActivityTitle?.text = activityList[indexPath.section].title
+            actCell.ActivityAge?.text = activityList[indexPath.section].age
+            actCell.ActivityDuration.setTitle(activityList[indexPath.section].duration, for: .normal)
             actCell.ActivityDuration.titleLabel?.font = UIFont(name: "SF Pro", size: 8)
-            actCell.ActivityPreparation.setTitle(activityList[indexPath.row].preparation, for: .normal)
+            actCell.ActivityPreparation.setTitle(activityList[indexPath.section].preparation, for: .normal)
         }
         return actCell
     }
@@ -101,9 +106,9 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
             let tableViewDetail = segue.destination as? ActivityDetailsViewController
             
             if isSearching {
-                tableViewDetail?.selectedAct = filteredActList[indexPath.row]
+                tableViewDetail?.selectedAct = filteredActList[indexPath.section]
             } else {
-                tableViewDetail?.selectedAct = activityList[indexPath.row]
+                tableViewDetail?.selectedAct = activityList[indexPath.section]
             }
             
             self.ActTableView.deselectRow(at: indexPath, animated: true)
@@ -114,8 +119,14 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
 extension ViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         print("searchtext", searchText)
-        filteredActList = activityList.filter({$0.title.prefix(searchText.count) == searchText})
-        print("filtered", filteredActList)
+//        filteredActList = activityList.filter({$0.title.prefix(searchText.count) == searchText})
+        filteredActList = activityList.filter { text in
+            return text.title.lowercased().contains(searchText.lowercased())
+       
+        }
+        if filteredActList.count == 0 {
+            filteredActList = activityList
+        }
         isSearching = true
         ActTableView.reloadData()
     }
