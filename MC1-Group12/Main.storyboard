@@ -151,7 +151,7 @@
                                     <color key="baseForegroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="toReminderPage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wEt-Ye-j8I"/>
+                                    <segue destination="lfW-Eh-Xgq" kind="show" id="jJf-kZ-pfF"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -186,17 +186,16 @@
                     <connections>
                         <outlet property="welcomeLabel" destination="ued-fc-gnA" id="Vtu-Op-vTj"/>
                         <segue destination="JPo-tZ-w4d" kind="presentation" identifier="toActivityDetail" id="8IM-G6-uES"/>
-                        <segue destination="lfW-Eh-Xgq" kind="show" identifier="" id="g4T-MU-XiJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="944.61538461538453" y="68.957345971563981"/>
         </scene>
-        <!--AddReminderStoryboard-->
+        <!--ReminderStoryboard-->
         <scene sceneID="vmC-eo-lGF">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="AddReminderStoryboard" storyboardName="AddReminder" referencedIdentifier="AddReminderStoryboard" id="lfW-Eh-Xgq" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardIdentifier="ReminderStoryboard" storyboardName="Reminder" referencedIdentifier="ReminderStoryboard" id="lfW-Eh-Xgq" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="C2s-Ka-G8Z"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SR8-mG-iB9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -22,7 +22,7 @@ class AddReminderViewController: UIViewController {
     @IBOutlet weak var timePicker: UIDatePicker!
     @IBOutlet weak var snapshotImage: UIImageView!
     
-    @IBOutlet weak var addReminderTopConstraint: NSLayoutConstraint!
+//    @IBOutlet weak var addReminderTopConstraint: NSLayoutConstraint!
     
     let notifCenter = UNUserNotificationCenter.current()
     var selectedWeekday:[Int] = [0,0,0,0,0,0,0]
@@ -51,7 +51,7 @@ class AddReminderViewController: UIViewController {
         panGestureRecognizer.delaysTouchesEnded = false
         addReminderView.addGestureRecognizer(panGestureRecognizer)
         
-        defaultTopConstant = addReminderTopConstraint.constant
+//        defaultTopConstant = addReminderTopConstraint.constant
         
 //        let window = UIApplication.shared.windows[0]
 //        let safeFrame = window.safeAreaLayoutGuide.layoutFrame
@@ -72,21 +72,21 @@ class AddReminderViewController: UIViewController {
     }
     
     @objc func didPanGesture(recognizer: UIPanGestureRecognizer) {
-        let translation = recognizer.translation(in: self.view)
-        switch recognizer.state {
-            case .began:
-            self.startingTopConstant = addReminderTopConstraint.constant
-            case .changed:
-                if self.startingTopConstant + translation.y > 30.0 {
-                    self.addReminderTopConstraint.constant = self.startingTopConstant + translation.y
-                }
-            case .ended:
-                if self.startingTopConstant + translation.y > defaultTopConstant {
-                    dismiss(animated: false)
-                }
-            default:
-                break
-            }
+//        let translation = recognizer.translation(in: self.view)
+//        switch recognizer.state {
+//            case .began:
+//            self.startingTopConstant = addReminderTopConstraint.constant
+//            case .changed:
+//                if self.startingTopConstant + translation.y > 30.0 {
+//                    self.addReminderTopConstraint.constant = self.startingTopConstant + translation.y
+//                }
+//            case .ended:
+//                if self.startingTopConstant + translation.y > defaultTopConstant {
+//                    dismiss(animated: false)
+//                }
+//            default:
+//                break
+//            }
     }
     
     @IBAction func SundayClicked(_ sender: UIButton) {
