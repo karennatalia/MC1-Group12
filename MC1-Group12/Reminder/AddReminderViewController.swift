@@ -1,8 +1,8 @@
 //
-//  ReminderViewController.swift
+//  AddReminderViewController.swift
 //  MC1-Group12
 //
-//  Created by Karen Natalia on 10/04/22.
+//  Created by Karen Natalia on 11/04/22.
 //
 
 import UIKit
@@ -10,6 +10,8 @@ import UserNotifications
 
 class AddReminderViewController: UIViewController {
 
+    @IBOutlet weak var grayView: UIView!
+    @IBOutlet weak var addReminderView: CornerClass!
     @IBOutlet weak var sundayBtnUI: UIButton!
     @IBOutlet weak var mondayBtnUI: UIButton!
     @IBOutlet weak var tuesdayBtnUI: UIButton!
@@ -18,71 +20,143 @@ class AddReminderViewController: UIViewController {
     @IBOutlet weak var fridayBtnUI: UIButton!
     @IBOutlet weak var saturdayBtnUI: UIButton!
     @IBOutlet weak var timePicker: UIDatePicker!
+    @IBOutlet weak var snapshotImage: UIImageView!
+    
+//    @IBOutlet weak var addReminderTopConstraint: NSLayoutConstraint!
     
     let notifCenter = UNUserNotificationCenter.current()
     var selectedWeekday:[Int] = [0,0,0,0,0,0,0]
+    var startingTopConstant:CGFloat = 0.0
+    var defaultTopConstant:CGFloat = 0.0
+    var topSafeArea:CGFloat = 0.0
+    var bottomSafeArea:CGFloat = 0.0
+    var snapshot:UIImage?
+    
+    enum AddReminderViewState {
+        case expanded
+        case normal
+    }
+    var currentState:AddReminderViewState = .normal
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        print(selectedWeekday)
+        
+        snapshotImage.image = snapshot
+        
+        let grayTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapGrayView(_:)))
+        grayView.addGestureRecognizer(grayTapRecognizer)
+        
+        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(didPanGesture(recognizer:)))
+        panGestureRecognizer.delaysTouchesBegan = false
+        panGestureRecognizer.delaysTouchesEnded = false
+        addReminderView.addGestureRecognizer(panGestureRecognizer)
+        
+//        defaultTopConstant = addReminderTopConstraint.constant
+        
+//        let window = UIApplication.shared.windows[0]
+//        let safeFrame = window.safeAreaLayoutGuide.layoutFrame
+//        topSafeArea = safeFrame.minY
+//        bottomSafeArea = window.frame.maxY - safeFrame.maxY
+        
+        sundayBtnUI.layer.cornerRadius = 5
+        mondayBtnUI.layer.cornerRadius = 5
+        tuesdayBtnUI.layer.cornerRadius = 5
+        wednesdayBtnUI.layer.cornerRadius = 5
+        thursdayBtnUI.layer.cornerRadius = 5
+        fridayBtnUI.layer.cornerRadius = 5
+        saturdayBtnUI.layer.cornerRadius = 5
     }
- 
-    @IBAction func SundayBtn(_ sender: Any) {
+    
+    @objc func didTapGrayView(_ sender: Any) {
+        dismiss(animated: false)
+    }
+    
+    @objc func didPanGesture(recognizer: UIPanGestureRecognizer) {
+//        let translation = recognizer.translation(in: self.view)
+//        switch recognizer.state {
+//            case .began:
+//            self.startingTopConstant = addReminderTopConstraint.constant
+//            case .changed:
+//                if self.startingTopConstant + translation.y > 30.0 {
+//                    self.addReminderTopConstraint.constant = self.startingTopConstant + translation.y
+//                }
+//            case .ended:
+//                if self.startingTopConstant + translation.y > defaultTopConstant {
+//                    dismiss(animated: false)
+//                }
+//            default:
+//                break
+//            }
+    }
+    
+    @IBAction func SundayClicked(_ sender: UIButton) {
         if checkDay(weekday: 0) == 1 {
-            sundayBtnUI.setTitle("-", for: .normal)
+            sender.backgroundColor = UIColor.purple
+            sender.tintColor = UIColor.white
         }
         else {
-            sundayBtnUI.setTitle("S", for: .normal)
+            sender.backgroundColor = UIColor.systemGray6
+            sender.tintColor = UIColor.black
         }
     }
-    @IBAction func MondayBtn(_ sender: Any) {
+    @IBAction func MondayClicked(_ sender: UIButton) {
         if checkDay(weekday: 1) == 1 {
-            mondayBtnUI.setTitle("-", for: .normal)
+            sender.backgroundColor = UIColor.purple
+            sender.tintColor = UIColor.white
         }
         else {
-            mondayBtnUI.setTitle("M", for: .normal)
+            sender.backgroundColor = UIColor.systemGray6
+            sender.tintColor = UIColor.black
         }
     }
-    @IBAction func TuesdayBtn(_ sender: Any) {
+    @IBAction func TuesdayClicked(_ sender: UIButton) {
         if checkDay(weekday: 2) == 1 {
-            tuesdayBtnUI.setTitle("-", for: .normal)
+            sender.backgroundColor = UIColor.purple
+            sender.tintColor = UIColor.white
         }
         else {
-            tuesdayBtnUI.setTitle("T", for: .normal)
+            sender.backgroundColor = UIColor.systemGray6
+            sender.tintColor = UIColor.black
         }
     }
-    @IBAction func WednesdayBtn(_ sender: Any) {
+    @IBAction func WednesdayClicked(_ sender: UIButton) {
         if checkDay(weekday: 3) == 1 {
-            wednesdayBtnUI.setTitle("-", for: .normal)
+            sender.backgroundColor = UIColor.purple
+            sender.tintColor = UIColor.white
         }
         else {
-            wednesdayBtnUI.setTitle("T", for: .normal)
+            sender.backgroundColor = UIColor.systemGray6
+            sender.tintColor = UIColor.black
         }
     }
-    @IBAction func ThursdayBtn(_ sender: Any) {
+    @IBAction func ThursdayClicked(_ sender: UIButton) {
         if checkDay(weekday: 4) == 1 {
-            thursdayBtnUI.setTitle("-", for: .normal)
+            sender.backgroundColor = UIColor.purple
+            sender.tintColor = UIColor.white
         }
         else {
-            thursdayBtnUI.setTitle("T", for: .normal)
+            sender.backgroundColor = UIColor.systemGray6
+            sender.tintColor = UIColor.black
         }
     }
-    @IBAction func FridayBtn(_ sender: Any) {
+    @IBAction func FridayClicked(_ sender: UIButton) {
         if checkDay(weekday: 5) == 1 {
-            fridayBtnUI.setTitle("-", for: .normal)
+            sender.backgroundColor = UIColor.purple
+            sender.tintColor = UIColor.white
         }
         else {
-            fridayBtnUI.setTitle("T", for: .normal)
+            sender.backgroundColor = UIColor.systemGray6
+            sender.tintColor = UIColor.black
         }
     }
-    @IBAction func SaturdayBtn(_ sender: Any) {
+    @IBAction func SaturdayClicked(_ sender: UIButton) {
         if checkDay(weekday: 6) == 1 {
-            saturdayBtnUI.setTitle("-", for: .normal)
+            sender.backgroundColor = UIColor.purple
+            sender.tintColor = UIColor.white
         }
         else {
-            saturdayBtnUI.setTitle("T", for: .normal)
+            sender.backgroundColor = UIColor.systemGray6
+            sender.tintColor = UIColor.black
         }
     }
     
@@ -132,7 +206,7 @@ class AddReminderViewController: UIViewController {
                     }
                 }
                 DispatchQueue.main.async {
-                    self.performSegue(withIdentifier: "unwindToHome", sender: self)
+                    self.dismiss(animated: true)
                 }
             }
         }
@@ -140,7 +214,6 @@ class AddReminderViewController: UIViewController {
     }
     
     func setReminder(weekday:Int) {
-        
         /// Check if user have allowed notifications permission
         notifCenter.getNotificationSettings { settings in
             
@@ -192,5 +265,8 @@ class AddReminderViewController: UIViewController {
             }
         }
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> main
 }

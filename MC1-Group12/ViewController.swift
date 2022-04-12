@@ -43,10 +43,6 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func ToReminderTestPage(_ sender: Any) {
-        performSegue(withIdentifier: "toReminderTestPage", sender: self)
-    }
-    
     @IBAction func unwindToHome(_ unwindSegue: UIStoryboardSegue) {
     }
     
