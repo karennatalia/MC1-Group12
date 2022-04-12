@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pJq-PA-084">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -27,7 +27,7 @@
                                     <color key="baseBackgroundColor" red="0.50196078430000002" green="0.23137254900000001" blue="0.58039215690000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="goBackToMain:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Cwa-wx-jZJ"/>
+                                    <segue destination="k8i-bT-iIK" kind="show" id="6ox-bw-siR"/>
                                 </connections>
                             </button>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="o7w-xQ-21g">
@@ -64,9 +64,41 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="18.46153846153846" y="93.127962085308056"/>
+            <point key="canvasLocation" x="94" y="385"/>
+        </scene>
+        <!--First Launch View Controller-->
+        <scene sceneID="MSy-cK-LfD">
+            <objects>
+                <viewController storyboardIdentifier="firstLaunchStoryboard" id="pJq-PA-084" customClass="FirstLaunchViewController" customModule="MC1_Group12" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dMD-KH-8A7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="t4T-ch-wd3"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="showDetail" identifier="toOnboarding" id="jPf-PD-Ze9"/>
+                        <segue destination="k8i-bT-iIK" kind="showDetail" identifier="toMain" id="4s6-6q-flS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wkG-aa-hRr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-768" y="93"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="l1m-zX-QcN">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="k8i-bT-iIK" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Lum-yZ-mL4"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6na-eQ-Oou" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="633" y="-383"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="6ox-bw-siR"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
