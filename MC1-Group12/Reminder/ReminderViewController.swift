@@ -13,14 +13,4 @@ class ReminderViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    @IBAction func toAddReminder(_ sender: Any) {
-        guard let addReminderStoryboard = storyboard?.instantiateViewController(withIdentifier: "AddReminderStoryboard") as?
-                AddReminderViewController else {
-            return
-        }
-        
-        addReminderStoryboard.snapshot = self.navigationController?.view.asImage()
-        addReminderStoryboard.modalPresentationStyle = .fullScreen
-        self.present(addReminderStoryboard, animated: false, completion: nil)
-    }
 }
