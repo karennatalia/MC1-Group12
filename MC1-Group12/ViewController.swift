@@ -40,7 +40,7 @@ class ViewController: UIViewController {
         activityList = ActivitySeeder().generateActivity()
         getWelcomeTime()
         super.viewDidLoad()
-        ActTableView.delegate = self
+        ActTableView?.delegate = self
         ActTableView.dataSource = self
         searchBar.delegate = self
         
@@ -53,10 +53,6 @@ class ViewController: UIViewController {
                 print("Permission Not Granted")
             }
         }
-    }
-    
-    @IBAction func ToReminderTestPage(_ sender: Any) {
-        performSegue(withIdentifier: "toReminderTestPage", sender: self)
     }
     
     @IBAction func unwindToHome(_ unwindSegue: UIStoryboardSegue) {

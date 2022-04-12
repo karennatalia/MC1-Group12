@@ -241,6 +241,9 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="15"/>
                                     <color key="baseForegroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <segue destination="lfW-Eh-Xgq" kind="show" id="jJf-kZ-pfF"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="BU2-Ih-AMM"/>
@@ -280,120 +283,13 @@
             </objects>
             <point key="canvasLocation" x="1873.8461538461538" y="68.957345971563981"/>
         </scene>
-        <!--Reminder View Controller-->
-        <scene sceneID="0gq-Mr-UCg">
+        <!--ReminderStoryboard-->
+        <scene sceneID="vmC-eo-lGF">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="w3j-t0-mPU" customClass="ReminderViewController" customModule="MC1_Group12" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="LVQ-WV-aBz">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="38z-Pk-nQC">
-                                <rect key="frame" x="35" y="295" width="320" height="216"/>
-                            </datePicker>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hMc-YG-9Qe">
-                                <rect key="frame" x="139.66666666666666" y="601" width="111" height="31"/>
-                                <color key="tintColor" name="AccentColor"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Set Reminder"/>
-                                <connections>
-                                    <action selector="SetReminderAction:" destination="w3j-t0-mPU" eventType="touchUpInside" id="oQB-lp-6Cp"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bit-rB-MaA">
-                                <rect key="frame" x="37" y="108" width="33" height="31"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="gray" title="S"/>
-                                <connections>
-                                    <action selector="SundayBtn:" destination="w3j-t0-mPU" eventType="touchUpInside" id="qw1-qA-3z6"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5G6-wz-jOq">
-                                <rect key="frame" x="85" y="108" width="37" height="31"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="gray" title="M"/>
-                                <connections>
-                                    <action selector="MondayBtn:" destination="w3j-t0-mPU" eventType="touchUpInside" id="yy8-f7-018"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dak-Fo-7cV">
-                                <rect key="frame" x="137" y="108" width="33" height="31"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="gray" title="T"/>
-                                <connections>
-                                    <action selector="TuesdayBtn:" destination="w3j-t0-mPU" eventType="touchUpInside" id="str-4N-rTt"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4pb-eJ-1df">
-                                <rect key="frame" x="185" y="108" width="38" height="31"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="gray" title="W"/>
-                                <connections>
-                                    <action selector="WednesdayBtn:" destination="w3j-t0-mPU" eventType="touchUpInside" id="eRK-9g-Ucq"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eOD-ZB-ACh">
-                                <rect key="frame" x="238" y="108" width="33" height="31"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="gray" title="T"/>
-                                <connections>
-                                    <action selector="ThursdayBtn:" destination="w3j-t0-mPU" eventType="touchUpInside" id="dZh-hb-5Zu"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="InC-La-ont">
-                                <rect key="frame" x="286" y="108" width="32" height="31"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="gray" title="F"/>
-                                <connections>
-                                    <action selector="FridayBtn:" destination="w3j-t0-mPU" eventType="touchUpInside" id="R1P-tE-joJ"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bB5-jI-AWk">
-                                <rect key="frame" x="333" y="108" width="33" height="31"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="gray" title="S"/>
-                                <connections>
-                                    <action selector="SaturdayBtn:" destination="w3j-t0-mPU" eventType="touchUpInside" id="dGC-ei-ZUZ"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="Ami-qm-rqT"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="38z-Pk-nQC" firstAttribute="top" secondItem="bit-rB-MaA" secondAttribute="bottom" constant="156" id="3HD-xz-OXk"/>
-                            <constraint firstItem="InC-La-ont" firstAttribute="top" secondItem="Ami-qm-rqT" secondAttribute="top" constant="64" id="58u-Aj-ZK5"/>
-                            <constraint firstItem="hMc-YG-9Qe" firstAttribute="top" secondItem="38z-Pk-nQC" secondAttribute="bottom" constant="90" id="6lO-Xr-gm4"/>
-                            <constraint firstItem="hMc-YG-9Qe" firstAttribute="centerX" secondItem="Ami-qm-rqT" secondAttribute="centerX" id="CLX-s4-NeD"/>
-                            <constraint firstItem="eOD-ZB-ACh" firstAttribute="top" secondItem="Ami-qm-rqT" secondAttribute="top" constant="64" id="DQo-mB-iDn"/>
-                            <constraint firstItem="4pb-eJ-1df" firstAttribute="top" secondItem="Ami-qm-rqT" secondAttribute="top" constant="64" id="KiS-NU-Qxx"/>
-                            <constraint firstItem="4pb-eJ-1df" firstAttribute="leading" secondItem="dak-Fo-7cV" secondAttribute="trailing" constant="15" id="LLc-0W-c0C"/>
-                            <constraint firstItem="bit-rB-MaA" firstAttribute="top" secondItem="Ami-qm-rqT" secondAttribute="top" constant="64" id="Mhy-kY-KTp"/>
-                            <constraint firstItem="bit-rB-MaA" firstAttribute="leading" secondItem="Ami-qm-rqT" secondAttribute="leading" constant="37" id="T5B-6m-mvC"/>
-                            <constraint firstItem="5G6-wz-jOq" firstAttribute="leading" secondItem="bit-rB-MaA" secondAttribute="trailing" constant="15" id="XAH-OG-bZX"/>
-                            <constraint firstItem="bB5-jI-AWk" firstAttribute="leading" secondItem="InC-La-ont" secondAttribute="trailing" constant="15" id="b5b-CT-5CZ"/>
-                            <constraint firstItem="5G6-wz-jOq" firstAttribute="top" secondItem="Ami-qm-rqT" secondAttribute="top" constant="64" id="hFW-5x-0lv"/>
-                            <constraint firstItem="38z-Pk-nQC" firstAttribute="centerX" secondItem="Ami-qm-rqT" secondAttribute="centerX" id="oqw-fU-UPa"/>
-                            <constraint firstItem="dak-Fo-7cV" firstAttribute="leading" secondItem="5G6-wz-jOq" secondAttribute="trailing" constant="15" id="pvI-53-icY"/>
-                            <constraint firstItem="dak-Fo-7cV" firstAttribute="top" secondItem="Ami-qm-rqT" secondAttribute="top" constant="64" id="qCt-5H-unv"/>
-                            <constraint firstItem="eOD-ZB-ACh" firstAttribute="leading" secondItem="4pb-eJ-1df" secondAttribute="trailing" constant="15" id="taj-pW-zGO"/>
-                            <constraint firstItem="InC-La-ont" firstAttribute="leading" secondItem="eOD-ZB-ACh" secondAttribute="trailing" constant="15" id="xaz-V0-70i"/>
-                            <constraint firstItem="bB5-jI-AWk" firstAttribute="top" secondItem="Ami-qm-rqT" secondAttribute="top" constant="64" id="zkn-Mg-YjA"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="fridayBtnUI" destination="InC-La-ont" id="cuh-kP-2gB"/>
-                        <outlet property="mondayBtnUI" destination="5G6-wz-jOq" id="WiF-Pg-u8U"/>
-                        <outlet property="saturdayBtnUI" destination="bB5-jI-AWk" id="ETy-TH-aTV"/>
-                        <outlet property="sundayBtnUI" destination="bit-rB-MaA" id="fgh-GJ-rxv"/>
-                        <outlet property="thursdayBtnUI" destination="eOD-ZB-ACh" id="vFh-Qo-Jf9"/>
-                        <outlet property="timePicker" destination="38z-Pk-nQC" id="l19-eJ-bwA"/>
-                        <outlet property="tuesdayBtnUI" destination="dak-Fo-7cV" id="gJx-Np-Tbv"/>
-                        <outlet property="wednesdayBtnUI" destination="4pb-eJ-1df" id="1gX-gN-XUe"/>
-                        <segue destination="TYq-Kv-yxI" kind="unwind" identifier="unwindToHome" unwindAction="unwindToHome:" id="Jxr-Gg-Jjb"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YDl-VN-9rl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="TYq-Kv-yxI" userLabel="Exit" sceneMemberID="exit"/>
+                <viewControllerPlaceholder storyboardIdentifier="ReminderStoryboard" storyboardName="Reminder" referencedIdentifier="ReminderStoryboard" id="lfW-Eh-Xgq" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="C2s-Ka-G8Z"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SR8-mG-iB9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2621.5384615384614" y="68.957345971563981"/>
         </scene>

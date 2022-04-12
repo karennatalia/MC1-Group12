@@ -114,8 +114,10 @@ class OnboardingViewController: UIViewController, UIScrollViewDelegate {
         pageControl?.currentPage = Int(page)
     }
     
-    //Fungsi sementara buat balik ke Main Storyboard
-    @IBAction func goBackToMain(_ sender: UIButton) {
-        dismiss(animated: true)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+
+        let secondViewController = segue.destination as UIViewController
+        secondViewController.modalPresentationStyle = .fullScreen
     }
 }
