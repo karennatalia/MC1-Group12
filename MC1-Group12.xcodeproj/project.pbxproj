@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		39837A3C2803CA9500BA3192 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39837A3B2803CA9500BA3192 /* Onboarding.storyboard */; };
 		39837A3E2803CAC500BA3192 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39837A3D2803CAC500BA3192 /* OnboardingViewController.swift */; };
+		39837A442804759000BA3192 /* ActivityClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39837A432804759000BA3192 /* ActivityClass.swift */; };
+		39837A462804882500BA3192 /* ActivitySeeder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39837A452804882500BA3192 /* ActivitySeeder.swift */; };
+		39837A4B280495CB00BA3192 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39837A4A280495CB00BA3192 /* TableViewCell.swift */; };
 		39B497B127FF295F009B4FFA /* GradientViewClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B497B027FF295F009B4FFA /* GradientViewClass.swift */; };
 		39B497B327FF2A61009B4FFA /* CornerClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B497B227FF2A61009B4FFA /* CornerClass.swift */; };
 		58076D9A2803DD7F00CFA4BF /* ActivityDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58076D992803DD7F00CFA4BF /* ActivityDetailsViewController.swift */; };
@@ -29,6 +32,9 @@
 /* Begin PBXFileReference section */
 		39837A3B2803CA9500BA3192 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		39837A3D2803CAC500BA3192 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		39837A432804759000BA3192 /* ActivityClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityClass.swift; sourceTree = "<group>"; };
+		39837A452804882500BA3192 /* ActivitySeeder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitySeeder.swift; sourceTree = "<group>"; };
+		39837A4A280495CB00BA3192 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TableViewCell.swift; path = "MC1-Group12/TableView/TableViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		39B497B027FF295F009B4FFA /* GradientViewClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientViewClass.swift; sourceTree = "<group>"; };
 		39B497B227FF2A61009B4FFA /* CornerClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerClass.swift; sourceTree = "<group>"; };
 		58076D992803DD7F00CFA4BF /* ActivityDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ActivityDetailsViewController.swift; path = Onboarding/ActivityDetailsViewController.swift; sourceTree = "<group>"; };
@@ -59,6 +65,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		394089A22805025D00817A2B /* Activity */ = {
+			isa = PBXGroup;
+			children = (
+				39837A432804759000BA3192 /* ActivityClass.swift */,
+				39837A452804882500BA3192 /* ActivitySeeder.swift */,
+			);
+			path = Activity;
+			sourceTree = "<group>";
+		};
 		39837A3A2803C9F100BA3192 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
@@ -66,6 +81,14 @@
 				39837A3D2803CAC500BA3192 /* OnboardingViewController.swift */,
 			);
 			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		39837A472804954F00BA3192 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				39837A4A280495CB00BA3192 /* TableViewCell.swift */,
+			);
+			path = TableView;
 			sourceTree = "<group>";
 		};
 		5F1A069227FE9E61000BEC17 = {
@@ -92,7 +115,9 @@
 				5F1A069E27FE9E61000BEC17 /* AppDelegate.swift */,
 				C2F6ECD72803DAE000072047 /* fonts */,
 				5F1A06A027FE9E61000BEC17 /* SceneDelegate.swift */,
+				39837A472804954F00BA3192 /* TableView */,
 				5F1A06A227FE9E61000BEC17 /* ViewController.swift */,
+				394089A22805025D00817A2B /* Activity */,
 				39B497B227FF2A61009B4FFA /* CornerClass.swift */,
 				39B497B027FF295F009B4FFA /* GradientViewClass.swift */,
 				5F1A06A427FE9E61000BEC17 /* Main.storyboard */,
@@ -199,10 +224,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39837A4B280495CB00BA3192 /* TableViewCell.swift in Sources */,
 				5F1A06A927FE9E61000BEC17 /* MC1_Group12.xcdatamodeld in Sources */,
 				39B497B327FF2A61009B4FFA /* CornerClass.swift in Sources */,
 				5F1A06A327FE9E61000BEC17 /* ViewController.swift in Sources */,
 				39837A3E2803CAC500BA3192 /* OnboardingViewController.swift in Sources */,
+				39837A462804882500BA3192 /* ActivitySeeder.swift in Sources */,
+				39837A442804759000BA3192 /* ActivityClass.swift in Sources */,
 				58076D9A2803DD7F00CFA4BF /* ActivityDetailsViewController.swift in Sources */,
 				5F9390CE2802E4E9005D319A /* ReminderViewController.swift in Sources */,
 				5F1A069F27FE9E61000BEC17 /* AppDelegate.swift in Sources */,

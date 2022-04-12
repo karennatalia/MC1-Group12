@@ -10,6 +10,14 @@ import UserNotifications
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var ActTableView: UITableView!
+    
+    var activityList = [ActivityClass]()
+    var filteredActList = [ActivityClass]()
+    var isSearching = false
+    
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     @IBOutlet weak var welcomeLabel: UILabel!
     func getWelcomeTime() {
         let hour = Calendar.current.component(.hour, from: Date())
@@ -29,8 +37,12 @@ class ViewController: UIViewController {
     let notifCenter = UNUserNotificationCenter.current()
     
     override func viewDidLoad() {
+        activityList = ActivitySeeder().generateActivity()
         getWelcomeTime()
         super.viewDidLoad()
+        ActTableView.delegate = self
+        ActTableView.dataSource = self
+        searchBar.delegate = self
         
         // Do any additional setup after loading the view.
         notifCenter.requestAuthorization(options: [.alert, .sound]) { granted, error in
@@ -55,4 +67,42 @@ class ViewController: UIViewController {
     }
     
 }
+//
+extension ViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if isSearching {
+            return filteredActList.count
+        } else {
+            return activityList.count
+        }
+    }
 
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let actCell = tableView.dequeueReusableCell(withIdentifier: "tableViewCellAct") as! TableViewCell
+        
+        if isSearching {
+            actCell.ActivityTitle?.text = filteredActList[indexPath.row].title
+            actCell.ActivityAge?.text = filteredActList[indexPath.row].age
+            actCell.ActivityDuration.setTitle(filteredActList[indexPath.row].duration, for: .normal)
+            actCell.ActivityDuration.titleLabel?.font = UIFont(name: "SF Pro", size: 8)
+            actCell.ActivityPreparation.setTitle(filteredActList[indexPath.row].preparation, for: .normal)
+        } else {
+            actCell.ActivityTitle?.text = activityList[indexPath.row].title
+            actCell.ActivityAge?.text = activityList[indexPath.row].age
+            actCell.ActivityDuration.setTitle(activityList[indexPath.row].duration, for: .normal)
+            actCell.ActivityDuration.titleLabel?.font = UIFont(name: "SF Pro", size: 8)
+            actCell.ActivityPreparation.setTitle(activityList[indexPath.row].preparation, for: .normal)
+        }
+        return actCell
+    }
+}
+
+extension ViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print("searchtext", searchText)
+        filteredActList = activityList.filter({$0.title.prefix(searchText.count) == searchText})
+        print("filtered", filteredActList)
+        isSearching = true
+        ActTableView.reloadData()
+    }
+}
