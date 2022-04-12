@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Image references" minToolsVersion="12.0"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -60,13 +59,13 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3By-ib-bIg">
-                                                            <rect key="frame" x="12.000000000000004" y="5.0000000000000018" width="42.333333333333343" height="25.666666666666671"/>
+                                                            <rect key="frame" x="0.0" y="5.0000000000000018" width="42.333333333333336" height="25.666666666666671"/>
                                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5xv-eL-8zm">
-                                                            <rect key="frame" x="15" y="44.333333333333336" width="11" height="25.000000000000007"/>
+                                                            <rect key="frame" x="3" y="44.333333333333336" width="11" height="25.000000000000007"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="11" id="D70-3O-6c2"/>
                                                                 <constraint firstAttribute="height" constant="25" id="Kec-UA-zhn"/>
@@ -79,9 +78,11 @@
                                                                 <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </buttonConfiguration>
                                                         </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DgW-uM-fDL">
-                                                            <rect key="frame" x="315" y="11" width="19" height="19"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DgW-uM-fDL">
+                                                            <rect key="frame" x="327" y="11" width="19" height="19"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="19" id="h8n-3z-Kq1"/>
+                                                            </constraints>
                                                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <state key="normal" title="Button"/>
                                                             <buttonConfiguration key="configuration" style="plain">
@@ -122,7 +123,7 @@
                                                             </connections>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Age" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kqC-Ka-NG3">
-                                                            <rect key="frame" x="31" y="46.333333333333336" width="110" height="21.000000000000007"/>
+                                                            <rect key="frame" x="22" y="46.333333333333336" width="110" height="21.000000000000007"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="110" id="KP8-gA-hOb"/>
                                                             </constraints>
@@ -137,14 +138,17 @@
                                                         <constraint firstAttribute="bottomMargin" secondItem="kqC-Ka-NG3" secondAttribute="bottom" constant="1.6666666666666572" id="Cbe-tq-YzU"/>
                                                         <constraint firstItem="5xv-eL-8zm" firstAttribute="top" secondItem="3By-ib-bIg" secondAttribute="bottom" constant="13.666666666666671" id="DyT-Jd-miK"/>
                                                         <constraint firstItem="kqC-Ka-NG3" firstAttribute="centerY" secondItem="5xv-eL-8zm" secondAttribute="centerY" id="EBQ-cS-JsH"/>
-                                                        <constraint firstItem="5xv-eL-8zm" firstAttribute="leading" secondItem="BBL-be-qGf" secondAttribute="leadingMargin" constant="-5" id="KNW-rt-80R"/>
+                                                        <constraint firstItem="BGv-Kz-1kn" firstAttribute="top" secondItem="DgW-uM-fDL" secondAttribute="bottom" constant="20" id="IW4-6P-ieL"/>
+                                                        <constraint firstItem="5xv-eL-8zm" firstAttribute="leading" secondItem="BBL-be-qGf" secondAttribute="leadingMargin" constant="-17" id="KNW-rt-80R"/>
                                                         <constraint firstItem="EEg-z1-sJp" firstAttribute="top" secondItem="BGv-Kz-1kn" secondAttribute="top" id="Rl8-sJ-7i0"/>
                                                         <constraint firstItem="kqC-Ka-NG3" firstAttribute="top" secondItem="3By-ib-bIg" secondAttribute="bottom" constant="15.666666666666671" id="brz-PF-HyP"/>
-                                                        <constraint firstItem="3By-ib-bIg" firstAttribute="leading" secondItem="BBL-be-qGf" secondAttribute="leadingMargin" constant="-8" id="fCJ-LS-x3b"/>
+                                                        <constraint firstItem="3By-ib-bIg" firstAttribute="leading" secondItem="BBL-be-qGf" secondAttribute="leadingMargin" constant="-20" id="fCJ-LS-x3b"/>
+                                                        <constraint firstItem="DgW-uM-fDL" firstAttribute="top" secondItem="BBL-be-qGf" secondAttribute="topMargin" id="fex-LV-NnL"/>
+                                                        <constraint firstAttribute="trailingMargin" secondItem="DgW-uM-fDL" secondAttribute="trailing" constant="-20" id="kge-hu-t2O"/>
                                                         <constraint firstItem="EEg-z1-sJp" firstAttribute="baseline" secondItem="BGv-Kz-1kn" secondAttribute="baseline" id="vG1-r7-aAU"/>
                                                         <constraint firstItem="EEg-z1-sJp" firstAttribute="top" secondItem="BBL-be-qGf" secondAttribute="topMargin" constant="39" id="ycI-d4-0zQ"/>
                                                         <constraint firstItem="3By-ib-bIg" firstAttribute="top" secondItem="BBL-be-qGf" secondAttribute="topMargin" constant="-6" id="yuS-T0-f18"/>
-                                                        <constraint firstItem="kqC-Ka-NG3" firstAttribute="leading" secondItem="5xv-eL-8zm" secondAttribute="trailing" constant="5" id="zcG-Cu-ZFj"/>
+                                                        <constraint firstItem="kqC-Ka-NG3" firstAttribute="leading" secondItem="5xv-eL-8zm" secondAttribute="trailing" constant="8" id="zcG-Cu-ZFj"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <connections>
@@ -275,7 +279,6 @@
                         <outlet property="ActTableView" destination="4Wd-8d-TWF" id="1Ja-QS-c6j"/>
                         <outlet property="searchBar" destination="Ogh-vu-fQC" id="3L6-pE-VGw"/>
                         <outlet property="welcomeLabel" destination="ued-fc-gnA" id="Vtu-Op-vTj"/>
-                        <segue destination="w3j-t0-mPU" kind="presentation" identifier="toReminderTestPage" id="wzj-8H-3MV"/>
                         <segue destination="JPo-tZ-w4d" kind="show" identifier="toActivityDetail" id="8IM-G6-uES"/>
                     </connections>
                 </viewController>
@@ -597,9 +600,6 @@
         <image name="person" catalog="system" width="128" height="117"/>
         <image name="slider.horizontal.3" catalog="system" width="128" height="100"/>
         <image name="timer" catalog="system" width="128" height="121"/>
-        <namedColor name="AccentColor">
-            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
