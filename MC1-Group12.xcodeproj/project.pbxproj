@@ -21,9 +21,14 @@
 		5F4C127B2803F0F000381BE6 /* Information.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F4C127A2803F0F000381BE6 /* Information.storyboard */; };
 		5F4C127D2803F11F00381BE6 /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F4C127C2803F11F00381BE6 /* InformationViewController.swift */; };
 		5F9390CE2802E4E9005D319A /* AddReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F9390CD2802E4E9005D319A /* AddReminderViewController.swift */; };
+		A1261ADF28049C1F0028C4B2 /* ReminderHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1261ADE28049C1F0028C4B2 /* ReminderHeaderViewController.swift */; };
 		A128114F280473FA00D50963 /* ReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A128114D280473FA00D50963 /* ReminderViewController.swift */; };
 		A1281150280473FA00D50963 /* Reminder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A128114E280473FA00D50963 /* Reminder.storyboard */; };
 		A12DF22A2804762E00CE3AEF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A12DF2292804762E00CE3AEF /* Main.storyboard */; };
+		A1A231C928047AF00011295F /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A231C828047AF00011295F /* Reminder.swift */; };
+		A1A231CB28047B6C0011295F /* ReminderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A231CA28047B6C0011295F /* ReminderModel.swift */; };
+		A1A231CD28047ED70011295F /* DayOfWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A231CC28047ED70011295F /* DayOfWeek.swift */; };
+		A1A231D12804936B0011295F /* ReminderCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A231D02804936B0011295F /* ReminderCellViewController.swift */; };
 		C2F6ED3F2803DB5900072047 /* SF-Pro-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C2F6ECF92803DAF500072047 /* SF-Pro-Italic.ttf */; };
 		C2F6ED5E2803DB5900072047 /* SF-Pro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C2F6ECE02803DAF100072047 /* SF-Pro.ttf */; };
 /* End PBXBuildFile section */
@@ -45,9 +50,14 @@
 		5F4C127A2803F0F000381BE6 /* Information.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Information.storyboard; sourceTree = "<group>"; };
 		5F4C127C2803F11F00381BE6 /* InformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
 		5F9390CD2802E4E9005D319A /* AddReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReminderViewController.swift; sourceTree = "<group>"; };
+		A1261ADE28049C1F0028C4B2 /* ReminderHeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderHeaderViewController.swift; sourceTree = "<group>"; };
 		A128114D280473FA00D50963 /* ReminderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderViewController.swift; sourceTree = "<group>"; };
 		A128114E280473FA00D50963 /* Reminder.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Reminder.storyboard; sourceTree = "<group>"; };
 		A12DF2292804762E00CE3AEF /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		A1A231C828047AF00011295F /* Reminder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
+		A1A231CA28047B6C0011295F /* ReminderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderModel.swift; sourceTree = "<group>"; };
+		A1A231CC28047ED70011295F /* DayOfWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayOfWeek.swift; sourceTree = "<group>"; };
+		A1A231D02804936B0011295F /* ReminderCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderCellViewController.swift; sourceTree = "<group>"; };
 		C2F6ECE02803DAF100072047 /* SF-Pro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro.ttf"; sourceTree = "<group>"; };
 		C2F6ECF92803DAF500072047 /* SF-Pro-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Italic.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -105,7 +115,6 @@
 				5F1A06AC27FE9E62000BEC17 /* LaunchScreen.storyboard */,
 				5F1A06AF27FE9E62000BEC17 /* Info.plist */,
 				5F1A06A727FE9E61000BEC17 /* MC1_Group12.xcdatamodeld */,
-				5F9390CD2802E4E9005D319A /* AddReminderViewController.swift */,
 				58076D992803DD7F00CFA4BF /* ActivityDetailsViewController.swift */,
 			);
 			path = "MC1-Group12";
@@ -123,8 +132,14 @@
 		A128114C280473FA00D50963 /* Reminder */ = {
 			isa = PBXGroup;
 			children = (
+				5F9390CD2802E4E9005D319A /* AddReminderViewController.swift */,
 				A128114D280473FA00D50963 /* ReminderViewController.swift */,
+				A1A231D02804936B0011295F /* ReminderCellViewController.swift */,
 				A128114E280473FA00D50963 /* Reminder.storyboard */,
+				A1A231C828047AF00011295F /* Reminder.swift */,
+				A1A231CA28047B6C0011295F /* ReminderModel.swift */,
+				A1A231CC28047ED70011295F /* DayOfWeek.swift */,
+				A1261ADE28049C1F0028C4B2 /* ReminderHeaderViewController.swift */,
 			);
 			path = Reminder;
 			sourceTree = "<group>";
@@ -214,11 +229,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1A231D12804936B0011295F /* ReminderCellViewController.swift in Sources */,
 				5F1A06A927FE9E61000BEC17 /* MC1_Group12.xcdatamodeld in Sources */,
 				39B497B327FF2A61009B4FFA /* CornerClass.swift in Sources */,
 				5F1A06A327FE9E61000BEC17 /* ViewController.swift in Sources */,
+				A1A231CD28047ED70011295F /* DayOfWeek.swift in Sources */,
+				A1A231C928047AF00011295F /* Reminder.swift in Sources */,
 				39837A3E2803CAC500BA3192 /* OnboardingViewController.swift in Sources */,
+				A1261ADF28049C1F0028C4B2 /* ReminderHeaderViewController.swift in Sources */,
 				58076D9A2803DD7F00CFA4BF /* ActivityDetailsViewController.swift in Sources */,
+				A1A231CB28047B6C0011295F /* ReminderModel.swift in Sources */,
 				5F9390CE2802E4E9005D319A /* AddReminderViewController.swift in Sources */,
 				5F1A069F27FE9E61000BEC17 /* AppDelegate.swift in Sources */,
 				39B497B127FF295F009B4FFA /* GradientViewClass.swift in Sources */,

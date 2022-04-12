@@ -201,10 +201,10 @@
             </objects>
             <point key="canvasLocation" x="944.61538461538453" y="68.957345971563981"/>
         </scene>
-        <!--Reminder View Controller-->
+        <!--Add Reminder View Controller-->
         <scene sceneID="0gq-Mr-UCg">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="w3j-t0-mPU" customClass="ReminderViewController" customModule="MC1_Group12" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="w3j-t0-mPU" customClass="AddReminderViewController" customModule="MC1_Group12" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LVQ-WV-aBz">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -337,16 +337,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="daydreamer" translatesAutoresizingMaskIntoConstraints="NO" id="mVR-N6-9cg">
-                                <rect key="frame" x="-2397" y="0.0" width="5184" height="844"/>
+                                <rect key="frame" x="-2397" y="0.0" width="5184" height="3456"/>
                             </imageView>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7lL-KB-h31">
-                                <rect key="frame" x="-2397" y="-44" width="5184" height="888"/>
+                                <rect key="frame" x="-2397" y="-44" width="5184" height="3500"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="gzQ-bD-lDz">
-                                    <rect key="frame" x="0.0" y="0.0" width="5184" height="888"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="5184" height="3500"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lrE-hN-PdD" customClass="CornerClass" customModule="MC1_Group12" customModuleProvider="target">
-                                            <rect key="frame" x="2385" y="270" width="414" height="619"/>
+                                            <rect key="frame" x="2385" y="270" width="414" height="3231"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Age" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Pe-FX-tJX">
                                                     <rect key="frame" x="79" y="41" width="26" height="17"/>
@@ -434,7 +434,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EWE-qM-Tnx">
-                                                    <rect key="frame" x="28" y="500" width="358" height="35"/>
+                                                    <rect key="frame" x="28" y="3112" width="358" height="35"/>
                                                     <color key="tintColor" systemColor="systemPurpleColor"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="filled">
@@ -570,10 +570,10 @@
             </objects>
             <point key="canvasLocation" x="1692.753623188406" y="748.66071428571422"/>
         </scene>
-        <!--Information-->
+        <!--ReminderView-->
         <scene sceneID="bL5-T9-5ls">
             <objects>
-                <viewControllerPlaceholder storyboardName="Information" referencedIdentifier="Information" id="DAK-Fj-7av" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Reminder" referencedIdentifier="ReminderView" id="DAK-Fj-7av" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="pcY-7T-jUs"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IEd-Tm-0KI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
