@@ -167,7 +167,7 @@ class AddReminderViewController: UIViewController {
                 else {
                     for (index, weekday) in self.selectedWeekday.enumerated() {
                         if weekday == 1 {
-                            self.setReminder(weekday: index)
+                            self.setReminder(weekday: index+1)
                         }
                     }
                     DispatchQueue.main.async {
@@ -192,7 +192,7 @@ class AddReminderViewController: UIViewController {
             DispatchQueue.main.async {
                 let time = self.timePicker.date
                 
-                self.reminderDelegate?.addNewReminder(day: DayOfWeek.allCases[weekday], time: time)
+                self.reminderDelegate?.addNewReminder(day: DayOfWeek.allCases[weekday-1], time: time)
 
                 if settings.authorizationStatus == .authorized {
                     
