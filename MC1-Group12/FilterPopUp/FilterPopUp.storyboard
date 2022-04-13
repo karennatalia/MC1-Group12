@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Filter Pop Up View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="filterPopUp" modalPresentationStyle="formSheet" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="FilterPopUpViewController" customModule="MC1_Group12" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Ehu-Ai-EH6">
+                                <rect key="frame" x="16" y="64" width="382" height="31"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Filter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kdb-lM-3R4">
+                                        <rect key="frame" x="0.0" y="0.5" width="57.5" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l5G-2P-bqM">
+                                        <rect key="frame" x="321" y="0.0" width="61" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Apply"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d2j-Ji-T1Q" userLabel="Separator">
+                                <rect key="frame" x="0.0" y="107" width="414" height="1"/>
+                                <color key="backgroundColor" red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="8Qq-YP-o9o"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Age" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cjC-fk-BpZ">
+                                <rect key="frame" x="16" y="132" width="32.5" height="21.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="BdN-sh-G8X" userLabel="AgeButtonRow">
+                                <rect key="frame" x="16" y="167.5" width="213" height="31"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QMs-pR-ufq">
+                                        <rect key="frame" x="0.0" y="0.0" width="33" height="31"/>
+                                        <color key="tintColor" systemColor="labelColor"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="gray" title="1" cornerStyle="large"/>
+                                        <connections>
+                                            <action selector="btnAge1Clicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="55C-uw-rid"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3v0-D3-lIg">
+                                        <rect key="frame" x="45" y="0.0" width="33" height="31"/>
+                                        <color key="tintColor" systemColor="labelColor"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="gray" title="2" cornerStyle="large"/>
+                                        <connections>
+                                            <action selector="btnAge2Clicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="6ny-0U-VRS"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="67f-dD-MAU">
+                                        <rect key="frame" x="90" y="0.0" width="33" height="31"/>
+                                        <color key="tintColor" systemColor="labelColor"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="gray" title="3" cornerStyle="large"/>
+                                        <connections>
+                                            <action selector="btnAge3Clicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="RTc-Bh-0Kw"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oed-vR-3cE">
+                                        <rect key="frame" x="135" y="0.0" width="33" height="31"/>
+                                        <color key="tintColor" systemColor="labelColor"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="gray" title="4" cornerStyle="large"/>
+                                        <connections>
+                                            <action selector="btnAge4Clicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="IA9-a3-YUQ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WPM-A3-VMf">
+                                        <rect key="frame" x="180" y="0.0" width="33" height="31"/>
+                                        <color key="tintColor" systemColor="labelColor"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="gray" title="5" cornerStyle="large"/>
+                                        <connections>
+                                            <action selector="btnAge5Clicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="YNV-Rg-Mgi"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Max Duration" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qFJ-QE-H3u">
+                                <rect key="frame" x="16" y="222.5" width="110" height="21.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="X7j-xZ-EbR" userLabel="MaxDurButtonRow1">
+                                <rect key="frame" x="16" y="258" width="244.5" height="31"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KAe-RJ-LkN">
+                                        <rect key="frame" x="0.0" y="0.0" width="73.5" height="31"/>
+                                        <color key="tintColor" systemColor="labelColor"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="gray" title="5 mins" cornerStyle="large"/>
+                                        <connections>
+                                            <action selector="btnDuration5Clicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="SWd-Ib-KbR"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cxM-lZ-UvW">
+                                        <rect key="frame" x="85.5" y="0.0" width="73.5" height="31"/>
+                                        <color key="tintColor" systemColor="labelColor"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="gray" title="10 mins" cornerStyle="large"/>
+                                        <connections>
+                                            <action selector="btnDuration10Clicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="mWe-rM-eKL"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kgs-gl-poJ">
+                                        <rect key="frame" x="171" y="0.0" width="73.5" height="31"/>
+                                        <color key="tintColor" systemColor="labelColor"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="gray" title="15 mins" cornerStyle="large"/>
+                                        <connections>
+                                            <action selector="btnDuration15Clicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Nmn-3N-9Zq"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="bUC-Qa-dbh" userLabel="MaxDurButtonRow2">
+                                <rect key="frame" x="16" y="303" width="252" height="31"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iDN-XQ-vi5">
+                                        <rect key="frame" x="0.0" y="0.0" width="76" height="31"/>
+                                        <color key="tintColor" systemColor="labelColor"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="gray" title="20 mins" cornerStyle="large"/>
+                                        <connections>
+                                            <action selector="btnDuration20Clicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="zu2-xe-FY7"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ad-lu-VpD">
+                                        <rect key="frame" x="88" y="0.0" width="76" height="31"/>
+                                        <color key="tintColor" systemColor="labelColor"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="gray" title="25 mins" cornerStyle="large"/>
+                                        <connections>
+                                            <action selector="btnDuration25Clicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="XZR-xe-MoY"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lyq-iM-BJF">
+                                        <rect key="frame" x="176" y="0.0" width="76" height="31"/>
+                                        <color key="tintColor" systemColor="labelColor"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="gray" title="30 mins" cornerStyle="large"/>
+                                        <connections>
+                                            <action selector="btnDuration30Clicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="LJ9-A5-WNt"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Preparation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QLy-Tl-N3B">
+                                <rect key="frame" x="16" y="358" width="96" height="21.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Activity Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Lq-BL-dmj">
+                                <rect key="frame" x="16" y="448.5" width="119.5" height="21.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="nOc-U8-JG8" userLabel="StatusButtonRow">
+                                <rect key="frame" x="16" y="484" width="183" height="31"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jns-bh-rJ2">
+                                        <rect key="frame" x="0.0" y="0.0" width="85.5" height="31"/>
+                                        <color key="tintColor" systemColor="labelColor"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="gray" title="Not Done" cornerStyle="large"/>
+                                        <connections>
+                                            <action selector="btnStatusNotDoneClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="LbI-HP-Wvv"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Bg-Kz-dyD">
+                                        <rect key="frame" x="97.5" y="0.0" width="85.5" height="31"/>
+                                        <color key="tintColor" systemColor="labelColor"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="gray" title="Done" cornerStyle="large"/>
+                                        <connections>
+                                            <action selector="btnStatusDoneClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="xZu-7C-kLw"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="left" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="lvJ-Bn-bbM" userLabel="PreparationButtonRow">
+                                <rect key="frame" x="16" y="393.5" width="121" height="31"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z4P-RG-cBt">
+                                        <rect key="frame" x="0.0" y="0.0" width="54.5" height="31"/>
+                                        <color key="tintColor" systemColor="labelColor"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="gray" title="Low" cornerStyle="large"/>
+                                        <connections>
+                                            <action selector="btnPrepLowClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="D2y-29-n37"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mga-33-aB2">
+                                        <rect key="frame" x="66.5" y="0.0" width="54.5" height="31"/>
+                                        <color key="tintColor" systemColor="labelColor"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="gray" title="High" cornerStyle="large"/>
+                                        <connections>
+                                            <action selector="btnPrepHighClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="LCc-k3-BRP"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="X7j-xZ-EbR" firstAttribute="top" secondItem="qFJ-QE-H3u" secondAttribute="bottom" constant="14" id="0dy-bJ-E5K"/>
+                            <constraint firstItem="X7j-xZ-EbR" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="1fQ-qQ-yJs"/>
+                            <constraint firstItem="bUC-Qa-dbh" firstAttribute="top" secondItem="X7j-xZ-EbR" secondAttribute="bottom" constant="14" id="2Th-8s-Mg2"/>
+                            <constraint firstItem="Ehu-Ai-EH6" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="3h1-Yo-i0J"/>
+                            <constraint firstItem="nOc-U8-JG8" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="5WH-cQ-5ip"/>
+                            <constraint firstItem="3Lq-BL-dmj" firstAttribute="top" secondItem="lvJ-Bn-bbM" secondAttribute="bottom" constant="24" id="8BV-yA-ObM"/>
+                            <constraint firstItem="qFJ-QE-H3u" firstAttribute="top" secondItem="BdN-sh-G8X" secondAttribute="bottom" constant="24" id="ADo-ea-iQn"/>
+                            <constraint firstAttribute="trailing" secondItem="d2j-Ji-T1Q" secondAttribute="trailing" id="Cg4-rs-jth"/>
+                            <constraint firstItem="QLy-Tl-N3B" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="ERU-nq-bQ0"/>
+                            <constraint firstItem="d2j-Ji-T1Q" firstAttribute="top" secondItem="Ehu-Ai-EH6" secondAttribute="bottom" constant="12" id="G2U-UE-x4Z"/>
+                            <constraint firstItem="qFJ-QE-H3u" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="H98-kt-nOb"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Ehu-Ai-EH6" secondAttribute="trailing" constant="16" id="IVi-4c-Gz6"/>
+                            <constraint firstItem="Ehu-Ai-EH6" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="IyE-Ne-jat"/>
+                            <constraint firstItem="QLy-Tl-N3B" firstAttribute="top" secondItem="bUC-Qa-dbh" secondAttribute="bottom" constant="24" id="NLp-EN-fy1"/>
+                            <constraint firstItem="bUC-Qa-dbh" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="PrK-Ky-x1a"/>
+                            <constraint firstItem="BdN-sh-G8X" firstAttribute="top" secondItem="cjC-fk-BpZ" secondAttribute="bottom" constant="14" id="RQ0-w3-7Ud"/>
+                            <constraint firstItem="lvJ-Bn-bbM" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="RbY-4g-Mns"/>
+                            <constraint firstItem="cjC-fk-BpZ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="VKJ-g5-9WX"/>
+                            <constraint firstItem="cjC-fk-BpZ" firstAttribute="top" secondItem="d2j-Ji-T1Q" secondAttribute="bottom" constant="24" id="a22-7j-teZ"/>
+                            <constraint firstItem="nOc-U8-JG8" firstAttribute="top" secondItem="3Lq-BL-dmj" secondAttribute="bottom" constant="14" id="n9X-LR-WC2"/>
+                            <constraint firstItem="3Lq-BL-dmj" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="px5-um-lLE"/>
+                            <constraint firstItem="BdN-sh-G8X" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="r1k-PK-wPb"/>
+                            <constraint firstItem="lvJ-Bn-bbM" firstAttribute="top" secondItem="QLy-Tl-N3B" secondAttribute="bottom" constant="14" id="u9F-og-TmW"/>
+                            <constraint firstItem="d2j-Ji-T1Q" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="uxP-7Y-Wcc"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="activityDoneBtn" destination="5Bg-Kz-dyD" id="MJZ-8m-2L3"/>
+                        <outlet property="activityNotDoneBtn" destination="jns-bh-rJ2" id="uAf-J5-flE"/>
+                        <outlet property="age1Btn" destination="QMs-pR-ufq" id="9cj-P9-wpb"/>
+                        <outlet property="age2Btn" destination="3v0-D3-lIg" id="EQk-lb-b97"/>
+                        <outlet property="age3Btn" destination="67f-dD-MAU" id="emk-x6-AXn"/>
+                        <outlet property="age4Btn" destination="oed-vR-3cE" id="tNT-29-JT2"/>
+                        <outlet property="age5Btn" destination="WPM-A3-VMf" id="Ipt-CS-GQ6"/>
+                        <outlet property="applyBtn" destination="l5G-2P-bqM" id="002-SP-AiA"/>
+                        <outlet property="duration10Btn" destination="cxM-lZ-UvW" id="ZhQ-zt-K3W"/>
+                        <outlet property="duration15Btn" destination="Kgs-gl-poJ" id="U3A-4L-deX"/>
+                        <outlet property="duration20Btn" destination="iDN-XQ-vi5" id="C6l-cb-T2A"/>
+                        <outlet property="duration25Btn" destination="4ad-lu-VpD" id="pSD-un-Lba"/>
+                        <outlet property="duration30Btn" destination="Lyq-iM-BJF" id="QLx-kg-M8t"/>
+                        <outlet property="duration5Btn" destination="KAe-RJ-LkN" id="HnN-HB-NBC"/>
+                        <outlet property="prepHighBtn" destination="mga-33-aB2" id="2op-N2-BCJ"/>
+                        <outlet property="prepLowBtn" destination="z4P-RG-cBt" id="Fdh-BJ-1cR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="35" y="61"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
