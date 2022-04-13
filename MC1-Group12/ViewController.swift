@@ -122,9 +122,8 @@ extension ViewController: UISearchBarDelegate {
 //        filteredActList = activityList.filter({$0.title.prefix(searchText.count) == searchText})
         filteredActList = activityList.filter { text in
             return text.title.lowercased().contains(searchText.lowercased())
-       
         }
-        if filteredActList.count == 0 {
+        if filteredActList.count == 0 && searchText == "" {
             filteredActList = activityList
         }
         isSearching = true
