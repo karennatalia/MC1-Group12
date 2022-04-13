@@ -163,7 +163,7 @@ based on age, time, and preparation preferences.</string>
                                             <color key="baseBackgroundColor" red="0.50196081400000003" green="0.231372565" blue="0.58039218189999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="okButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="wyz-FV-YpY"/>
+                                            <segue destination="VfW-VY-9pT" kind="unwind" unwindAction="unwindToHome:" id="Pbv-iH-zOF"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -192,6 +192,7 @@ based on age, time, and preparation preferences.</string>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="VfW-VY-9pT" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="35" y="76"/>
         </scene>

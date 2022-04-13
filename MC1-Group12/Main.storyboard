@@ -35,7 +35,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="info.circle" catalog="system"/>
                                                 <connections>
-                                                    <segue destination="DAK-Fj-7av" kind="show" id="jaw-gM-hU9"/>
+                                                    <segue destination="LYP-rd-opW" kind="show" id="Ikw-VB-aEG"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -289,6 +289,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1873.8461538461538" y="68.957345971563981"/>
+        </scene>
+        <!--Information-->
+        <scene sceneID="CWV-Aq-kbK">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Information" referencedIdentifier="Information" id="LYP-rd-opW" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Het-5Y-EF6"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5eB-7q-6dD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2512" y="-66"/>
         </scene>
         <!--ReminderStoryboard-->
         <scene sceneID="vmC-eo-lGF">
@@ -566,10 +576,10 @@
         <!--ReminderStoryboard-->
         <scene sceneID="bL5-T9-5ls">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="IEd-Tm-0KI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewControllerPlaceholder storyboardName="Reminder" referencedIdentifier="ReminderStoryboard" id="DAK-Fj-7av" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="pcY-7T-jUs"/>
                 </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IEd-Tm-0KI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="36" y="469"/>
         </scene>
