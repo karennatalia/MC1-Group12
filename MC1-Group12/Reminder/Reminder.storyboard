@@ -93,7 +93,7 @@
                                                                     <rect key="frame" x="289" y="0.0" width="51" height="31"/>
                                                                     <color key="onTintColor" red="0.47450980390000003" green="0.22352941179999999" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                     <connections>
-                                                                        <action selector="reminderSwitch:" destination="aep-YB-ecc" eventType="valueChanged" id="jhC-z1-Aig"/>
+                                                                        <action selector="reminderSwitchAction:" destination="aep-YB-ecc" eventType="valueChanged" id="3FZ-3n-by5"/>
                                                                     </connections>
                                                                 </switch>
                                                             </subviews>
@@ -117,6 +117,7 @@
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <connections>
+                                                    <outlet property="reminderSwitch" destination="fsl-tk-WH0" id="UIi-7R-zha"/>
                                                     <outlet property="reminderTimeLabel" destination="fs1-hC-17N" id="6Pt-2j-f6Y"/>
                                                 </connections>
                                             </tableViewCell>

@@ -201,24 +201,27 @@ class AddReminderViewController: UIViewController {
     }
     
     @IBAction func SetReminderAction(_ sender: Any) {
-        var id:UUID = UUID()
         
         if isEditWeekday >= 0 { /// edit reminder
             let time = timePicker.date
             let day = reminderModel.reminderDays[isEditSection]
             
-            if let reminder = reminderModel.reminders[day]?[isEditRow] {
-                timePicker.setDate(reminder.time, animated: false)
-                id = reminder.id
+            guard let delegate = self.reminderDelegate else { return }
+            
+            guard let reminder = reminderModel.reminders[day]?[isEditRow] else { return }
+            
+            timePicker.setDate(reminder.time, animated: false)
+            
+            delegate.updateReminder(targetId: reminder.id, day: day, time: time)
+            
+            // If reminder is disabled, don't update notif
+            if !reminder.isEnabled {
+                return
             }
             
-            reminderDelegate?.reloadTableView()
+            notifCenter.removePendingNotificationRequests(withIdentifiers: ["\(reminder.id.uuidString)"])
             
-            notifCenter.removePendingNotificationRequests(withIdentifiers: ["\(id.uuidString)"])
-            
-            scheduleNotif(id: id, time: time, weekday: isEditWeekday+1)
-            
-            reminderModel.updateReminder(targetId: id, day: reminderModel.reminderDays[isEditSection], time: time)
+            scheduleNotif(id: reminder.id, time: time, weekday: isEditWeekday+1)
             
             DispatchQueue.main.async {
                 self.dismiss(animated: true)
@@ -304,7 +307,7 @@ class AddReminderViewController: UIViewController {
         /// Set the content of notifications
         let reminderContent = UNMutableNotificationContent()
         reminderContent.title = "Have you interacted with your child today? "
-        reminderContent.body = "Let’s fnd an activity for you! Don't forget to interact with your child and communicate with them every day!"
+        reminderContent.body = "Let’s find an activity for you! Don't forget to interact with your child and communicate with them every day!"
         reminderContent.sound = .default
         
         /// Set trigger "WHEN" to send the notifications

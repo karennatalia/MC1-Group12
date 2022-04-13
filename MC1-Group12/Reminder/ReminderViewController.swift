@@ -10,7 +10,7 @@ import UserNotifications
 
 protocol ReminderViewControllerDelegate {
     func addNewReminder(day: DayOfWeek, time: Date, weekday: Int) -> UUID
-    func reloadTableView()
+    func updateReminder(targetId: UUID, day: DayOfWeek, time: Date)
 }
 
 class ReminderViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ReminderViewControllerDelegate {
@@ -85,6 +85,8 @@ class ReminderViewController: UIViewController, UITableViewDataSource, UITableVi
         if let reminder = reminderModel.reminders[day]?[indexPath.row] {
             cell.reminderTimeLabel.text = reminder.formattedTime
             
+            cell.reminderSwitch.isOn = reminder.isEnabled
+            
             cell.onSwitched = { [weak self]
                 isOn in
                 
@@ -94,7 +96,7 @@ class ReminderViewController: UIViewController, UITableViewDataSource, UITableVi
                 if (isOn) {
                     guard let weekday = DayOfWeek.allCases.firstIndex(of: day) else { return }
                     
-                    self?.scheduleNotif(id: reminder.id, time: reminder.time, weekday: weekday)
+                    self?.scheduleNotif(id: reminder.id, time: reminder.time, weekday: weekday + 1)
                     
                     return
                 }
@@ -157,7 +159,9 @@ class ReminderViewController: UIViewController, UITableViewDataSource, UITableVi
         return id
     }
     
-    func reloadTableView() {
+    func updateReminder(targetId: UUID, day: DayOfWeek, time: Date) {
+        reminderModel.updateReminder(targetId: targetId, day: day, time: time)
+            
         remindersTableView.reloadData()
     }
     

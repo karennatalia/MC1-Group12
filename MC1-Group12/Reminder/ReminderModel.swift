@@ -49,6 +49,13 @@ class ReminderModel {
         return !remindersList.isEmpty
     }
     
+    // Sort reminders for each day
+    func sortReminders() {
+        for day in DayOfWeek.allCases {
+            _reminders[day]?.sort { $0.time < $1.time }
+        }
+    }
+    
     func addReminder(day: DayOfWeek, time: Date, weekday: Int) -> UUID {
         
         // Add new reminder to array
@@ -62,6 +69,8 @@ class ReminderModel {
         
         // Update key in dict
         _reminders.updateValue(newRemindersList, forKey: day)
+        
+        sortReminders()
         
         return newReminder.id
     }
@@ -84,6 +93,8 @@ class ReminderModel {
             if let decodedReminders = try? JSONDecoder().decode(ReminderDict.self, from: decodedData) {
                 _reminders = decodedReminders
                 
+                sortReminders()
+                
                 return
             }
         }
@@ -103,6 +114,8 @@ class ReminderModel {
         
         // Update key in dict
         _reminders.updateValue(newRemindersList, forKey: day)
+        
+        sortReminders()
     }
     
     func toggleReminder(targetId: UUID, day: DayOfWeek) {
