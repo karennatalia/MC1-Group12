@@ -219,21 +219,21 @@ class AddReminderViewController: UIViewController {
             
             /// Set the content of notifications
             let reminderContent = UNMutableNotificationContent()
-            reminderContent.title = "Have you interacted with your child today?"
-            reminderContent.body = "Let’s find an activity for you! Don't forget to interact with your child and communicate with them every day"
+            reminderContent.title = "Hi parents, it's time for activity!"
+            reminderContent.body = "Don't forget to do activity with your child to make sure they get enough interaction"
             reminderContent.sound = .default
-
+            
             /// Set trigger "WHEN" to send the notifications
             var reminderTime = Calendar.current.dateComponents([.hour, .minute], from: time)
-            reminderTime.weekday = isEditWeekday
+            reminderTime.weekday = isEditWeekday+1
             let timeTrigger = UNCalendarNotificationTrigger(dateMatching: reminderTime, repeats: true)
-            print(reminderTime)
-
-            let newId = UUID()
-
+            
+            let testId = UUID()
+            
             /// Send notifications request ke Notification Center
-            let request = UNNotificationRequest(identifier: newId.uuidString, content: reminderContent, trigger: timeTrigger)
-            print("Yang direcreate \(id.uuidString)")
+            let request = UNNotificationRequest(identifier: testId.uuidString, content: reminderContent, trigger: timeTrigger)
+            print("time \(reminderTime)")
+            print("request edit\(request)")
             notifCenter.add(request, withCompletionHandler: nil)
             
 //            setReminder(weekday: isEditWeekday)
@@ -320,6 +320,7 @@ class AddReminderViewController: UIViewController {
                     
                     /// Send notifications request ke Notification Center
                     let request = UNNotificationRequest(identifier: id.uuidString, content: reminderContent, trigger: timeTrigger)
+                    print("request \(request)")
                     self.notifCenter.add(request, withCompletionHandler: nil)
                     print("Yang asli \(id.uuidString)")
                     
