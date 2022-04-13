@@ -12,11 +12,20 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MC1_Group12" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="ViewController" customModule="MC1_Group12" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="GradientViewClass" customModule="MC1_Group12" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eme-zv-FNa">
+                                <rect key="frame" x="0.0" y="150" width="390" height="694"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="CornerRadius">
+                                        <integer key="value" value="35"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LRb-oO-fiZ" customClass="CornerClass" customModule="MC1_Group12" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="152" width="414" height="744"/>
                                 <subviews>
@@ -35,7 +44,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="info.circle" catalog="system"/>
                                                 <connections>
-                                                    <segue destination="DAK-Fj-7av" kind="show" id="jaw-gM-hU9"/>
+                                                    <segue destination="LYP-rd-opW" kind="show" id="Ikw-VB-aEG"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -257,10 +266,14 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="ued-fc-gnA" firstAttribute="leading" secondItem="BU2-Ih-AMM" secondAttribute="leading" constant="22" id="2am-LQ-2xd"/>
+                            <constraint firstItem="Eme-zv-FNa" firstAttribute="bottom" secondItem="LRb-oO-fiZ" secondAttribute="bottom" id="3AW-aL-EhO"/>
                             <constraint firstItem="vEb-Xe-ZkS" firstAttribute="leading" secondItem="BU2-Ih-AMM" secondAttribute="leading" constant="21.999999999999986" id="5R5-FJ-Dwa"/>
                             <constraint firstItem="vEb-Xe-ZkS" firstAttribute="top" secondItem="BU2-Ih-AMM" secondAttribute="top" constant="5" id="EzM-vC-lQX"/>
+                            <constraint firstItem="Eme-zv-FNa" firstAttribute="top" secondItem="vEb-Xe-ZkS" secondAttribute="bottom" constant="16" id="NYi-Z1-itp"/>
                             <constraint firstItem="LRb-oO-fiZ" firstAttribute="top" secondItem="vEb-Xe-ZkS" secondAttribute="bottom" constant="18" id="SJE-de-uAj"/>
+                            <constraint firstItem="Eme-zv-FNa" firstAttribute="trailing" secondItem="LRb-oO-fiZ" secondAttribute="trailing" id="Vrc-DX-GBR"/>
                             <constraint firstItem="ued-fc-gnA" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="73" id="aGw-JG-xQp"/>
+                            <constraint firstItem="Eme-zv-FNa" firstAttribute="leading" secondItem="LRb-oO-fiZ" secondAttribute="leading" id="cfr-bF-m2Q"/>
                             <constraint firstItem="Imi-Xb-T8f" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="75" id="ck5-qQ-Xtm"/>
                             <constraint firstItem="LRb-oO-fiZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dHZ-79-h9F"/>
                             <constraint firstItem="BU2-Ih-AMM" firstAttribute="trailing" secondItem="Imi-Xb-T8f" secondAttribute="trailing" constant="22" id="jOH-WK-miT"/>
@@ -281,6 +294,7 @@
                     <connections>
                         <outlet property="ActTableView" destination="4Wd-8d-TWF" id="1Ja-QS-c6j"/>
                         <outlet property="searchBar" destination="Ogh-vu-fQC" id="3L6-pE-VGw"/>
+                        <outlet property="vwContainer" destination="Eme-zv-FNa" id="5Yi-AZ-kKN"/>
                         <outlet property="welcomeLabel" destination="ued-fc-gnA" id="Vtu-Op-vTj"/>
                         <segue destination="JPo-tZ-w4d" kind="show" identifier="toActivityDetail" id="8IM-G6-uES"/>
                     </connections>
@@ -288,6 +302,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1873.8461538461538" y="68.957345971563981"/>
+        </scene>
+        <!--Information-->
+        <scene sceneID="CWV-Aq-kbK">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Information" referencedIdentifier="Information" id="LYP-rd-opW" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Het-5Y-EF6"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5eB-7q-6dD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2512" y="-66"/>
         </scene>
         <!--ReminderStoryboard-->
         <scene sceneID="vmC-eo-lGF">
@@ -328,7 +352,17 @@
                                     <rect key="frame" x="0.0" y="0.0" width="390" height="856"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Let's Build a House" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Vxc-YS-g8b">
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rlG-a0-huo">
+                                            <rect key="frame" x="0.0" y="254" width="390" height="469"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="CornerRadius">
+                                                    <integer key="value" value="35"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Let's Build a House" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Vxc-YS-g8b">
                                             <rect key="frame" x="22" y="158" width="342" height="100"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -639,16 +673,17 @@
                         <outlet property="doneButton" destination="F32-g9-uZb" id="jpS-di-bpq"/>
                         <outlet property="resetButton" destination="c4O-iZ-bj7" id="Kyb-zW-pw2"/>
                         <outlet property="resetButtonLine" destination="bk8-oZ-IFx" id="Nbh-3Y-fcy"/>
+                        <outlet property="vwContainer2" destination="rlG-a0-huo" id="fA5-QU-fsN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jI5-Jf-1d8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1687.6923076923076" y="748.57819905213262"/>
         </scene>
-        <!--Information-->
+        <!--ReminderStoryboard-->
         <scene sceneID="bL5-T9-5ls">
             <objects>
-                <viewControllerPlaceholder storyboardName="Information" referencedIdentifier="Information" id="DAK-Fj-7av" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Reminder" referencedIdentifier="ReminderStoryboard" id="DAK-Fj-7av" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="pcY-7T-jUs"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IEd-Tm-0KI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -658,7 +693,7 @@
         <!--Navigation Controller-->
         <scene sceneID="vNq-KG-ApC">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LVy-eS-WN8" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="LVy-eS-WN8" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ICT-Hi-U5c">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>

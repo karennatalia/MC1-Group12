@@ -16,7 +16,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PL2-Fr-GBN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="971" y="-351"/>
+            <point key="canvasLocation" x="1506" y="80"/>
         </scene>
         <!--Reminder-->
         <scene sceneID="s0d-6b-0kx">
@@ -39,11 +39,20 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="horizontalMode" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tjv-uI-8sE">
+                                <rect key="frame" x="0.0" y="108" width="414" height="788"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="CornerRadius">
+                                        <integer key="value" value="35"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cF2-2C-JWu" customClass="CornerClass" customModule="MC1_Group12" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="108" width="414" height="788"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum dolor sit amet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MtK-Qs-MOU">
-                                        <rect key="frame" x="28" y="89" width="152" height="14.5"/>
+                                        <rect key="frame" x="28" y="79" width="152" height="14.5"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
                                         <color key="textColor" red="0.55294117647058827" green="0.55294117647058827" blue="0.55294117647058827" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
@@ -51,8 +60,8 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="NHX-G3-Yi5">
                                         <rect key="frame" x="28" y="38" width="358" height="41"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reminder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3IQ-uw-qdb">
-                                                <rect key="frame" x="0.0" y="0.0" width="157.5" height="41"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reminders" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3IQ-uw-qdb">
+                                                <rect key="frame" x="0.0" y="0.0" width="176" height="41"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="34"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -63,17 +72,67 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system"/>
                                                 <connections>
-                                                    <segue destination="Vuz-6E-XEm" kind="show" id="bAT-9L-lww"/>
+                                                    <action selector="toAddReminder:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="C6j-rj-Is4"/>
                                                 </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" allowsSelection="NO" allowsSelectionDuringEditing="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="oYO-mm-sGL" userLabel="Reminders List">
+                                        <rect key="frame" x="8" y="113.5" width="398" height="632.5"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="reminderCell" id="aep-YB-ecc" customClass="ReminderCellViewController" customModule="MC1_Group12" customModuleProvider="target">
+                                                <rect key="frame" x="20" y="49.5" width="358" height="53.5"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aep-YB-ecc" id="eKp-Ec-Su3">
+                                                    <rect key="frame" x="0.0" y="0.0" width="358" height="53.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="JZa-pw-sur">
+                                                            <rect key="frame" x="0.0" y="11" width="354" height="31.5"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fs1-hC-17N">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="285" height="31.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
+                                                                    <color key="textColor" red="0.55294117647058827" green="0.55294117647058827" blue="0.55294117647058827" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fsl-tk-WH0">
+                                                                    <rect key="frame" x="305" y="0.0" width="51" height="31.5"/>
+                                                                    <color key="onTintColor" red="0.47450980390000003" green="0.22352941179999999" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                    <connections>
+                                                                        <action selector="reminderSwitch:" destination="aep-YB-ecc" eventType="valueChanged" id="jhC-z1-Aig"/>
+                                                                    </connections>
+                                                                </switch>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="JZa-pw-sur" firstAttribute="leading" secondItem="eKp-Ec-Su3" secondAttribute="leading" id="NNs-8z-Df5"/>
+                                                        <constraint firstItem="JZa-pw-sur" firstAttribute="top" secondItem="eKp-Ec-Su3" secondAttribute="topMargin" id="Q9Q-OD-RWe"/>
+                                                        <constraint firstAttribute="trailing" secondItem="JZa-pw-sur" secondAttribute="trailing" constant="4" id="Rfs-ZC-MLp"/>
+                                                        <constraint firstAttribute="bottomMargin" secondItem="JZa-pw-sur" secondAttribute="bottom" id="a8f-La-oeB"/>
+                                                    </constraints>
+                                                </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="reminderTimeLabel" destination="fs1-hC-17N" id="6Pt-2j-f6Y"/>
+                                                </connections>
+                                            </tableViewCell>
+                                        </prototypes>
+                                        <sections/>
+                                    </tableView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="trailingMargin" secondItem="NHX-G3-Yi5" secondAttribute="trailing" constant="20" id="6IA-tp-doD"/>
+                                    <constraint firstItem="oYO-mm-sGL" firstAttribute="leading" secondItem="cF2-2C-JWu" secondAttribute="leadingMargin" id="GT4-9z-xqG"/>
                                     <constraint firstItem="MtK-Qs-MOU" firstAttribute="leading" secondItem="cF2-2C-JWu" secondAttribute="leadingMargin" constant="20" id="LFp-4j-vsV"/>
-                                    <constraint firstItem="MtK-Qs-MOU" firstAttribute="top" secondItem="NHX-G3-Yi5" secondAttribute="bottom" constant="10" id="pBo-MU-lWP"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="oYO-mm-sGL" secondAttribute="bottom" id="bHx-LV-IzI"/>
+                                    <constraint firstItem="MtK-Qs-MOU" firstAttribute="top" secondItem="NHX-G3-Yi5" secondAttribute="bottom" id="pBo-MU-lWP"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="oYO-mm-sGL" secondAttribute="trailing" id="rNU-rG-ZSv"/>
+                                    <constraint firstItem="oYO-mm-sGL" firstAttribute="top" secondItem="MtK-Qs-MOU" secondAttribute="bottom" constant="20" id="raK-E6-QSV"/>
                                     <constraint firstItem="NHX-G3-Yi5" firstAttribute="leading" secondItem="cF2-2C-JWu" secondAttribute="leadingMargin" constant="20" id="x0g-F3-I1i"/>
                                     <constraint firstItem="NHX-G3-Yi5" firstAttribute="top" secondItem="cF2-2C-JWu" secondAttribute="topMargin" constant="30" id="xsD-jn-Biu"/>
                                 </constraints>
@@ -90,14 +149,18 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="tjv-uI-8sE" firstAttribute="bottom" secondItem="cF2-2C-JWu" secondAttribute="bottom" id="7Oo-1m-rDn"/>
                             <constraint firstItem="cF2-2C-JWu" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="8wm-Xq-gYQ"/>
                             <constraint firstItem="cF2-2C-JWu" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="HZR-vP-JDb"/>
                             <constraint firstAttribute="bottom" secondItem="cF2-2C-JWu" secondAttribute="bottom" id="MyZ-yn-tLZ"/>
+                            <constraint firstItem="tjv-uI-8sE" firstAttribute="trailing" secondItem="cF2-2C-JWu" secondAttribute="trailing" id="Vza-Dt-GqO"/>
                             <constraint firstItem="dM8-jv-lbb" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="cSp-cE-NDE"/>
+                            <constraint firstItem="tjv-uI-8sE" firstAttribute="top" secondItem="cF2-2C-JWu" secondAttribute="top" id="fXE-An-sxI"/>
                             <constraint firstAttribute="trailing" secondItem="cF2-2C-JWu" secondAttribute="trailing" id="ikm-Rk-x50"/>
                             <constraint firstAttribute="trailing" secondItem="dM8-jv-lbb" secondAttribute="trailing" id="jGF-o1-DLE"/>
                             <constraint firstAttribute="bottom" secondItem="dM8-jv-lbb" secondAttribute="bottom" id="t3f-qe-kG0"/>
                             <constraint firstItem="dM8-jv-lbb" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="tzc-pC-4ml"/>
+                            <constraint firstItem="tjv-uI-8sE" firstAttribute="leading" secondItem="cF2-2C-JWu" secondAttribute="leading" id="z5L-ii-WL9"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -105,6 +168,11 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="7LV-eE-oTN"/>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="remindersTableView" destination="oYO-mm-sGL" id="kHL-PT-hTU"/>
+                        <outlet property="vwContainer3" destination="tjv-uI-8sE" id="KtK-sh-5cL"/>
+                        <segue destination="Vuz-6E-XEm" kind="show" identifier="addReminder" id="dV7-l4-vQj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -3,12 +3,14 @@
 //  MC1-Group12
 //
 //  Created by Karen Natalia on 07/04/22.
-////
+//////
 
 import UIKit
 import UserNotifications
 
 class ViewController: UIViewController {
+    
+    @IBOutlet weak var vwContainer:UIView!
     
     @IBOutlet weak var ActTableView: UITableView!
     let userDefaults = UserDefaults.standard
@@ -61,6 +63,8 @@ class ViewController: UIViewController {
     }
     override func viewDidLoad() {
         
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+        
         activityList = ActivitySeeder().generateActivity()
         changeIsDoneVal()
         getWelcomeTime()
@@ -68,6 +72,13 @@ class ViewController: UIViewController {
         ActTableView?.delegate = self
         ActTableView.dataSource = self
         searchBar.delegate = self
+        
+        vwContainer.layer.shadowColor = UIColor.black.cgColor
+        vwContainer.layer.shadowOffset = .zero
+        vwContainer.layer.shadowOpacity = 0.5
+        vwContainer.layer.shadowRadius = 15
+        vwContainer.layer.shadowPath = UIBezierPath(rect: vwContainer.bounds).cgPath
+        vwContainer.layer.shouldRasterize = true
         
         // Do any additional setup after loading the view.
         notifCenter.requestAuthorization(options: [.alert, .sound]) { granted, error in
@@ -80,8 +91,13 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func unwindToHome(_ unwindSegue: UIStoryboardSegue) {
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
     }
+    
+//    @IBAction func unwindToHome(_ unwindSegue: UIStoryboardSegue) {
+//    }
     
     @IBAction func toActivityDetails(_ sender: Any) {
         performSegue(withIdentifier: "toActivityDetail", sender: self)

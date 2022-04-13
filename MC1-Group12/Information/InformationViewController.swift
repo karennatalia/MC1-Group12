@@ -17,10 +17,6 @@ class InformationViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func okButtonClicked(_ sender: Any) {
-        dismiss(animated: true)
-    }
-    
     /*
     // MARK: - Navigation
 

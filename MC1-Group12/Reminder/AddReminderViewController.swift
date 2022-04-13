@@ -9,7 +9,9 @@ import UIKit
 import UserNotifications
 
 class AddReminderViewController: UIViewController {
-
+    
+    var reminderDelegate : ReminderViewControllerDelegate?
+    
     @IBOutlet weak var sundayBtnUI: UIButton!
     @IBOutlet weak var mondayBtnUI: UIButton!
     @IBOutlet weak var tuesdayBtnUI: UIButton!
@@ -126,8 +128,8 @@ class AddReminderViewController: UIViewController {
     }
     
     func checkIfDaySelected() -> Int {
-        for weekday in selectedWeekday {
-            if weekday == 1 {
+        for day in selectedWeekday {
+            if day == 1 {
                 return 1;
             }
         }
@@ -165,7 +167,7 @@ class AddReminderViewController: UIViewController {
                 else {
                     for (index, weekday) in self.selectedWeekday.enumerated() {
                         if weekday == 1 {
-                            self.setReminder(weekday: index+1)
+                            self.setReminder(weekday: index)
                         }
                     }
                     DispatchQueue.main.async {
@@ -189,6 +191,8 @@ class AddReminderViewController: UIViewController {
             
             DispatchQueue.main.async {
                 let time = self.timePicker.date
+                
+                self.reminderDelegate?.addNewReminder(day: DayOfWeek.allCases[weekday], time: time)
 
                 if settings.authorizationStatus == .authorized {
                     
