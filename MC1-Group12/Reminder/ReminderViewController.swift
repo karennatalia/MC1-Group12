@@ -7,19 +7,33 @@
 
 import UIKit
 
-class ReminderViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+protocol ReminderViewControllerDelegate {
+    func addNewReminder(day: DayOfWeek, time: Date)
+}
+
+class ReminderViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ReminderViewControllerDelegate {
     
     @IBOutlet weak var remindersTableView: UITableView!
     
     let tableHeaderHeight = CGFloat(36)
     
-    let reminderModel = ReminderModel()
+    let reminderModel = ReminderModel.instance
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         remindersTableView.delegate = self
         remindersTableView.dataSource = self
+    }
+    
+    @IBAction func toAddReminder(_ sender: Any) {
+        guard let addReminderStoryboard = storyboard?.instantiateViewController(withIdentifier: "AddReminderStoryboard") as? AddReminderViewController else {
+            return
+        }
+        
+        addReminderStoryboard.reminderDelegate = self
+        
+        self.present(addReminderStoryboard, animated: true, completion: nil)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -76,4 +90,9 @@ class ReminderViewController: UIViewController, UITableViewDataSource, UITableVi
         return headerView
     }
     
+    func addNewReminder(day: DayOfWeek, time: Date) {
+        reminderModel.addReminder(day: day, time: time)
+        
+        remindersTableView.reloadData()
+    }
 }

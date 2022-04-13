@@ -63,7 +63,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system"/>
                                                 <connections>
-                                                    <segue destination="Vuz-6E-XEm" kind="show" id="bAT-9L-lww"/>
+                                                    <action selector="toAddReminder:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="C6j-rj-Is4"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -157,6 +157,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="remindersTableView" destination="oYO-mm-sGL" id="kHL-PT-hTU"/>
+                        <segue destination="Vuz-6E-XEm" kind="show" identifier="addReminder" id="dV7-l4-vQj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

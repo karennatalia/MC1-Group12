@@ -10,11 +10,24 @@ import Foundation
 typealias ReminderDict = [DayOfWeek: [Reminder]]
 
 class ReminderModel {
-   
-    var reminders = [DayOfWeek.sunday: [Reminder(time: Date.now)]] {
+    
+    private init() {}
+    
+    // Register as singleton
+    static let instance = ReminderModel()
+    
+    // Mutable list of reminders
+    private var _reminders = ReminderDict() {
         didSet {
-            // Update to database
+            // TODO: update changes to UserDefaults
         }
+    }
+    
+    // Dictionary of reminders with key as day and reminders array as value
+    //
+    // Immutable for access outside of model
+    var reminders: ReminderDict {
+        get { return _reminders }
     }
     
     // Array of days which has a reminder
@@ -45,16 +58,19 @@ class ReminderModel {
         return !reminders[day]!.isEmpty
     }
     
-    func addReminder(days: [DayOfWeek], time: Date) {
+    func addReminder(day: DayOfWeek, time: Date) {
         
-        // For each day of week
-        for day in days {
-            
-            // Add new reminder to array
-            let newReminder = Reminder(time: time)
-            
-            reminders[day]?.append(newReminder)
-        }
+        // Add new reminder to array
+        let newReminder = Reminder(time: time)
+        
+        // Get reminders for the day
+        var newRemindersList = _reminders[day] ?? []
+        
+        // Append new reminder to list
+        newRemindersList.append(newReminder)
+        
+        // Update key in dict
+        _reminders.updateValue(newRemindersList, forKey: day)
     }
     
     func removeReminder(targetId: UUID) {
@@ -67,12 +83,14 @@ class ReminderModel {
         }
     }
     
+    // TODO: implement getting reminders from UserDefaults
     func getReminders() {
         // Load reminders from db
         
         // If not found, set array as empty
     }
     
+    // TODO: implement
     func updateReminder(targetId: UUID, days: [DayOfWeek], time: Date) {
         
     }
