@@ -58,17 +58,17 @@ class ReminderModel {
         return !reminders[day]!.isEmpty
     }
     
-    func addReminder(day: DayOfWeek, time: Date) -> UUID {
+    func addReminder(day: DayOfWeek, time: Date, weekday: Int) -> UUID {
         
         // Add new reminder to array
-        let newReminder = Reminder(time: time)
+        let newReminder = Reminder(time: time, weekday: weekday)
         
         // Get reminders for the day
         var newRemindersList = _reminders[day] ?? []
         
         // Append new reminder to list
         newRemindersList.append(newReminder)
-        
+        print("TEST \(newRemindersList)")
         // Update key in dict
         _reminders.updateValue(newRemindersList, forKey: day)
         
@@ -96,7 +96,19 @@ class ReminderModel {
     }
     
     // TODO: implement
-    func updateReminder(targetId: UUID, days: [DayOfWeek], time: Date) {
+    func updateReminder(targetId: UUID, day: DayOfWeek, time: Date) {
         
+        print(day)
+        
+        // Get reminders for the day
+        var newRemindersList = _reminders[day] ?? []
+        
+        // Change the time in the list
+        let idx = newRemindersList.firstIndex(where: { reminder in reminder.id == targetId } )
+        newRemindersList[idx!].time = time
+        print("test \(newRemindersList[idx!])")
+        
+        // Update key in dict
+        _reminders.updateValue(newRemindersList, forKey: day)
     }
 }

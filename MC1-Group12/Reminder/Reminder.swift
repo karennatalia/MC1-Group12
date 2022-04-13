@@ -10,6 +10,7 @@ import Foundation
 struct Reminder : Identifiable {
     var id = UUID()
     var time: Date
+    var weekday: Int
     var isEnabled: Bool = true
     
     var formattedTime: String {

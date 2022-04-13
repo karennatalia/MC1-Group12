@@ -9,7 +9,7 @@ import UIKit
 import UserNotifications
 
 protocol ReminderViewControllerDelegate {
-    func addNewReminder(day: DayOfWeek, time: Date) -> UUID
+    func addNewReminder(day: DayOfWeek, time: Date, weekday: Int) -> UUID
 }
 
 class ReminderViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ReminderViewControllerDelegate {
@@ -35,7 +35,7 @@ class ReminderViewController: UIViewController, UITableViewDataSource, UITableVi
         }
         
         addReminderStoryboard.reminderDelegate = self
-        addReminderStoryboard.isEditSection = -1
+        addReminderStoryboard.isEditWeekday = -1
         
         self.present(addReminderStoryboard, animated: true, completion: nil)
     }
@@ -50,10 +50,15 @@ class ReminderViewController: UIViewController, UITableViewDataSource, UITableVi
             return
         }
         
+        let day = reminderModel.reminderDays[indexPath.section]
+        
+        if let reminder = reminderModel.reminders[day]?[indexPath.row] {
+            addReminderStoryboard.isEditWeekday = reminder.weekday
+        }
+        
         addReminderStoryboard.reminderDelegate = self
         addReminderStoryboard.isEditSection = indexPath.section
         addReminderStoryboard.isEditRow = indexPath.row
-        print(indexPath.row)
         
         self.present(addReminderStoryboard, animated: true, completion: nil)
     }
@@ -123,8 +128,8 @@ class ReminderViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
     
-    func addNewReminder(day: DayOfWeek, time: Date) -> UUID {
-        let id = reminderModel.addReminder(day: day, time: time)
+    func addNewReminder(day: DayOfWeek, time: Date, weekday: Int) -> UUID {
+        let id = reminderModel.addReminder(day: day, time: time, weekday: weekday)
         
         remindersTableView.reloadData()
         
