@@ -9,6 +9,8 @@ import Foundation
 import UIKit
 
 class ActivityDetailsViewController: UIViewController {
+    
+    @IBOutlet weak var vwContainer2:UIView!
 
     @IBOutlet weak var detailTitle: UITextView!
     @IBOutlet weak var detailAge: UIButton!
@@ -31,6 +33,14 @@ class ActivityDetailsViewController: UIViewController {
         detailReflect.text = selectedAct.reflection
         
         // Do any additional setup after loading the view.
+        
+        
+        vwContainer2.layer.shadowColor = UIColor.black.cgColor
+        vwContainer2.layer.shadowOffset = .zero
+        vwContainer2.layer.shadowOpacity = 0.5
+        vwContainer2.layer.shadowRadius = 15
+        vwContainer2.layer.shadowPath = UIBezierPath(rect: vwContainer2.bounds).cgPath
+        vwContainer2.layer.shouldRasterize = true
     }
     
 

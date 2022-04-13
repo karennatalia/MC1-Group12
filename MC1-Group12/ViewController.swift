@@ -3,12 +3,14 @@
 //  MC1-Group12
 //
 //  Created by Karen Natalia on 07/04/22.
-////
+//////
 
 import UIKit
 import UserNotifications
 
 class ViewController: UIViewController {
+    
+    @IBOutlet weak var vwContainer:UIView!
     
     @IBOutlet weak var ActTableView: UITableView!
     
@@ -47,6 +49,13 @@ class ViewController: UIViewController {
         ActTableView.dataSource = self
         searchBar.delegate = self
         
+        vwContainer.layer.shadowColor = UIColor.black.cgColor
+        vwContainer.layer.shadowOffset = .zero
+        vwContainer.layer.shadowOpacity = 0.5
+        vwContainer.layer.shadowRadius = 15
+        vwContainer.layer.shadowPath = UIBezierPath(rect: vwContainer.bounds).cgPath
+        vwContainer.layer.shouldRasterize = true
+        
         // Do any additional setup after loading the view.
         notifCenter.requestAuthorization(options: [.alert, .sound]) { granted, error in
             if granted == true {
@@ -56,6 +65,11 @@ class ViewController: UIViewController {
                 print("Permission Not Granted")
             }
         }
+    }
+    
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
     }
     
     @IBAction func unwindToHome(_ unwindSegue: UIStoryboardSegue) {

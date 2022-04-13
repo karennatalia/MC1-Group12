@@ -39,6 +39,15 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="horizontalMode" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tjv-uI-8sE">
+                                <rect key="frame" x="0.0" y="108" width="414" height="788"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="CornerRadius">
+                                        <integer key="value" value="35"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cF2-2C-JWu" customClass="CornerClass" customModule="MC1_Group12" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="108" width="414" height="788"/>
                                 <subviews>
@@ -140,14 +149,18 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="tjv-uI-8sE" firstAttribute="bottom" secondItem="cF2-2C-JWu" secondAttribute="bottom" id="7Oo-1m-rDn"/>
                             <constraint firstItem="cF2-2C-JWu" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="8wm-Xq-gYQ"/>
                             <constraint firstItem="cF2-2C-JWu" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="HZR-vP-JDb"/>
                             <constraint firstAttribute="bottom" secondItem="cF2-2C-JWu" secondAttribute="bottom" id="MyZ-yn-tLZ"/>
+                            <constraint firstItem="tjv-uI-8sE" firstAttribute="trailing" secondItem="cF2-2C-JWu" secondAttribute="trailing" id="Vza-Dt-GqO"/>
                             <constraint firstItem="dM8-jv-lbb" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="cSp-cE-NDE"/>
+                            <constraint firstItem="tjv-uI-8sE" firstAttribute="top" secondItem="cF2-2C-JWu" secondAttribute="top" id="fXE-An-sxI"/>
                             <constraint firstAttribute="trailing" secondItem="cF2-2C-JWu" secondAttribute="trailing" id="ikm-Rk-x50"/>
                             <constraint firstAttribute="trailing" secondItem="dM8-jv-lbb" secondAttribute="trailing" id="jGF-o1-DLE"/>
                             <constraint firstAttribute="bottom" secondItem="dM8-jv-lbb" secondAttribute="bottom" id="t3f-qe-kG0"/>
                             <constraint firstItem="dM8-jv-lbb" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="tzc-pC-4ml"/>
+                            <constraint firstItem="tjv-uI-8sE" firstAttribute="leading" secondItem="cF2-2C-JWu" secondAttribute="leading" id="z5L-ii-WL9"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -157,6 +170,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="remindersTableView" destination="oYO-mm-sGL" id="kHL-PT-hTU"/>
+                        <outlet property="vwContainer3" destination="tjv-uI-8sE" id="KtK-sh-5cL"/>
                         <segue destination="Vuz-6E-XEm" kind="show" identifier="addReminder" id="dV7-l4-vQj"/>
                     </connections>
                 </viewController>

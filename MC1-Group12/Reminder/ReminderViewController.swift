@@ -15,6 +15,8 @@ class ReminderViewController: UIViewController, UITableViewDataSource, UITableVi
     
     @IBOutlet weak var remindersTableView: UITableView!
     
+    @IBOutlet weak var vwContainer3:UIView!
+    
     let tableHeaderHeight = CGFloat(36)
     
     let reminderModel = ReminderModel.instance
@@ -23,6 +25,14 @@ class ReminderViewController: UIViewController, UITableViewDataSource, UITableVi
         super.viewDidLoad()
         
         reminderModel.getReminders()
+        
+        
+        vwContainer3.layer.shadowColor = UIColor.black.cgColor
+        vwContainer3.layer.shadowOffset = .zero
+        vwContainer3.layer.shadowOpacity = 0.5
+        vwContainer3.layer.shadowRadius = 15
+        vwContainer3.layer.shadowPath = UIBezierPath(rect: vwContainer3.bounds).cgPath
+        vwContainer3.layer.shouldRasterize = true
         
         remindersTableView.delegate = self
         remindersTableView.dataSource = self
