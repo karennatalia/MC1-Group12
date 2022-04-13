@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		395DA0BD2806591100523FA7 /* ActivityDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395DA0BC2806591100523FA7 /* ActivityDetailsViewController.swift */; };
 		39837A3C2803CA9500BA3192 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39837A3B2803CA9500BA3192 /* Onboarding.storyboard */; };
 		39837A3E2803CAC500BA3192 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39837A3D2803CAC500BA3192 /* OnboardingViewController.swift */; };
 		39837A442804759000BA3192 /* ActivityClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39837A432804759000BA3192 /* ActivityClass.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		395DA0BC2806591100523FA7 /* ActivityDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsViewController.swift; sourceTree = "<group>"; };
 		39837A3B2803CA9500BA3192 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		39837A3D2803CAC500BA3192 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		39837A432804759000BA3192 /* ActivityClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityClass.swift; sourceTree = "<group>"; };
@@ -84,9 +86,9 @@
 		394089A22805025D00817A2B /* Activity */ = {
 			isa = PBXGroup;
 			children = (
-				A170A289280658A80059BF4F /* ActivityDetailsViewController.swift */,
 				39837A432804759000BA3192 /* ActivityClass.swift */,
 				39837A452804882500BA3192 /* ActivitySeeder.swift */,
+				395DA0BC2806591100523FA7 /* ActivityDetailsViewController.swift */,
 			);
 			path = Activity;
 			sourceTree = "<group>";
@@ -417,6 +419,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "MC1-Group12/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "USay!";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -444,6 +447,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "MC1-Group12/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "USay!";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
