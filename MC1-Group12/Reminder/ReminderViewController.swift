@@ -9,7 +9,7 @@ import UIKit
 import UserNotifications
 
 protocol ReminderViewControllerDelegate {
-    func addNewReminder(day: DayOfWeek, time: Date, weekday: Int) -> UUID
+    func addNewReminder(day: DayOfWeek, time: Date) -> UUID
     func updateReminder(targetId: UUID, day: DayOfWeek, time: Date)
 }
 
@@ -55,8 +55,8 @@ class ReminderViewController: UIViewController, UITableViewDataSource, UITableVi
         
         let day = reminderModel.reminderDays[indexPath.section]
         
-        if let reminder = reminderModel.reminders[day]?[indexPath.row] {
-            addReminderStoryboard.isEditWeekday = reminder.weekday
+        if let weekday = DayOfWeek.allCases.firstIndex(of: day) {
+            addReminderStoryboard.isEditWeekday = weekday
         }
         
         addReminderStoryboard.reminderDelegate = self
@@ -151,8 +151,8 @@ class ReminderViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
     
-    func addNewReminder(day: DayOfWeek, time: Date, weekday: Int) -> UUID {
-        let id = reminderModel.addReminder(day: day, time: time, weekday: weekday)
+    func addNewReminder(day: DayOfWeek, time: Date) -> UUID {
+        let id = reminderModel.addReminder(day: day, time: time)
         
         remindersTableView.reloadData()
         

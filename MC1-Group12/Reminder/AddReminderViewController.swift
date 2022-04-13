@@ -267,7 +267,7 @@ class AddReminderViewController: UIViewController {
 
                 let time = self.timePicker.date
                 
-                let id = delegate.addNewReminder(day: DayOfWeek.allCases[weekday-1], time: time, weekday: weekday-1)
+                let id = delegate.addNewReminder(day: DayOfWeek.allCases[weekday-1], time: time)
 
                 if settings.authorizationStatus == .authorized {
                     self.scheduleNotif(id: id, time: time, weekday: weekday)

@@ -56,10 +56,10 @@ class ReminderModel {
         }
     }
     
-    func addReminder(day: DayOfWeek, time: Date, weekday: Int) -> UUID {
+    func addReminder(day: DayOfWeek, time: Date) -> UUID {
         
         // Add new reminder to array
-        let newReminder = Reminder(time: time, weekday: weekday)
+        let newReminder = Reminder(time: time)
         
         // Get reminders for the day
         var newRemindersList = _reminders[day] ?? []
