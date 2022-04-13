@@ -563,13 +563,13 @@
             </objects>
             <point key="canvasLocation" x="1690.7692307692307" y="748.57819905213262"/>
         </scene>
-        <!--ReminderView-->
+        <!--ReminderStoryboard-->
         <scene sceneID="bL5-T9-5ls">
             <objects>
-                <viewControllerPlaceholder storyboardName="Reminder" referencedIdentifier="ReminderView" id="DAK-Fj-7av" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IEd-Tm-0KI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="Reminder" referencedIdentifier="ReminderStoryboard" id="DAK-Fj-7av" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="pcY-7T-jUs"/>
                 </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="IEd-Tm-0KI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="36" y="469"/>
         </scene>
