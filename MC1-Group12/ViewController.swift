@@ -3,18 +3,21 @@
 //  MC1-Group12
 //
 //  Created by Karen Natalia on 07/04/22.
-////
+//////
 
 import UIKit
 import UserNotifications
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var ActTableView: UITableView!
+    @IBOutlet weak var vwContainer:UIView!
     
+    @IBOutlet weak var ActTableView: UITableView!
+    let userDefaults = UserDefaults.standard
     var activityList = [ActivityClass]()
     var filteredActList = [ActivityClass]()
     var isSearching = false
+    var isDoneArray = [Bool]().self
     
     @IBOutlet weak var searchBar: UISearchBar!
     
@@ -36,16 +39,46 @@ class ViewController: UIViewController {
 
     let notifCenter = UNUserNotificationCenter.current()
     
+    func changeIsDoneVal() {
+        isDoneArray = activityList.map({ $0.isDone })
+        
+        var indicatorDefault = false
+        if userDefaults.value(forKey: "defaultIsDone") is [Bool] {
+            // Do something with anyString
+            indicatorDefault = true
+        } else {
+            userDefaults.set(isDoneArray, forKey: "defaultIsDone")
+            indicatorDefault = false
+        }
+        let defaultIsDone = indicatorDefault ? userDefaults.object(forKey: "defaultIsDone") as! [Bool] : isDoneArray
+        
+        for (index,item) in defaultIsDone.enumerated() {
+            activityList[index].isDone = item
+        }
+        ActTableView.reloadData()
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        changeIsDoneVal()
+    }
     override func viewDidLoad() {
         
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         
         activityList = ActivitySeeder().generateActivity()
+        changeIsDoneVal()
         getWelcomeTime()
         super.viewDidLoad()
         ActTableView?.delegate = self
         ActTableView.dataSource = self
         searchBar.delegate = self
+        
+        vwContainer.layer.shadowColor = UIColor.black.cgColor
+        vwContainer.layer.shadowOffset = .zero
+        vwContainer.layer.shadowOpacity = 0.5
+        vwContainer.layer.shadowRadius = 15
+        vwContainer.layer.shadowPath = UIBezierPath(rect: vwContainer.bounds).cgPath
+        vwContainer.layer.shouldRasterize = true
         
         // Do any additional setup after loading the view.
         notifCenter.requestAuthorization(options: [.alert, .sound]) { granted, error in
@@ -58,8 +91,13 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func unwindToHome(_ unwindSegue: UIStoryboardSegue) {
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
     }
+    
+//    @IBAction func unwindToHome(_ unwindSegue: UIStoryboardSegue) {
+//    }
     
     @IBAction func toActivityDetails(_ sender: Any) {
         performSegue(withIdentifier: "toActivityDetail", sender: self)
@@ -89,12 +127,22 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
             actCell.ActivityDuration.setTitle(filteredActList[indexPath.section].duration, for: .normal)
             actCell.ActivityDuration.titleLabel?.font = UIFont(name: "SF Pro", size: 8)
             actCell.ActivityPreparation.setTitle(filteredActList[indexPath.section].preparation, for: .normal)
+            if filteredActList[indexPath.section].isDone == true {
+                actCell.isActivityDone.isHidden = false
+            } else if filteredActList[indexPath.section].isDone == false {
+                actCell.isActivityDone.isHidden = true
+            }
         } else {
             actCell.ActivityTitle?.text = activityList[indexPath.section].title
             actCell.ActivityAge?.text = activityList[indexPath.section].age
             actCell.ActivityDuration.setTitle(activityList[indexPath.section].duration, for: .normal)
             actCell.ActivityDuration.titleLabel?.font = UIFont(name: "SF Pro", size: 8)
             actCell.ActivityPreparation.setTitle(activityList[indexPath.section].preparation, for: .normal)
+            if activityList[indexPath.section].isDone == true {
+                actCell.isActivityDone.isHidden = false
+            } else if activityList[indexPath.section].isDone == false {
+                actCell.isActivityDone.isHidden = true
+            }
         }
         return actCell
     }
@@ -132,3 +180,4 @@ extension ViewController: UISearchBarDelegate {
         ActTableView.reloadData()
     }
 }
+

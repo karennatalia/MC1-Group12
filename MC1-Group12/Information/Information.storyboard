@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -163,7 +163,7 @@ based on age, time, and preparation preferences.</string>
                                             <color key="baseBackgroundColor" red="0.50196081400000003" green="0.231372565" blue="0.58039218189999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <segue destination="VfW-VY-9pT" kind="unwind" unwindAction="unwindToHome:" id="Pbv-iH-zOF"/>
+                                            <segue destination="Yc6-nd-HVn" kind="show" id="e50-fJ-rUW"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -189,14 +189,27 @@ based on age, time, and preparation preferences.</string>
                     </view>
                     <connections>
                         <outlet property="okButton" destination="zPN-8A-iSl" id="0XD-Sr-hAl"/>
+                        <segue destination="Yc6-nd-HVn" kind="show" id="zcW-hy-09m"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="VfW-VY-9pT" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="35" y="76"/>
         </scene>
+        <!--Main-->
+        <scene sceneID="VSf-0V-4so">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="Yc6-nd-HVn" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Wnv-VY-4Nt"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p4A-DX-n5y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="890" y="70"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="e50-fJ-rUW"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.up.bin" catalog="system" width="128" height="93"/>
         <image name="bell" catalog="system" width="128" height="124"/>
