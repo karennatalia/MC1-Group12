@@ -76,42 +76,121 @@ class FilterPopUpViewController: UIViewController {
                     ageButtons[index].tintColor = UIColor.black
                 }
             
+            
             case "duration":
-                selectedDuration[index] = !selectedDuration[index]
-                
-                if selectedDuration[index] {
-                    durationButtons[index].backgroundColor = UIColor.purple
-                    durationButtons[index].tintColor = UIColor.white
-                } else {
-                    durationButtons[index].backgroundColor = UIColor.systemGray6
-                    durationButtons[index].tintColor = UIColor.black
+                //cek apakah ada yg true di selectedduration
+                var selectedIndex = -1
+                if selectedDuration.contains(where: { $0 == true }) {
+                    selectedIndex = selectedDuration.firstIndex(where: { $0 == true })!
                 }
-                
-            case "preparation":
-                selectedPreparation[index] = !selectedPreparation[index]
-                
-                if selectedPreparation[index] {
-                    preparationButtons[index].backgroundColor = UIColor.purple
-                    preparationButtons[index].tintColor = UIColor.white
-                } else {
-                    preparationButtons[index].backgroundColor = UIColor.systemGray6
-                    preparationButtons[index].tintColor = UIColor.black
+                //jika ada jadikan false
+                if selectedIndex > -1 {
+                    selectedDuration[selectedIndex] = false
+                    //ubah appearance btn nya
+                    durationButtons[selectedIndex].backgroundColor = UIColor.systemGray6
+                    durationButtons[selectedIndex].tintColor = UIColor.black
+                }
+                    
+                if selectedIndex != index {
+                    selectedDuration[index] = !selectedDuration[index]
+                    
+                    if selectedDuration[index] {
+                        durationButtons[index].backgroundColor = UIColor.purple
+                        durationButtons[index].tintColor = UIColor.white
+                    } else {
+                        durationButtons[index].backgroundColor = UIColor.systemGray6
+                        durationButtons[index].tintColor = UIColor.black
+                    }
                 }
             
-            case "status":
-                selectedStatus[index] = !selectedStatus[index]
-                
-                if selectedStatus[index] {
-                    statusButtons[index].backgroundColor = UIColor.purple
-                    statusButtons[index].tintColor = UIColor.white
-                } else {
-                    statusButtons[index].backgroundColor = UIColor.systemGray6
-                    statusButtons[index].tintColor = UIColor.black
+            
+            case "preparation":
+                var selectedIndex = -1
+                if selectedPreparation.contains(where: { $0 == true }) {
+                    selectedIndex = selectedPreparation.firstIndex(where: { $0 == true })!
                 }
+                if selectedIndex > -1 {
+                    selectedPreparation[selectedIndex] = false
+                    //ubah appearance btn nya
+                    preparationButtons[selectedIndex].backgroundColor = UIColor.systemGray6
+                    preparationButtons[selectedIndex].tintColor = UIColor.black
+                }
+                
+                if selectedIndex != index {
+                    selectedPreparation[index] = !selectedPreparation[index]
+                    
+                    if selectedPreparation[index] {
+                        preparationButtons[index].backgroundColor = UIColor.purple
+                        preparationButtons[index].tintColor = UIColor.white
+                    } else {
+                        preparationButtons[index].backgroundColor = UIColor.systemGray6
+                        preparationButtons[index].tintColor = UIColor.black
+                    }
+                }
+            
+            
+            case "status":
+                var selectedIndex = -1
+                if selectedStatus.contains(where: { $0 == true }) {
+                    selectedIndex = selectedStatus.firstIndex(where: { $0 == true })!
+                }
+                
+                if selectedIndex > -1 {
+                    selectedStatus[selectedIndex] = false
+                    //ubah appearance btn nya
+                    statusButtons[selectedIndex].backgroundColor = UIColor.systemGray6
+                    statusButtons[selectedIndex].tintColor = UIColor.black
+                }
+                
+                if selectedIndex != index {
+                    selectedStatus[index] = !selectedStatus[index]
+                    
+                    if selectedStatus[index] {
+                        statusButtons[index].backgroundColor = UIColor.purple
+                        statusButtons[index].tintColor = UIColor.white
+                    } else {
+                        statusButtons[index].backgroundColor = UIColor.systemGray6
+                        statusButtons[index].tintColor = UIColor.black
+                    }
+                }
+            
             
             default:
                 return
         }
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let browserPageController = segue.destination as! ViewController
+        var duration = 0
+        var preparation = [String]()
+        var status = [Bool]()
+
+        //get selected duration
+        for i in 0...selectedDuration.count-1 {
+            if selectedDuration[i] {
+                duration = (i+1)*5
+            }
+        }
+        
+        //get selected preparation
+        if selectedPreparation[0] {
+            preparation.append("Low")
+        } else if selectedPreparation[1] {
+            preparation.append("High")
+        }
+        
+        //get selected status
+        if selectedStatus[0] {
+            status.append(false)
+        } else if selectedStatus[1] {
+            status.append(true)
+        }
+        
+//        browserPageController.receivedDurationFilter = duration
+//        browserPageController.receivedPreparationFilter = preparation
+//        browserPageController.receivedStatusFilter = status
     }
     
     
@@ -174,9 +253,5 @@ class FilterPopUpViewController: UIViewController {
     
     @IBAction func btnStatusDoneClicked(_ sender: UIButton) {
         buttonSelected(buttonCategory: "status", index: 1)
-    }
-    
-    @IBAction func applyBtnClicked(_ sender: UIButton) {
-        
     }
 }

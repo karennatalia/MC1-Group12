@@ -12,16 +12,16 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MC1_Group12" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BrowsePage" modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="ViewController" customModule="MC1_Group12" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="GradientViewClass" customModule="MC1_Group12" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LRb-oO-fiZ" customClass="CornerClass" customModule="MC1_Group12" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="152" width="390" height="692"/>
+                                <rect key="frame" x="0.0" y="152.66666666666669" width="390" height="691.33333333333326"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="AUc-yn-NiC" userLabel="ActivitiesHeading">
-                                        <rect key="frame" x="22" y="21.999999999999996" width="193.66666666666666" height="40.666666666666657"/>
+                                        <rect key="frame" x="22" y="22.333333333333339" width="193.66666666666666" height="40.666666666666657"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Activities" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jtG-sO-68O">
                                                 <rect key="frame" x="0.0" y="0.0" width="148.33333333333334" height="40.666666666666664"/>
@@ -41,11 +41,11 @@
                                         </subviews>
                                     </stackView>
                                     <searchBar contentMode="redraw" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="Ogh-vu-fQC">
-                                        <rect key="frame" x="8" y="63" width="322" height="52"/>
+                                        <rect key="frame" x="8" y="63.333333333333343" width="322" height="51"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </searchBar>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="95" estimatedRowHeight="-1" sectionHeaderHeight="1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="9" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="4Wd-8d-TWF">
-                                        <rect key="frame" x="0.0" y="125" width="390" height="567"/>
+                                        <rect key="frame" x="0.0" y="124.33333333333337" width="390" height="567"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="567" id="dtE-3t-bUh"/>
@@ -181,6 +181,9 @@
                                             <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="15"/>
                                             <color key="baseForegroundColor" red="0.46274509803921571" green="0.46274509803921571" blue="0.46274509803921571" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <segue destination="89N-TQ-C1c" kind="presentation" id="IJp-aA-sJo"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -207,11 +210,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ued-fc-gnA">
-                                <rect key="frame" x="22" y="73" width="300" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="PDx-hl-ilI"/>
-                                    <constraint firstAttribute="width" constant="300" id="ZZ4-r4-wBa"/>
-                                </constraints>
+                                <rect key="frame" x="22" y="73" width="224" height="40.666666666666657"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Good Morning">
                                         <attributes>
@@ -224,7 +223,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vEb-Xe-ZkS">
-                                <rect key="frame" x="21.999999999999986" y="93" width="238.66666666666663" height="41"/>
+                                <rect key="frame" x="21.999999999999986" y="93.666666666666671" width="238.66666666666663" height="41.000000000000014"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Are you ready for today’s activity?">
                                         <attributes>
@@ -259,7 +258,6 @@
                         <constraints>
                             <constraint firstItem="ued-fc-gnA" firstAttribute="leading" secondItem="BU2-Ih-AMM" secondAttribute="leading" constant="22" id="2am-LQ-2xd"/>
                             <constraint firstItem="vEb-Xe-ZkS" firstAttribute="leading" secondItem="BU2-Ih-AMM" secondAttribute="leading" constant="21.999999999999986" id="5R5-FJ-Dwa"/>
-                            <constraint firstItem="vEb-Xe-ZkS" firstAttribute="top" secondItem="BU2-Ih-AMM" secondAttribute="top" constant="5" id="EzM-vC-lQX"/>
                             <constraint firstItem="LRb-oO-fiZ" firstAttribute="top" secondItem="vEb-Xe-ZkS" secondAttribute="bottom" constant="18" id="SJE-de-uAj"/>
                             <constraint firstItem="ued-fc-gnA" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="73" id="aGw-JG-xQp"/>
                             <constraint firstItem="Imi-Xb-T8f" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="75" id="ck5-qQ-Xtm"/>
@@ -289,6 +287,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1873.8461538461538" y="68.957345971563981"/>
+        </scene>
+        <!--filterPopUp-->
+        <scene sceneID="hVd-fq-g1R">
+            <objects>
+                <viewControllerPlaceholder storyboardName="FilterPopUp" referencedIdentifier="filterPopUp" id="89N-TQ-C1c" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BvM-fy-xzt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2578" y="112"/>
         </scene>
         <!--ReminderStoryboard-->
         <scene sceneID="vmC-eo-lGF">
