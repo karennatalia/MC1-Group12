@@ -7,11 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		395DA0BD2806591100523FA7 /* ActivityDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395DA0BC2806591100523FA7 /* ActivityDetailsViewController.swift */; };
 		39837A3C2803CA9500BA3192 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39837A3B2803CA9500BA3192 /* Onboarding.storyboard */; };
 		39837A3E2803CAC500BA3192 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39837A3D2803CAC500BA3192 /* OnboardingViewController.swift */; };
+		39837A442804759000BA3192 /* ActivityClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39837A432804759000BA3192 /* ActivityClass.swift */; };
+		39837A462804882500BA3192 /* ActivitySeeder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39837A452804882500BA3192 /* ActivitySeeder.swift */; };
+		39837A4B280495CB00BA3192 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39837A4A280495CB00BA3192 /* TableViewCell.swift */; };
 		39B497B127FF295F009B4FFA /* GradientViewClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B497B027FF295F009B4FFA /* GradientViewClass.swift */; };
 		39B497B327FF2A61009B4FFA /* CornerClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B497B227FF2A61009B4FFA /* CornerClass.swift */; };
-		58076D9A2803DD7F00CFA4BF /* ActivityDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58076D992803DD7F00CFA4BF /* ActivityDetailsViewController.swift */; };
 		5F1A069F27FE9E61000BEC17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1A069E27FE9E61000BEC17 /* AppDelegate.swift */; };
 		5F1A06A127FE9E61000BEC17 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1A06A027FE9E61000BEC17 /* SceneDelegate.swift */; };
 		5F1A06A327FE9E61000BEC17 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F1A06A227FE9E61000BEC17 /* ViewController.swift */; };
@@ -31,11 +34,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		395DA0BC2806591100523FA7 /* ActivityDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetailsViewController.swift; sourceTree = "<group>"; };
 		39837A3B2803CA9500BA3192 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		39837A3D2803CAC500BA3192 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		39837A432804759000BA3192 /* ActivityClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityClass.swift; sourceTree = "<group>"; };
+		39837A452804882500BA3192 /* ActivitySeeder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitySeeder.swift; sourceTree = "<group>"; };
+		39837A4A280495CB00BA3192 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TableViewCell.swift; path = "MC1-Group12/TableView/TableViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		39B497B027FF295F009B4FFA /* GradientViewClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientViewClass.swift; sourceTree = "<group>"; };
 		39B497B227FF2A61009B4FFA /* CornerClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerClass.swift; sourceTree = "<group>"; };
-		58076D992803DD7F00CFA4BF /* ActivityDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ActivityDetailsViewController.swift; path = Onboarding/ActivityDetailsViewController.swift; sourceTree = "<group>"; };
 		5F1A069B27FE9E61000BEC17 /* MC1-Group12.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MC1-Group12.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F1A069E27FE9E61000BEC17 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5F1A06A027FE9E61000BEC17 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +73,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		394089A22805025D00817A2B /* Activity */ = {
+			isa = PBXGroup;
+			children = (
+				39837A432804759000BA3192 /* ActivityClass.swift */,
+				39837A452804882500BA3192 /* ActivitySeeder.swift */,
+				395DA0BC2806591100523FA7 /* ActivityDetailsViewController.swift */,
+			);
+			path = Activity;
+			sourceTree = "<group>";
+		};
 		39837A3A2803C9F100BA3192 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
@@ -75,6 +91,14 @@
 				E969ADED2805289A00F5C5D1 /* FirstLaunchViewController.swift */,
 			);
 			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		39837A472804954F00BA3192 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				39837A4A280495CB00BA3192 /* TableViewCell.swift */,
+			);
+			path = TableView;
 			sourceTree = "<group>";
 		};
 		5F1A069227FE9E61000BEC17 = {
@@ -103,14 +127,15 @@
 				A12DF2292804762E00CE3AEF /* Main.storyboard */,
 				C2F6ECD72803DAE000072047 /* fonts */,
 				5F1A06A027FE9E61000BEC17 /* SceneDelegate.swift */,
+				39837A472804954F00BA3192 /* TableView */,
 				5F1A06A227FE9E61000BEC17 /* ViewController.swift */,
+				394089A22805025D00817A2B /* Activity */,
 				39B497B227FF2A61009B4FFA /* CornerClass.swift */,
 				39B497B027FF295F009B4FFA /* GradientViewClass.swift */,
 				5F1A06AA27FE9E62000BEC17 /* Assets.xcassets */,
 				5F1A06AC27FE9E62000BEC17 /* LaunchScreen.storyboard */,
 				5F1A06AF27FE9E62000BEC17 /* Info.plist */,
 				5F1A06A727FE9E61000BEC17 /* MC1_Group12.xcdatamodeld */,
-				58076D992803DD7F00CFA4BF /* ActivityDetailsViewController.swift */,
 			);
 			path = "MC1-Group12";
 			sourceTree = "<group>";
@@ -221,13 +246,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				395DA0BD2806591100523FA7 /* ActivityDetailsViewController.swift in Sources */,
+				39837A4B280495CB00BA3192 /* TableViewCell.swift in Sources */,
 				5F1A06A927FE9E61000BEC17 /* MC1_Group12.xcdatamodeld in Sources */,
 				39B497B327FF2A61009B4FFA /* CornerClass.swift in Sources */,
 				5F1A06A327FE9E61000BEC17 /* ViewController.swift in Sources */,
 				39837A3E2803CAC500BA3192 /* OnboardingViewController.swift in Sources */,
+				39837A462804882500BA3192 /* ActivitySeeder.swift in Sources */,
+				39837A442804759000BA3192 /* ActivityClass.swift in Sources */,
 				E969ADEE2805289A00F5C5D1 /* FirstLaunchViewController.swift in Sources */,
 				5F1F7E3F280528BA003F91F2 /* AddReminderViewController.swift in Sources */,
-				58076D9A2803DD7F00CFA4BF /* ActivityDetailsViewController.swift in Sources */,
 				5F1A069F27FE9E61000BEC17 /* AppDelegate.swift in Sources */,
 				39B497B127FF295F009B4FFA /* GradientViewClass.swift in Sources */,
 				A128114F280473FA00D50963 /* ReminderViewController.swift in Sources */,
