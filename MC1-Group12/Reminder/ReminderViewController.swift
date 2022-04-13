@@ -24,6 +24,7 @@ class ReminderViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        reminderModel.getReminders()
         
         
         vwContainer3.layer.shadowColor = UIColor.black.cgColor
