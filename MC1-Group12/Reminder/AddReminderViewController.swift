@@ -23,6 +23,7 @@ class AddReminderViewController: UIViewController {
     
     let notifCenter = UNUserNotificationCenter.current()
     var selectedWeekday:[Int] = [0,0,0,0,0,0,0]
+    var isEdit:Int = -1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +42,60 @@ class AddReminderViewController: UIViewController {
         thursdayBtnUI.layer.cornerRadius = 5
         fridayBtnUI.layer.cornerRadius = 5
         saturdayBtnUI.layer.cornerRadius = 5
+        print(isEdit)
+        if isEdit > 0 {
+            disableAllButtons()
+            enableSelectedButton()
+        }
         
+    }
+    
+    func disableAllButtons() {
+        sundayBtnUI.isEnabled = false
+        mondayBtnUI.isEnabled = false
+        tuesdayBtnUI.isEnabled = false
+        wednesdayBtnUI.isEnabled = false
+        thursdayBtnUI.isEnabled = false
+        fridayBtnUI.isEnabled = false
+        saturdayBtnUI.isEnabled = false
+    }
+    
+    func enableSelectedButton() {
+        if isEdit == 0 {
+            sundayBtnUI.isEnabled = true
+            sundayBtnUI.backgroundColor = UIColor.purple
+            sundayBtnUI.tintColor = UIColor.white
+        }
+        else if isEdit == 1 {
+            mondayBtnUI.isEnabled = true
+            mondayBtnUI.backgroundColor = UIColor.purple
+            mondayBtnUI.tintColor = UIColor.white
+        }
+        else if isEdit == 2 {
+            tuesdayBtnUI.isEnabled = true
+            tuesdayBtnUI.backgroundColor = UIColor.purple
+            tuesdayBtnUI.tintColor = UIColor.white
+        }
+        else if isEdit == 3 {
+            wednesdayBtnUI.isEnabled = true
+            wednesdayBtnUI.backgroundColor = UIColor.purple
+            wednesdayBtnUI.tintColor = UIColor.white
+        }
+        else if isEdit == 4 {
+            thursdayBtnUI.isEnabled = true
+            thursdayBtnUI.backgroundColor = UIColor.purple
+            thursdayBtnUI.tintColor = UIColor.white
+        }
+        else if isEdit == 5 {
+            fridayBtnUI.isEnabled = true
+            fridayBtnUI.backgroundColor = UIColor.purple
+            fridayBtnUI.tintColor = UIColor.white
+        }
+        else if isEdit == 6 {
+            saturdayBtnUI.isEnabled = true
+            saturdayBtnUI.backgroundColor = UIColor.purple
+            saturdayBtnUI.tintColor = UIColor.white
+        }
     }
     
     @IBAction func SundayClicked(_ sender: UIButton) {

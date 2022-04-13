@@ -35,6 +35,7 @@ class ReminderViewController: UIViewController, UITableViewDataSource, UITableVi
         }
         
         addReminderStoryboard.reminderDelegate = self
+        addReminderStoryboard.isEdit = -1
         
         self.present(addReminderStoryboard, animated: true, completion: nil)
     }
@@ -42,6 +43,17 @@ class ReminderViewController: UIViewController, UITableViewDataSource, UITableVi
     func numberOfSections(in tableView: UITableView) -> Int {
         
         return reminderModel.reminderDays.count
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let addReminderStoryboard = storyboard?.instantiateViewController(withIdentifier: "AddReminderStoryboard") as? AddReminderViewController else {
+            return
+        }
+        
+        addReminderStoryboard.reminderDelegate = self
+        addReminderStoryboard.isEdit = indexPath.section
+        
+        self.present(addReminderStoryboard, animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
