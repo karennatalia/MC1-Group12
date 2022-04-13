@@ -37,6 +37,9 @@ class ViewController: UIViewController {
     let notifCenter = UNUserNotificationCenter.current()
     
     override func viewDidLoad() {
+        
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+        
         activityList = ActivitySeeder().generateActivity()
         getWelcomeTime()
         super.viewDidLoad()
