@@ -72,8 +72,8 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-    @IBAction func unwindToHome(_ unwindSegue: UIStoryboardSegue) {
-    }
+//    @IBAction func unwindToHome(_ unwindSegue: UIStoryboardSegue) {
+//    }
     
     @IBAction func toActivityDetails(_ sender: Any) {
         performSegue(withIdentifier: "toActivityDetail", sender: self)
