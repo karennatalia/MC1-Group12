@@ -351,6 +351,16 @@
                                     <rect key="frame" x="0.0" y="0.0" width="390" height="856"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rlG-a0-huo">
+                                            <rect key="frame" x="0.0" y="254" width="390" height="469"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="CornerRadius">
+                                                    <integer key="value" value="35"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Let's Build a House" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Vxc-YS-g8b">
                                             <rect key="frame" x="22" y="158" width="342" height="100"/>
                                             <constraints>
@@ -581,6 +591,7 @@
                         <outlet property="detailPreparation" destination="7Fq-AO-H3O" id="059-P7-lOh"/>
                         <outlet property="detailReflect" destination="A23-dQ-rpH" id="zPV-4S-Epl"/>
                         <outlet property="detailTitle" destination="Vxc-YS-g8b" id="D6h-zL-7vt"/>
+                        <outlet property="vwContainer2" destination="rlG-a0-huo" id="fA5-QU-fsN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jI5-Jf-1d8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
