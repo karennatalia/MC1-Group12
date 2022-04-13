@@ -220,11 +220,6 @@ class AddReminderViewController: UIViewController {
             
             delegate.updateReminder(targetId: reminder.id, day: day, time: time)
             
-            // If reminder is disabled, don't update notif
-            if !reminder.isEnabled {
-                return
-            }
-            
             notifCenter.removePendingNotificationRequests(withIdentifiers: ["\(reminder.id.uuidString)"])
             
             scheduleNotif(id: reminder.id, time: time, weekday: isEditWeekday+1)

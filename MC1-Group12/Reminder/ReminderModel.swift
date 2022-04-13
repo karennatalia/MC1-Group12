@@ -111,6 +111,7 @@ class ReminderModel {
             return
         }
         newRemindersList[idx].time = time
+        newRemindersList[idx].isEnabled = true
         
         // Update key in dict
         _reminders.updateValue(newRemindersList, forKey: day)
