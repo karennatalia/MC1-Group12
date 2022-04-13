@@ -11,6 +11,7 @@ import UserNotifications
 class AddReminderViewController: UIViewController {
     
     var reminderDelegate : ReminderViewControllerDelegate?
+    let reminderModel = ReminderModel.instance
     
     @IBOutlet weak var sundayBtnUI: UIButton!
     @IBOutlet weak var mondayBtnUI: UIButton!
@@ -23,7 +24,8 @@ class AddReminderViewController: UIViewController {
     
     let notifCenter = UNUserNotificationCenter.current()
     var selectedWeekday:[Int] = [0,0,0,0,0,0,0]
-    var isEdit:Int = -1
+    var isEditSection:Int = -1
+    var isEditRow:Int = -1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,12 +44,12 @@ class AddReminderViewController: UIViewController {
         thursdayBtnUI.layer.cornerRadius = 5
         fridayBtnUI.layer.cornerRadius = 5
         saturdayBtnUI.layer.cornerRadius = 5
-        print(isEdit)
-        if isEdit > 0 {
+        
+        if isEditSection >= 0 {
             disableAllButtons()
             enableSelectedButton()
+            setPreviousTime()
         }
-        
     }
     
     func disableAllButtons() {
@@ -61,40 +63,47 @@ class AddReminderViewController: UIViewController {
     }
     
     func enableSelectedButton() {
-        if isEdit == 0 {
+        if isEditSection == 0 {
             sundayBtnUI.isEnabled = true
             sundayBtnUI.backgroundColor = UIColor.purple
             sundayBtnUI.tintColor = UIColor.white
         }
-        else if isEdit == 1 {
+        else if isEditSection == 1 {
             mondayBtnUI.isEnabled = true
             mondayBtnUI.backgroundColor = UIColor.purple
             mondayBtnUI.tintColor = UIColor.white
         }
-        else if isEdit == 2 {
+        else if isEditSection == 2 {
             tuesdayBtnUI.isEnabled = true
             tuesdayBtnUI.backgroundColor = UIColor.purple
             tuesdayBtnUI.tintColor = UIColor.white
         }
-        else if isEdit == 3 {
+        else if isEditSection == 3 {
             wednesdayBtnUI.isEnabled = true
             wednesdayBtnUI.backgroundColor = UIColor.purple
             wednesdayBtnUI.tintColor = UIColor.white
         }
-        else if isEdit == 4 {
+        else if isEditSection == 4 {
             thursdayBtnUI.isEnabled = true
             thursdayBtnUI.backgroundColor = UIColor.purple
             thursdayBtnUI.tintColor = UIColor.white
         }
-        else if isEdit == 5 {
+        else if isEditSection == 5 {
             fridayBtnUI.isEnabled = true
             fridayBtnUI.backgroundColor = UIColor.purple
             fridayBtnUI.tintColor = UIColor.white
         }
-        else if isEdit == 6 {
+        else if isEditSection == 6 {
             saturdayBtnUI.isEnabled = true
             saturdayBtnUI.backgroundColor = UIColor.purple
             saturdayBtnUI.tintColor = UIColor.white
+        }
+    }
+    
+    func setPreviousTime() {
+        let day = reminderModel.reminderDays[isEditSection]
+        if let reminder = reminderModel.reminders[day]?[isEditRow] {
+            timePicker.setDate(reminder.time, animated: false)
         }
     }
     

@@ -35,7 +35,7 @@ class ReminderViewController: UIViewController, UITableViewDataSource, UITableVi
         }
         
         addReminderStoryboard.reminderDelegate = self
-        addReminderStoryboard.isEdit = -1
+        addReminderStoryboard.isEditSection = -1
         
         self.present(addReminderStoryboard, animated: true, completion: nil)
     }
@@ -51,7 +51,9 @@ class ReminderViewController: UIViewController, UITableViewDataSource, UITableVi
         }
         
         addReminderStoryboard.reminderDelegate = self
-        addReminderStoryboard.isEdit = indexPath.section
+        addReminderStoryboard.isEditSection = indexPath.section
+        addReminderStoryboard.isEditRow = indexPath.row
+        print(indexPath.row)
         
         self.present(addReminderStoryboard, animated: true, completion: nil)
     }
