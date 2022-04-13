@@ -11,6 +11,7 @@ import UserNotifications
 class AddReminderViewController: UIViewController {
     
     var reminderDelegate : ReminderViewControllerDelegate?
+    let reminderModel = ReminderModel.instance
     
     @IBOutlet weak var sundayBtnUI: UIButton!
     @IBOutlet weak var mondayBtnUI: UIButton!
@@ -23,6 +24,9 @@ class AddReminderViewController: UIViewController {
     
     let notifCenter = UNUserNotificationCenter.current()
     var selectedWeekday:[Int] = [0,0,0,0,0,0,0]
+    var isEditSection:Int = -1
+    var isEditWeekday:Int = -1
+    var isEditRow:Int = -1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +46,66 @@ class AddReminderViewController: UIViewController {
         fridayBtnUI.layer.cornerRadius = 5
         saturdayBtnUI.layer.cornerRadius = 5
         
+        if isEditSection >= 0 {
+            disableAllButtons()
+            enableSelectedButton()
+            setPreviousTime()
+        }
+    }
+    
+    func disableAllButtons() {
+        sundayBtnUI.isEnabled = false
+        mondayBtnUI.isEnabled = false
+        tuesdayBtnUI.isEnabled = false
+        wednesdayBtnUI.isEnabled = false
+        thursdayBtnUI.isEnabled = false
+        fridayBtnUI.isEnabled = false
+        saturdayBtnUI.isEnabled = false
+    }
+    
+    func enableSelectedButton() {
+        if isEditWeekday == 0 {
+            sundayBtnUI.isEnabled = true
+            sundayBtnUI.backgroundColor = UIColor.purple
+            sundayBtnUI.tintColor = UIColor.white
+        }
+        else if isEditWeekday == 1 {
+            mondayBtnUI.isEnabled = true
+            mondayBtnUI.backgroundColor = UIColor.purple
+            mondayBtnUI.tintColor = UIColor.white
+        }
+        else if isEditWeekday == 2 {
+            tuesdayBtnUI.isEnabled = true
+            tuesdayBtnUI.backgroundColor = UIColor.purple
+            tuesdayBtnUI.tintColor = UIColor.white
+        }
+        else if isEditWeekday == 3 {
+            wednesdayBtnUI.isEnabled = true
+            wednesdayBtnUI.backgroundColor = UIColor.purple
+            wednesdayBtnUI.tintColor = UIColor.white
+        }
+        else if isEditWeekday == 4 {
+            thursdayBtnUI.isEnabled = true
+            thursdayBtnUI.backgroundColor = UIColor.purple
+            thursdayBtnUI.tintColor = UIColor.white
+        }
+        else if isEditWeekday == 5 {
+            fridayBtnUI.isEnabled = true
+            fridayBtnUI.backgroundColor = UIColor.purple
+            fridayBtnUI.tintColor = UIColor.white
+        }
+        else if isEditWeekday == 6 {
+            saturdayBtnUI.isEnabled = true
+            saturdayBtnUI.backgroundColor = UIColor.purple
+            saturdayBtnUI.tintColor = UIColor.white
+        }
+    }
+    
+    func setPreviousTime() {
+        let day = reminderModel.reminderDays[isEditSection]
+        if let reminder = reminderModel.reminders[day]?[isEditRow] {
+            timePicker.setDate(reminder.time, animated: false)
+        }
     }
     
     @IBAction func SundayClicked(_ sender: UIButton) {
@@ -137,52 +201,59 @@ class AddReminderViewController: UIViewController {
     }
     
     @IBAction func SetReminderAction(_ sender: Any) {
-        if checkIfDaySelected() == 1 {
-            /// Check if user have allowed notifications permission
-            notifCenter.getNotificationSettings { settings in
-                
-                if settings.authorizationStatus != .authorized {
-                    DispatchQueue.main.async {
-                        let alert = UIAlertController(title: "Notifications Permissions", message: "To use this feature, you need to allow notification permission.\nWould you like to allow it?", preferredStyle: .alert)
-
-                        /// Open settings if user want to allow permissions
-                        let yesAction = UIAlertAction(title: "Yes", style: .default) { action in
-                            guard let settingsURL = URL(string: UIApplication.openSettingsURLString)
-                            else {
-                                return
-                            }
         
-                            if(UIApplication.shared.canOpenURL(settingsURL)) {
-                                UIApplication.shared.open(settingsURL) { (_) in
-                                }
-                            }
-                        }
-                        let noAction = UIAlertAction(title: "No", style: .destructive, handler: nil)
-        
-                        alert.addAction(yesAction)
-                        alert.addAction(noAction)
-                        self.present(alert, animated: true, completion: nil)
-                    }
+        if isEditWeekday >= 0 { /// edit reminder
+            defer {
+                DispatchQueue.main.async {
+                    self.dismiss(animated: true)
                 }
-                else {
-                    for (index, weekday) in self.selectedWeekday.enumerated() {
-                        if weekday == 1 {
-                            self.setReminder(weekday: index)
+            }
+            
+            let time = timePicker.date
+            let day = reminderModel.reminderDays[isEditSection]
+            
+            guard let delegate = self.reminderDelegate else { return }
+            
+            guard let reminder = reminderModel.reminders[day]?[isEditRow] else { return }
+            
+            timePicker.setDate(reminder.time, animated: false)
+            
+            delegate.updateReminder(targetId: reminder.id, day: day, time: time)
+            
+            notifCenter.removePendingNotificationRequests(withIdentifiers: ["\(reminder.id.uuidString)"])
+            
+            scheduleNotif(id: reminder.id, time: time, weekday: isEditWeekday+1)
+            
+        }
+        else { /// add reminder
+            if checkIfDaySelected() == 1 {
+                /// Check if user have allowed notifications permission
+                notifCenter.getNotificationSettings { settings in
+                    
+                    if settings.authorizationStatus != .authorized {
+                        DispatchQueue.main.async {
+                            self.askPermissionAlert()
                         }
                     }
-                    DispatchQueue.main.async {
-                        self.dismiss(animated: true)
+                    else {
+                        for (index, weekday) in self.selectedWeekday.enumerated() {
+                            if weekday == 1 {
+                                self.setReminder(weekday: index+1)
+                            }
+                        }
+                        DispatchQueue.main.async {
+                            self.dismiss(animated: true)
+                        }
                     }
                 }
             }
+            else {
+                let alert = UIAlertController(title: "Choose a Day", message: "Please choose minimum 1 day to add the reminder", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alert.addAction(okAction)
+                present(alert, animated: true, completion: nil)
+            }
         }
-        else {
-            let alert = UIAlertController(title: "Choose a Day", message: "Pleas choose minimum 1 day to add the reminder", preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-            alert.addAction(okAction)
-            present(alert, animated: true, completion: nil)
-        }
-        
     }
     
     func setReminder(weekday:Int) {
@@ -190,52 +261,60 @@ class AddReminderViewController: UIViewController {
         notifCenter.getNotificationSettings { settings in
             
             DispatchQueue.main.async {
+                guard let delegate = self.reminderDelegate else { return }
+
                 let time = self.timePicker.date
                 
-                self.reminderDelegate?.addNewReminder(day: DayOfWeek.allCases[weekday], time: time)
+                let id = delegate.addNewReminder(day: DayOfWeek.allCases[weekday-1], time: time)
 
                 if settings.authorizationStatus == .authorized {
-                    
-                    /// Set the content of notifications
-                    let reminderContent = UNMutableNotificationContent()
-                    reminderContent.title = "Hi parents, it's time for activity!"
-                    reminderContent.body = "Don't forget to do activity with your child to make sure they get enough interaction"
-                    reminderContent.sound = .default
-                    
-                    /// Set trigger "WHEN" to send the notifications
-                    var reminderTime = Calendar.current.dateComponents([.hour, .minute], from: time)
-                    reminderTime.weekday = weekday
-                    let timeTrigger = UNCalendarNotificationTrigger(dateMatching: reminderTime, repeats: true)
-                    
-                    /// Send notifications request ke Notification Center
-                    let request = UNNotificationRequest(identifier: UUID().uuidString, content: reminderContent, trigger: timeTrigger)
-                    self.notifCenter.add(request, withCompletionHandler: nil)
-                    
+                    self.scheduleNotif(id: id, time: time, weekday: weekday)
                 }
                 else {
-                    
-                    let alert = UIAlertController(title: "Notifications Permissions", message: "To use this feature, you need to allow notification permission.\nWould you like to allow it?", preferredStyle: .alert)
-
-                    /// Open settings if user want to allow permissions
-                    let yesAction = UIAlertAction(title: "Yes", style: .default) { action in
-                        guard let settingsURL = URL(string: UIApplication.openSettingsURLString)
-                        else {
-                            return
-                        }
-    
-                        if(UIApplication.shared.canOpenURL(settingsURL)) {
-                            UIApplication.shared.open(settingsURL) { (_) in
-                            }
-                        }
+                    DispatchQueue.main.async {
+                        self.askPermissionAlert()
                     }
-                    let noAction = UIAlertAction(title: "No", style: .destructive, handler: nil)
-    
-                    alert.addAction(yesAction)
-                    alert.addAction(noAction)
-                    self.present(alert, animated: true, completion: nil)
-                    
                 }
             }
         }
+    }
+    
+    func askPermissionAlert() {
+        let alert = UIAlertController(title: "Notifications Permissions", message: "To use this feature, you need to allow notification permission.\nWould you like to allow it?", preferredStyle: .alert)
+
+        /// Open settings if user want to allow permissions
+        let yesAction = UIAlertAction(title: "Yes", style: .default) { action in
+            guard let settingsURL = URL(string: UIApplication.openSettingsURLString)
+            else {
+                return
+            }
+
+            if(UIApplication.shared.canOpenURL(settingsURL)) {
+                UIApplication.shared.open(settingsURL) { (_) in
+                }
+            }
+        }
+        let noAction = UIAlertAction(title: "No", style: .destructive, handler: nil)
+
+        alert.addAction(yesAction)
+        alert.addAction(noAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func scheduleNotif(id: UUID, time: Date, weekday: Int) {
+        /// Set the content of notifications
+        let reminderContent = UNMutableNotificationContent()
+        reminderContent.title = "Have you interacted with your child today? "
+        reminderContent.body = "Let’s find an activity for you! Don't forget to interact with your child and communicate with them every day!"
+        reminderContent.sound = .default
+        
+        /// Set trigger "WHEN" to send the notifications
+        var reminderTime = Calendar.current.dateComponents([.hour, .minute], from: time)
+        reminderTime.weekday = weekday
+        let timeTrigger = UNCalendarNotificationTrigger(dateMatching: reminderTime, repeats: true)
+        
+        /// Send notifications request ke Notification Center
+        let request = UNNotificationRequest(identifier: id.uuidString, content: reminderContent, trigger: timeTrigger)
+        self.notifCenter.add(request, withCompletionHandler: nil)
     }
 }

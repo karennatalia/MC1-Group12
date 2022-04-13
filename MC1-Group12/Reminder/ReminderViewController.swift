@@ -6,26 +6,29 @@
 //
 
 import UIKit
+import UserNotifications
 
 protocol ReminderViewControllerDelegate {
-    func addNewReminder(day: DayOfWeek, time: Date)
+    func addNewReminder(day: DayOfWeek, time: Date) -> UUID
+    func updateReminder(targetId: UUID, day: DayOfWeek, time: Date)
 }
 
 class ReminderViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ReminderViewControllerDelegate {
     
     @IBOutlet weak var remindersTableView: UITableView!
     
-    @IBOutlet weak var vwContainer3:UIView!
+    @IBOutlet weak var vwContainer3: UIView!
     
-    let tableHeaderHeight = CGFloat(36)
+    let tableHeaderHeight = CGFloat(30)
     
     let reminderModel = ReminderModel.instance
+    
+    let notifCenter = UNUserNotificationCenter.current()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         reminderModel.getReminders()
-        
         
         vwContainer3.layer.shadowColor = UIColor.black.cgColor
         vwContainer3.layer.shadowOffset = .zero
@@ -44,6 +47,7 @@ class ReminderViewController: UIViewController, UITableViewDataSource, UITableVi
         }
         
         addReminderStoryboard.reminderDelegate = self
+        addReminderStoryboard.isEditWeekday = -1
         
         self.present(addReminderStoryboard, animated: true, completion: nil)
     }
@@ -51,6 +55,24 @@ class ReminderViewController: UIViewController, UITableViewDataSource, UITableVi
     func numberOfSections(in tableView: UITableView) -> Int {
         
         return reminderModel.reminderDays.count
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let addReminderStoryboard = storyboard?.instantiateViewController(withIdentifier: "AddReminderStoryboard") as? AddReminderViewController else {
+            return
+        }
+        
+        let day = reminderModel.reminderDays[indexPath.section]
+        
+        if let weekday = DayOfWeek.allCases.firstIndex(of: day) {
+            addReminderStoryboard.isEditWeekday = weekday
+        }
+        
+        addReminderStoryboard.reminderDelegate = self
+        addReminderStoryboard.isEditSection = indexPath.section
+        addReminderStoryboard.isEditRow = indexPath.row
+        
+        self.present(addReminderStoryboard, animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -71,6 +93,26 @@ class ReminderViewController: UIViewController, UITableViewDataSource, UITableVi
         
         if let reminder = reminderModel.reminders[day]?[indexPath.row] {
             cell.reminderTimeLabel.text = reminder.formattedTime
+            
+            cell.reminderSwitch.isOn = reminder.isEnabled
+            
+            cell.onSwitched = { [weak self]
+                isOn in
+                
+                self?.reminderModel.toggleReminder(targetId: reminder.id, day: day)
+                
+                // Start notif
+                if (isOn) {
+                    guard let weekday = DayOfWeek.allCases.firstIndex(of: day) else { return }
+                    
+                    self?.scheduleNotif(id: reminder.id, time: reminder.time, weekday: weekday + 1)
+                    
+                    return
+                }
+                
+                // Delete notif
+                self?.notifCenter.removePendingNotificationRequests(withIdentifiers: ["\(reminder.id)"])
+            }
         }
 
         return cell
@@ -102,9 +144,51 @@ class ReminderViewController: UIViewController, UITableViewDataSource, UITableVi
         return headerView
     }
     
-    func addNewReminder(day: DayOfWeek, time: Date) {
-        reminderModel.addReminder(day: day, time: time)
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete
+        {
+            let day = reminderModel.reminderDays[indexPath.section]
+            
+            if let reminder = reminderModel.reminders[day]?[indexPath.row] {
+                
+                reminderModel.removeReminder(targetId: reminder.id, day: day)
+                
+                notifCenter.removePendingNotificationRequests(withIdentifiers: ["\(reminder.id)"])
+            }
+            
+            tableView.reloadData()
+        }
+    }
+    
+    func addNewReminder(day: DayOfWeek, time: Date) -> UUID {
+        let id = reminderModel.addReminder(day: day, time: time)
         
         remindersTableView.reloadData()
+        
+        return id
     }
+    
+    func updateReminder(targetId: UUID, day: DayOfWeek, time: Date) {
+        reminderModel.updateReminder(targetId: targetId, day: day, time: time)
+            
+        remindersTableView.reloadData()
+    }
+    
+    func scheduleNotif(id: UUID, time: Date, weekday: Int) {
+        /// Set the content of notifications
+        let reminderContent = UNMutableNotificationContent()
+        reminderContent.title = "Have you interacted with your child today? "
+        reminderContent.body = "Let’s find an activity for you! Don't forget to interact with your child and communicate with them every day!"
+        reminderContent.sound = .default
+        
+        /// Set trigger "WHEN" to send the notifications
+        var reminderTime = Calendar.current.dateComponents([.hour, .minute], from: time)
+        reminderTime.weekday = weekday
+        let timeTrigger = UNCalendarNotificationTrigger(dateMatching: reminderTime, repeats: true)
+        
+        /// Send notifications request ke Notification Center
+        let request = UNNotificationRequest(identifier: id.uuidString, content: reminderContent, trigger: timeTrigger)
+        self.notifCenter.add(request, withCompletionHandler: nil)
+    }
+    
 }

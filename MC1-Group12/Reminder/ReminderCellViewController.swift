@@ -8,8 +8,14 @@
 import UIKit
 
 class ReminderCellViewController: UITableViewCell {
-
+    
+    var onSwitched: ((Bool) -> Void)?
+    
     @IBOutlet weak var reminderTimeLabel: UILabel!
-    @IBAction func reminderSwitch(_ sender: UISwitch) {
+    
+    @IBOutlet weak var reminderSwitch: UISwitch!
+    
+    @IBAction func reminderSwitchAction(_ sender: UISwitch) {
+        onSwitched?(sender.isOn)
     }
 }
