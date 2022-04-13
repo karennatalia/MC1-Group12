@@ -15,7 +15,7 @@ class ReminderViewController: UIViewController, UITableViewDataSource, UITableVi
     
     @IBOutlet weak var remindersTableView: UITableView!
     
-    let tableHeaderHeight = CGFloat(36)
+    let tableHeaderHeight = CGFloat(30)
     
     let reminderModel = ReminderModel.instance
     
@@ -88,6 +88,20 @@ class ReminderViewController: UIViewController, UITableViewDataSource, UITableVi
         headerView.addSubview(label)
         
         return headerView
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete
+        {
+            let day = reminderModel.reminderDays[indexPath.section]
+            
+            if let reminder = reminderModel.reminders[day]?[indexPath.row] {
+                
+                reminderModel.removeReminder(targetId: reminder.id)
+            }
+            
+            tableView.reloadData()
+        }
     }
     
     func addNewReminder(day: DayOfWeek, time: Date) {

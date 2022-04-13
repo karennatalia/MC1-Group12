@@ -76,10 +76,13 @@ class ReminderModel {
     func removeReminder(targetId: UUID) {
         
         // Check for every day of week
-        for (_, var lists) in reminders {
+        for (day, var lists) in reminders {
             
             // Remove reminder with same id
-            lists.removeAll(where: { (reminder) -> Bool in reminder.id == targetId } )
+            lists.removeAll(where: { reminder in reminder.id == targetId } )
+            
+            // Update key in dict
+            _reminders.updateValue(lists, forKey: day)
         }
     }
     

@@ -68,30 +68,29 @@
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" allowsSelection="NO" allowsSelectionDuringEditing="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="oYO-mm-sGL" userLabel="Reminders List">
-                                        <rect key="frame" x="8" y="113.5" width="398" height="632.5"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" allowsSelectionDuringEditing="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="oYO-mm-sGL" userLabel="Reminders List">
+                                        <rect key="frame" x="28" y="113.5" width="358" height="632.5"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="reminderCell" id="aep-YB-ecc" customClass="ReminderCellViewController" customModule="MC1_Group12" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="49.5" width="358" height="53.5"/>
+                                                <rect key="frame" x="0.0" y="44.5" width="358" height="61"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aep-YB-ecc" id="eKp-Ec-Su3">
-                                                    <rect key="frame" x="0.0" y="0.0" width="358" height="53.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="358" height="61"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="JZa-pw-sur">
-                                                            <rect key="frame" x="0.0" y="11" width="354" height="31.5"/>
+                                                            <rect key="frame" x="0.0" y="15" width="338" height="31"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fs1-hC-17N">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="285" height="31.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="269" height="31"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
                                                                     <color key="textColor" red="0.55294117647058827" green="0.55294117647058827" blue="0.55294117647058827" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fsl-tk-WH0">
-                                                                    <rect key="frame" x="305" y="0.0" width="51" height="31.5"/>
+                                                                    <rect key="frame" x="289" y="0.0" width="51" height="31"/>
                                                                     <color key="onTintColor" red="0.47450980390000003" green="0.22352941179999999" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                     <connections>
                                                                         <action selector="reminderSwitch:" destination="aep-YB-ecc" eventType="valueChanged" id="jhC-z1-Aig"/>
@@ -99,12 +98,22 @@
                                                                 </switch>
                                                             </subviews>
                                                         </stackView>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zI2-E7-0ce">
+                                                            <rect key="frame" x="0.0" y="60" width="338" height="1"/>
+                                                            <color key="backgroundColor" red="0.47058823529411764" green="0.47058823529411764" blue="0.50196078431372548" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="1" id="YJd-ay-VaY"/>
+                                                            </constraints>
+                                                        </view>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstItem="JZa-pw-sur" firstAttribute="leading" secondItem="eKp-Ec-Su3" secondAttribute="leading" id="NNs-8z-Df5"/>
-                                                        <constraint firstItem="JZa-pw-sur" firstAttribute="top" secondItem="eKp-Ec-Su3" secondAttribute="topMargin" id="Q9Q-OD-RWe"/>
-                                                        <constraint firstAttribute="trailing" secondItem="JZa-pw-sur" secondAttribute="trailing" constant="4" id="Rfs-ZC-MLp"/>
-                                                        <constraint firstAttribute="bottomMargin" secondItem="JZa-pw-sur" secondAttribute="bottom" id="a8f-La-oeB"/>
+                                                        <constraint firstItem="zI2-E7-0ce" firstAttribute="bottom" secondItem="eKp-Ec-Su3" secondAttribute="bottom" id="RBT-Gj-LBG"/>
+                                                        <constraint firstItem="JZa-pw-sur" firstAttribute="top" secondItem="eKp-Ec-Su3" secondAttribute="topMargin" constant="4" id="T6c-2b-wRA"/>
+                                                        <constraint firstAttribute="trailingMargin" secondItem="zI2-E7-0ce" secondAttribute="trailing" id="X4V-2z-s5n"/>
+                                                        <constraint firstAttribute="bottomMargin" secondItem="JZa-pw-sur" secondAttribute="bottom" constant="4" id="fl1-Ud-DDu"/>
+                                                        <constraint firstAttribute="trailingMargin" secondItem="JZa-pw-sur" secondAttribute="trailing" id="mvM-FO-aAT"/>
+                                                        <constraint firstItem="JZa-pw-sur" firstAttribute="leading" secondItem="eKp-Ec-Su3" secondAttribute="leading" id="oMw-0Y-yzi"/>
+                                                        <constraint firstItem="zI2-E7-0ce" firstAttribute="leading" secondItem="eKp-Ec-Su3" secondAttribute="leading" id="rAY-rv-uY9"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <connections>
@@ -118,11 +127,11 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="trailingMargin" secondItem="NHX-G3-Yi5" secondAttribute="trailing" constant="20" id="6IA-tp-doD"/>
-                                    <constraint firstItem="oYO-mm-sGL" firstAttribute="leading" secondItem="cF2-2C-JWu" secondAttribute="leadingMargin" id="GT4-9z-xqG"/>
+                                    <constraint firstItem="oYO-mm-sGL" firstAttribute="leading" secondItem="cF2-2C-JWu" secondAttribute="leadingMargin" constant="20" id="GT4-9z-xqG"/>
                                     <constraint firstItem="MtK-Qs-MOU" firstAttribute="leading" secondItem="cF2-2C-JWu" secondAttribute="leadingMargin" constant="20" id="LFp-4j-vsV"/>
                                     <constraint firstAttribute="bottomMargin" secondItem="oYO-mm-sGL" secondAttribute="bottom" id="bHx-LV-IzI"/>
                                     <constraint firstItem="MtK-Qs-MOU" firstAttribute="top" secondItem="NHX-G3-Yi5" secondAttribute="bottom" id="pBo-MU-lWP"/>
-                                    <constraint firstAttribute="trailingMargin" secondItem="oYO-mm-sGL" secondAttribute="trailing" id="rNU-rG-ZSv"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="oYO-mm-sGL" secondAttribute="trailing" constant="20" id="rNU-rG-ZSv"/>
                                     <constraint firstItem="oYO-mm-sGL" firstAttribute="top" secondItem="MtK-Qs-MOU" secondAttribute="bottom" constant="20" id="raK-E6-QSV"/>
                                     <constraint firstItem="NHX-G3-Yi5" firstAttribute="leading" secondItem="cF2-2C-JWu" secondAttribute="leadingMargin" constant="20" id="x0g-F3-I1i"/>
                                     <constraint firstItem="NHX-G3-Yi5" firstAttribute="top" secondItem="cF2-2C-JWu" secondAttribute="topMargin" constant="30" id="xsD-jn-Biu"/>
