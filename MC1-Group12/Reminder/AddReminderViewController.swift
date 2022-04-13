@@ -215,20 +215,7 @@ class AddReminderViewController: UIViewController {
             reminderDelegate?.reloadTableView()
             notifCenter.removePendingNotificationRequests(withIdentifiers: ["\(id.uuidString)"])
             
-            /// Set the content of notifications
-            let reminderContent = UNMutableNotificationContent()
-            reminderContent.title = "Have you interacted with your child today?"
-            reminderContent.body = "Let’s find an activity for you! Don't forget to interact with your child and communicate with them every day!"
-            reminderContent.sound = .default
-            
-            /// Set trigger "WHEN" to send the notifications
-            var reminderTime = Calendar.current.dateComponents([.hour, .minute], from: time)
-            reminderTime.weekday = isEditWeekday+1
-            let timeTrigger = UNCalendarNotificationTrigger(dateMatching: reminderTime, repeats: true)
-            
-            /// Send notifications request ke Notification Center
-            let request = UNNotificationRequest(identifier: id.uuidString, content: reminderContent, trigger: timeTrigger)
-            notifCenter.add(request, withCompletionHandler: nil)
+            scheduleNotif(id: id, time: time, weekday: isEditWeekday+1)
             
             reminderModel.updateReminder(targetId: id, day: reminderModel.reminderDays[isEditSection], time: time)
             DispatchQueue.main.async {
@@ -242,25 +229,7 @@ class AddReminderViewController: UIViewController {
                     
                     if settings.authorizationStatus != .authorized {
                         DispatchQueue.main.async {
-                            let alert = UIAlertController(title: "Notifications Permissions", message: "To use this feature, you need to allow notification permission.\nWould you like to allow it?", preferredStyle: .alert)
-
-                            /// Open settings if user want to allow permissions
-                            let yesAction = UIAlertAction(title: "Yes", style: .default) { action in
-                                guard let settingsURL = URL(string: UIApplication.openSettingsURLString)
-                                else {
-                                    return
-                                }
-            
-                                if(UIApplication.shared.canOpenURL(settingsURL)) {
-                                    UIApplication.shared.open(settingsURL) { (_) in
-                                    }
-                                }
-                            }
-                            let noAction = UIAlertAction(title: "No", style: .destructive, handler: nil)
-            
-                            alert.addAction(yesAction)
-                            alert.addAction(noAction)
-                            self.present(alert, animated: true, completion: nil)
+                            self.askPermissionAlert()
                         }
                     }
                     else {
@@ -298,47 +267,53 @@ class AddReminderViewController: UIViewController {
                 let id = delegate.addNewReminder(day: DayOfWeek.allCases[weekday-1], time: time, weekday: weekday-1)
 
                 if settings.authorizationStatus == .authorized {
-                    
-                    /// Set the content of notifications
-                    let reminderContent = UNMutableNotificationContent()
-                    reminderContent.title = "Have you interacted with your child today? "
-                    reminderContent.body = "Let’s find an activity for you! Don't forget to interact with your child and communicate with them every day!"
-                    reminderContent.sound = .default
-                    
-                    /// Set trigger "WHEN" to send the notifications
-                    var reminderTime = Calendar.current.dateComponents([.hour, .minute], from: time)
-                    reminderTime.weekday = weekday
-                    let timeTrigger = UNCalendarNotificationTrigger(dateMatching: reminderTime, repeats: true)
-                    
-                    /// Send notifications request ke Notification Center
-                    let request = UNNotificationRequest(identifier: id.uuidString, content: reminderContent, trigger: timeTrigger)
-                    self.notifCenter.add(request, withCompletionHandler: nil)
-                    
+                    self.scheduleNotif(id: id, time: time, weekday: weekday)
                 }
                 else {
-                    
-                    let alert = UIAlertController(title: "Notifications Permissions", message: "To use this feature, you need to allow notification permission.\nWould you like to allow it?", preferredStyle: .alert)
-
-                    /// Open settings if user want to allow permissions
-                    let yesAction = UIAlertAction(title: "Yes", style: .default) { action in
-                        guard let settingsURL = URL(string: UIApplication.openSettingsURLString)
-                        else {
-                            return
-                        }
-    
-                        if(UIApplication.shared.canOpenURL(settingsURL)) {
-                            UIApplication.shared.open(settingsURL) { (_) in
-                            }
-                        }
+                    DispatchQueue.main.async {
+                        self.askPermissionAlert()
                     }
-                    let noAction = UIAlertAction(title: "No", style: .destructive, handler: nil)
-    
-                    alert.addAction(yesAction)
-                    alert.addAction(noAction)
-                    self.present(alert, animated: true, completion: nil)
-                    
                 }
             }
         }
+    }
+    
+    func askPermissionAlert() {
+        let alert = UIAlertController(title: "Notifications Permissions", message: "To use this feature, you need to allow notification permission.\nWould you like to allow it?", preferredStyle: .alert)
+
+        /// Open settings if user want to allow permissions
+        let yesAction = UIAlertAction(title: "Yes", style: .default) { action in
+            guard let settingsURL = URL(string: UIApplication.openSettingsURLString)
+            else {
+                return
+            }
+
+            if(UIApplication.shared.canOpenURL(settingsURL)) {
+                UIApplication.shared.open(settingsURL) { (_) in
+                }
+            }
+        }
+        let noAction = UIAlertAction(title: "No", style: .destructive, handler: nil)
+
+        alert.addAction(yesAction)
+        alert.addAction(noAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func scheduleNotif(id: UUID, time: Date, weekday: Int) {
+        /// Set the content of notifications
+        let reminderContent = UNMutableNotificationContent()
+        reminderContent.title = "Have you interacted with your child today? "
+        reminderContent.body = "Let’s find an activity for you! Don't forget to interact with your child and communicate with them every day!"
+        reminderContent.sound = .default
+        
+        /// Set trigger "WHEN" to send the notifications
+        var reminderTime = Calendar.current.dateComponents([.hour, .minute], from: time)
+        reminderTime.weekday = weekday
+        let timeTrigger = UNCalendarNotificationTrigger(dateMatching: reminderTime, repeats: true)
+        
+        /// Send notifications request ke Notification Center
+        let request = UNNotificationRequest(identifier: id.uuidString, content: reminderContent, trigger: timeTrigger)
+        self.notifCenter.add(request, withCompletionHandler: nil)
     }
 }
