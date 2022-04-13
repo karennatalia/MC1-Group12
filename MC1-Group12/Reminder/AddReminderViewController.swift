@@ -9,7 +9,9 @@ import UIKit
 import UserNotifications
 
 class AddReminderViewController: UIViewController {
-
+    
+    var reminderDelegate : ReminderViewControllerDelegate?
+    
     @IBOutlet weak var sundayBtnUI: UIButton!
     @IBOutlet weak var mondayBtnUI: UIButton!
     @IBOutlet weak var tuesdayBtnUI: UIButton!
@@ -189,6 +191,8 @@ class AddReminderViewController: UIViewController {
             
             DispatchQueue.main.async {
                 let time = self.timePicker.date
+                
+                self.reminderDelegate?.addNewReminder(day: DayOfWeek.allCases[weekday], time: time)
 
                 if settings.authorizationStatus == .authorized {
                     
