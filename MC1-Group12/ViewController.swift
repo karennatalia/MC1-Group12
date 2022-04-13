@@ -118,7 +118,6 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
 
 extension ViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print("searchtext", searchText)
 //        filteredActList = activityList.filter({$0.title.prefix(searchText.count) == searchText})
         filteredActList = activityList.filter { text in
             return text.title.lowercased().contains(searchText.lowercased())
