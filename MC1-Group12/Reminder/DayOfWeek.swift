@@ -7,6 +7,7 @@
 
 import Foundation
 
-enum DayOfWeek : Hashable {
-    case monday, tuesday, wednesday, thursday, friday, saturday, sunday
+enum DayOfWeek : String, CaseIterable {
+    case monday = "Monday", tuesday = "Tuesday", wednesday = "Wednesday", thursday = "Thursday"
+    case friday = "Friday", saturday = "Saturday", sunday = "Sunday"
 }

@@ -9,52 +9,70 @@ import UIKit
 
 class ReminderViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    var reminders = [Reminder]()
-    
     @IBOutlet weak var remindersTableView: UITableView!
+    
+    let tableHeaderHeight = CGFloat(36)
+    
+    let reminderModel = ReminderModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         remindersTableView.delegate = self
         remindersTableView.dataSource = self
-        remindersTableView.register(ReminderHeaderViewController.self,
-            forHeaderFooterViewReuseIdentifier: "reminderHeader")
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 7
+        
+        return reminderModel.reminderDays.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // return reminders.count
+        // Get day of week
+        let day = reminderModel.reminderDays[section]
         
-        return 7
+        // Return how many reminders are saved for the day
+        let count = reminderModel.reminders[day]?.count ?? 0
+        
+        return count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reminderCell", for: indexPath)
         
-        if let reminderCell = cell as? ReminderCellViewController {
-            reminderCell.reminderTimeLabel.text = "15.00"
-
-            return reminderCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reminderCell", for: indexPath) as! ReminderCellViewController
+        
+        let day = reminderModel.reminderDays[indexPath.section]
+        
+        if let reminder = reminderModel.reminders[day]?[indexPath.row] {
+            cell.reminderTimeLabel.text = reminder.formattedTime
         }
-        
+
         return cell
     }
     
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        
+        return tableHeaderHeight
+    }
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let view = tableView.dequeueReusableHeaderFooterView(withIdentifier:
-                    "reminderHeader") as! ReminderHeaderViewController
         
-        view.dayLabel = UILabel()
-        view.dayLabel.text = "Monday"
-        view.dayLabel.translatesAutoresizingMaskIntoConstraints = false
-        view.dayLabel.font = UIFont.systemFont(ofSize: CGFloat(18), weight: .heavy)
-         
-        view.contentView.addSubview(view.dayLabel)
+        let day = reminderModel.reminderDays[section]
         
-        return view
+        // Code below builds a header
+        let headerView = UIView.init(frame:
+                CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: tableHeaderHeight))
+        
+        let label = UILabel()
+        
+        label.frame = CGRect.init(x: 0, y: 0, width: headerView.frame.width, height: headerView.frame.height)
+        
+        label.text = day.rawValue
+        
+        label.font = .systemFont(ofSize: CGFloat(18), weight: .heavy)
+        
+        headerView.addSubview(label)
+        
+        return headerView
     }
 }

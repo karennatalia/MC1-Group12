@@ -7,28 +7,64 @@
 
 import Foundation
 
+typealias ReminderDict = [DayOfWeek: [Reminder]]
+
 class ReminderModel {
-    
-    var reminders = [Reminder]() {
+   
+    var reminders = [DayOfWeek.sunday: [Reminder(time: Date.now)]] {
         didSet {
             // Update to database
         }
     }
     
+    // Array of days which has a reminder
+    var reminderDays: [DayOfWeek] {
+        get {
+            var days = [DayOfWeek]()
+            
+            for day in DayOfWeek.allCases {
+                if hasReminder(day: day) {
+                    days.append(day)
+                }
+            }
+            
+            return days
+        }
+    }
+    
+    // Check if day has a reminder by validating if the day key is null
+    // or if array is empty for that day
+    //
+    // Return true if reminder exist for given day
+    func hasReminder(day: DayOfWeek) -> Bool {
+        if reminders[day] == nil {
+            return false
+        }
+        
+        // If the array is not empty, return true
+        return !reminders[day]!.isEmpty
+    }
+    
     func addReminder(days: [DayOfWeek], time: Date) {
         
-        // Add new reminder to array
-        let newReminder = Reminder(time: time, days: days)
-        
-        reminders.append(newReminder)
+        // For each day of week
+        for day in days {
+            
+            // Add new reminder to array
+            let newReminder = Reminder(time: time)
+            
+            reminders[day]?.append(newReminder)
+        }
     }
     
     func removeReminder(targetId: UUID) {
         
-        // Remove all reminders with the target Id
-        reminders.removeAll(where: {
-            (reminder) -> Bool in reminder.id == targetId
-        })
+        // Check for every day of week
+        for (_, var lists) in reminders {
+            
+            // Remove reminder with same id
+            lists.removeAll(where: { (reminder) -> Bool in reminder.id == targetId } )
+        }
     }
     
     func getReminders() {
@@ -39,12 +75,5 @@ class ReminderModel {
     
     func updateReminder(targetId: UUID, days: [DayOfWeek], time: Date) {
         
-        if let index = reminders.firstIndex(where: {
-            (reminder) -> Bool in reminder.id == targetId
-        }) {
-            let newReminder = Reminder(id: targetId, time: time, days: days)
-            
-            reminders[index] = newReminder
-        }
     }
 }

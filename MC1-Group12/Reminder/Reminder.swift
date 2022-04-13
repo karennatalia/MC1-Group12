@@ -11,5 +11,10 @@ struct Reminder : Identifiable {
     var id = UUID()
     var time: Date
     var isEnabled: Bool = true
-    var days: [DayOfWeek]
+    
+    var formattedTime: String {
+        get {
+            time.formatted(date: .omitted, time: .shortened)
+        }
+    }
 }
