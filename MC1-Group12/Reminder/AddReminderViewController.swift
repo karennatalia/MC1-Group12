@@ -203,6 +203,12 @@ class AddReminderViewController: UIViewController {
     @IBAction func SetReminderAction(_ sender: Any) {
         
         if isEditWeekday >= 0 { /// edit reminder
+            defer {
+                DispatchQueue.main.async {
+                    self.dismiss(animated: true)
+                }
+            }
+            
             let time = timePicker.date
             let day = reminderModel.reminderDays[isEditSection]
             
@@ -223,9 +229,6 @@ class AddReminderViewController: UIViewController {
             
             scheduleNotif(id: reminder.id, time: time, weekday: isEditWeekday+1)
             
-            DispatchQueue.main.async {
-                self.dismiss(animated: true)
-            }
         }
         else { /// add reminder
             if checkIfDaySelected() == 1 {
