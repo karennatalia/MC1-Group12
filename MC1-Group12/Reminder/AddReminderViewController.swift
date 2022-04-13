@@ -217,8 +217,8 @@ class AddReminderViewController: UIViewController {
             
             /// Set the content of notifications
             let reminderContent = UNMutableNotificationContent()
-            reminderContent.title = "Hi parents, it's time for activity!"
-            reminderContent.body = "Don't forget to do activity with your child to make sure they get enough interaction"
+            reminderContent.title = "Have you interacted with your child today?"
+            reminderContent.body = "Let’s find an activity for you! Don't forget to interact with your child and communicate with them every day!"
             reminderContent.sound = .default
             
             /// Set trigger "WHEN" to send the notifications
@@ -301,8 +301,8 @@ class AddReminderViewController: UIViewController {
                     
                     /// Set the content of notifications
                     let reminderContent = UNMutableNotificationContent()
-                    reminderContent.title = "Hi parents, it's time for activity!"
-                    reminderContent.body = "Don't forget to do activity with your child to make sure they get enough interaction"
+                    reminderContent.title = "Have you interacted with your child today? "
+                    reminderContent.body = "Let’s find an activity for you! Don't forget to interact with your child and communicate with them every day!"
                     reminderContent.sound = .default
                     
                     /// Set trigger "WHEN" to send the notifications
