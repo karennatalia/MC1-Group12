@@ -190,9 +190,11 @@ class AddReminderViewController: UIViewController {
         notifCenter.getNotificationSettings { settings in
             
             DispatchQueue.main.async {
+                guard let delegate = self.reminderDelegate else { return }
+
                 let time = self.timePicker.date
                 
-                self.reminderDelegate?.addNewReminder(day: DayOfWeek.allCases[weekday-1], time: time)
+                let id = delegate.addNewReminder(day: DayOfWeek.allCases[weekday-1], time: time)
 
                 if settings.authorizationStatus == .authorized {
                     
@@ -208,7 +210,7 @@ class AddReminderViewController: UIViewController {
                     let timeTrigger = UNCalendarNotificationTrigger(dateMatching: reminderTime, repeats: true)
                     
                     /// Send notifications request ke Notification Center
-                    let request = UNNotificationRequest(identifier: UUID().uuidString, content: reminderContent, trigger: timeTrigger)
+                    let request = UNNotificationRequest(identifier: id.uuidString, content: reminderContent, trigger: timeTrigger)
                     self.notifCenter.add(request, withCompletionHandler: nil)
                     
                 }

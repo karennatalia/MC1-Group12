@@ -6,9 +6,10 @@
 //
 
 import UIKit
+import UserNotifications
 
 protocol ReminderViewControllerDelegate {
-    func addNewReminder(day: DayOfWeek, time: Date)
+    func addNewReminder(day: DayOfWeek, time: Date) -> UUID
 }
 
 class ReminderViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ReminderViewControllerDelegate {
@@ -18,6 +19,8 @@ class ReminderViewController: UIViewController, UITableViewDataSource, UITableVi
     let tableHeaderHeight = CGFloat(30)
     
     let reminderModel = ReminderModel.instance
+    
+    let notifCenter = UNUserNotificationCenter.current()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -98,15 +101,19 @@ class ReminderViewController: UIViewController, UITableViewDataSource, UITableVi
             if let reminder = reminderModel.reminders[day]?[indexPath.row] {
                 
                 reminderModel.removeReminder(targetId: reminder.id)
+                print(reminder.id)
+                notifCenter.removePendingNotificationRequests(withIdentifiers: ["\(reminder.id)"])
             }
             
             tableView.reloadData()
         }
     }
     
-    func addNewReminder(day: DayOfWeek, time: Date) {
-        reminderModel.addReminder(day: day, time: time)
+    func addNewReminder(day: DayOfWeek, time: Date) -> UUID {
+        let id = reminderModel.addReminder(day: day, time: time)
         
         remindersTableView.reloadData()
+        
+        return id
     }
 }

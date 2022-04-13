@@ -58,7 +58,7 @@ class ReminderModel {
         return !reminders[day]!.isEmpty
     }
     
-    func addReminder(day: DayOfWeek, time: Date) {
+    func addReminder(day: DayOfWeek, time: Date) -> UUID {
         
         // Add new reminder to array
         let newReminder = Reminder(time: time)
@@ -71,6 +71,8 @@ class ReminderModel {
         
         // Update key in dict
         _reminders.updateValue(newRemindersList, forKey: day)
+        
+        return newReminder.id
     }
     
     func removeReminder(targetId: UUID) {
