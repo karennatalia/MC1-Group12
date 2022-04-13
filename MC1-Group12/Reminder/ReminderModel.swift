@@ -20,7 +20,6 @@ class ReminderModel {
     private var _reminders = ReminderDict() {
         didSet {
             if let encodedReminders = try? JSONEncoder().encode(reminders) {
-                print(reminders)
                 
                 UserDefaults.standard.set(encodedReminders, forKey: "remindersDict")
             }
@@ -60,23 +59,23 @@ class ReminderModel {
         
         // Append new reminder to list
         newRemindersList.append(newReminder)
+        
         // Update key in dict
         _reminders.updateValue(newRemindersList, forKey: day)
         
         return newReminder.id
     }
     
-    func removeReminder(targetId: UUID) {
+    func removeReminder(targetId: UUID, day: DayOfWeek) {
         
-        // Check for every day of week
-        for (day, var lists) in reminders {
-            
-            // Remove reminder with same id
-            lists.removeAll(where: { reminder in reminder.id == targetId } )
-            
-            // Update key in dict
-            _reminders.updateValue(lists, forKey: day)
-        }
+        // Get list for that day
+        var list = reminders[day] ?? []
+        
+        // Remove reminder with same id
+        list.removeAll(where: { reminder in reminder.id == targetId } )
+        
+        // Update key in dict
+        _reminders.updateValue(list, forKey: day)
     }
     
     func getReminders() {
@@ -92,16 +91,30 @@ class ReminderModel {
         _reminders = ReminderDict()
     }
     
-    // TODO: implement
     func updateReminder(targetId: UUID, day: DayOfWeek, time: Date) {
         // Get reminders for the day
         var newRemindersList = _reminders[day] ?? []
         
         // Change the time in the list
-        let idx = newRemindersList.firstIndex(where: { reminder in reminder.id == targetId } )
-        newRemindersList[idx!].time = time
+        guard let idx = newRemindersList.firstIndex(where: { reminder in reminder.id == targetId } ) else {
+            return
+        }
+        newRemindersList[idx].time = time
         
         // Update key in dict
         _reminders.updateValue(newRemindersList, forKey: day)
+    }
+    
+    func toggleReminder(targetId: UUID, day: DayOfWeek) {
+        // Get list for that day
+        var list = reminders[day] ?? []
+        
+        // Change isEnabled in the list
+        guard let idx = list.firstIndex(where: { reminder in reminder.id == targetId } ) else { return }
+        
+        list[idx].isEnabled = !list[idx].isEnabled
+        
+        // Update key in dict
+        _reminders.updateValue(list, forKey: day)
     }
 }

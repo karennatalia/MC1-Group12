@@ -84,6 +84,24 @@ class ReminderViewController: UIViewController, UITableViewDataSource, UITableVi
         
         if let reminder = reminderModel.reminders[day]?[indexPath.row] {
             cell.reminderTimeLabel.text = reminder.formattedTime
+            
+            cell.onSwitched = { [weak self]
+                isOn in
+                
+                self?.reminderModel.toggleReminder(targetId: reminder.id, day: day)
+                
+                // Start notif
+                if (isOn) {
+                    guard let weekday = DayOfWeek.allCases.firstIndex(of: day) else { return }
+                    
+                    self?.scheduleNotif(id: reminder.id, time: reminder.time, weekday: weekday)
+                    
+                    return
+                }
+                
+                // Delete notif
+                self?.notifCenter.removePendingNotificationRequests(withIdentifiers: ["\(reminder.id)"])
+            }
         }
 
         return cell
@@ -122,7 +140,8 @@ class ReminderViewController: UIViewController, UITableViewDataSource, UITableVi
             
             if let reminder = reminderModel.reminders[day]?[indexPath.row] {
                 
-                reminderModel.removeReminder(targetId: reminder.id)
+                reminderModel.removeReminder(targetId: reminder.id, day: day)
+                
                 notifCenter.removePendingNotificationRequests(withIdentifiers: ["\(reminder.id)"])
             }
             
@@ -141,4 +160,22 @@ class ReminderViewController: UIViewController, UITableViewDataSource, UITableVi
     func reloadTableView() {
         remindersTableView.reloadData()
     }
+    
+    func scheduleNotif(id: UUID, time: Date, weekday: Int) {
+        /// Set the content of notifications
+        let reminderContent = UNMutableNotificationContent()
+        reminderContent.title = "Have you interacted with your child today? "
+        reminderContent.body = "Let’s find an activity for you! Don't forget to interact with your child and communicate with them every day!"
+        reminderContent.sound = .default
+        
+        /// Set trigger "WHEN" to send the notifications
+        var reminderTime = Calendar.current.dateComponents([.hour, .minute], from: time)
+        reminderTime.weekday = weekday
+        let timeTrigger = UNCalendarNotificationTrigger(dateMatching: reminderTime, repeats: true)
+        
+        /// Send notifications request ke Notification Center
+        let request = UNNotificationRequest(identifier: id.uuidString, content: reminderContent, trigger: timeTrigger)
+        self.notifCenter.add(request, withCompletionHandler: nil)
+    }
+    
 }

@@ -213,11 +213,13 @@ class AddReminderViewController: UIViewController {
             }
             
             reminderDelegate?.reloadTableView()
+            
             notifCenter.removePendingNotificationRequests(withIdentifiers: ["\(id.uuidString)"])
             
             scheduleNotif(id: id, time: time, weekday: isEditWeekday+1)
             
             reminderModel.updateReminder(targetId: id, day: reminderModel.reminderDays[isEditSection], time: time)
+            
             DispatchQueue.main.async {
                 self.dismiss(animated: true)
             }
@@ -251,8 +253,6 @@ class AddReminderViewController: UIViewController {
                 present(alert, animated: true, completion: nil)
             }
         }
-        
-        
     }
     
     func setReminder(weekday:Int) {
@@ -304,7 +304,7 @@ class AddReminderViewController: UIViewController {
         /// Set the content of notifications
         let reminderContent = UNMutableNotificationContent()
         reminderContent.title = "Have you interacted with your child today? "
-        reminderContent.body = "Let’s find an activity for you! Don't forget to interact with your child and communicate with them every day!"
+        reminderContent.body = "Let’s fnd an activity for you! Don't forget to interact with your child and communicate with them every day!"
         reminderContent.sound = .default
         
         /// Set trigger "WHEN" to send the notifications
