@@ -13,49 +13,41 @@ class ReminderModel {
     
     private init() {}
     
-    // Register as singleton
+    /// Register as singleton
     static let instance = ReminderModel()
     
-    // Mutable list of reminders
+    /// Mutable list of reminders
     private var _reminders = ReminderDict() {
         didSet {
-            // TODO: update changes to UserDefaults
+            if let encodedReminders = try? JSONEncoder().encode(reminders) {
+                print(reminders)
+                
+                UserDefaults.standard.set(encodedReminders, forKey: "remindersDict")
+            }
         }
     }
     
-    // Dictionary of reminders with key as day and reminders array as value
-    //
-    // Immutable for access outside of model
+    /// Dictionary of reminders with key as day and reminders array as value
+    ///
+    /// Immutable for access outside of model
     var reminders: ReminderDict {
         get { return _reminders }
     }
     
-    // Array of days which has a reminder
+    /// Array of days which has a reminder
     var reminderDays: [DayOfWeek] {
         get {
-            var days = [DayOfWeek]()
-            
-            for day in DayOfWeek.allCases {
-                if hasReminder(day: day) {
-                    days.append(day)
-                }
-            }
-            
-            return days
+            return DayOfWeek.allCases.filter { day in self.hasReminder(day: day) }
         }
     }
     
-    // Check if day has a reminder by validating if the day key is null
-    // or if array is empty for that day
-    //
-    // Return true if reminder exist for given day
+    /// Check if day has a reminder. Returns true if at least one reminder exist for given day
     func hasReminder(day: DayOfWeek) -> Bool {
-        if reminders[day] == nil {
-            return false
-        }
+        // Check if there are no entries for that day in dictionary
+        guard let remindersList = reminders[day] else { return false }
         
         // If the array is not empty, return true
-        return !reminders[day]!.isEmpty
+        return !remindersList.isEmpty
     }
     
     func addReminder(day: DayOfWeek, time: Date, weekday: Int) -> UUID {
@@ -87,11 +79,17 @@ class ReminderModel {
         }
     }
     
-    // TODO: implement getting reminders from UserDefaults
     func getReminders() {
-        // Load reminders from db
+        // To restore struct from UserDefaults
+        if let decodedData = UserDefaults.standard.object(forKey: "remindersDict") as? Data {
+            if let decodedReminders = try? JSONDecoder().decode(ReminderDict.self, from: decodedData) {
+                _reminders = decodedReminders
+                
+                return
+            }
+        }
         
-        // If not found, set array as empty
+        _reminders = ReminderDict()
     }
     
     // TODO: implement

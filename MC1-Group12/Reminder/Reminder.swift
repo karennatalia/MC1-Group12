@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Reminder : Identifiable {
+struct Reminder : Identifiable, Encodable, Decodable {
     var id = UUID()
     var time: Date
     var weekday: Int

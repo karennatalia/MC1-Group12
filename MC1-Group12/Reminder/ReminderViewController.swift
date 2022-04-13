@@ -26,6 +26,8 @@ class ReminderViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        reminderModel.getReminders()
+        
         remindersTableView.delegate = self
         remindersTableView.dataSource = self
     }
