@@ -10,6 +10,7 @@ import UserNotifications
 
 protocol ReminderViewControllerDelegate {
     func addNewReminder(day: DayOfWeek, time: Date, weekday: Int) -> UUID
+    func reloadTableView()
 }
 
 class ReminderViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ReminderViewControllerDelegate {
@@ -120,7 +121,6 @@ class ReminderViewController: UIViewController, UITableViewDataSource, UITableVi
             if let reminder = reminderModel.reminders[day]?[indexPath.row] {
                 
                 reminderModel.removeReminder(targetId: reminder.id)
-                print(reminder.id)
                 notifCenter.removePendingNotificationRequests(withIdentifiers: ["\(reminder.id)"])
             }
             
@@ -134,5 +134,9 @@ class ReminderViewController: UIViewController, UITableViewDataSource, UITableVi
         remindersTableView.reloadData()
         
         return id
+    }
+    
+    func reloadTableView() {
+        remindersTableView.reloadData()
     }
 }

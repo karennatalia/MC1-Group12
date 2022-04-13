@@ -46,7 +46,6 @@ class AddReminderViewController: UIViewController {
         fridayBtnUI.layer.cornerRadius = 5
         saturdayBtnUI.layer.cornerRadius = 5
         
-        print("IS EDIT \(isEditWeekday)")
         if isEditSection >= 0 {
             disableAllButtons()
             enableSelectedButton()
@@ -205,7 +204,6 @@ class AddReminderViewController: UIViewController {
         var id:UUID = UUID()
         
         if isEditWeekday >= 0 { /// edit reminder
-            print("edit")
             let time = timePicker.date
             let day = reminderModel.reminderDays[isEditSection]
             
@@ -214,8 +212,8 @@ class AddReminderViewController: UIViewController {
                 id = reminder.id
             }
             
+            reminderDelegate?.reloadTableView()
             notifCenter.removePendingNotificationRequests(withIdentifiers: ["\(id.uuidString)"])
-            print("Yang didelete \(id.uuidString)")
             
             /// Set the content of notifications
             let reminderContent = UNMutableNotificationContent()
@@ -228,16 +226,10 @@ class AddReminderViewController: UIViewController {
             reminderTime.weekday = isEditWeekday+1
             let timeTrigger = UNCalendarNotificationTrigger(dateMatching: reminderTime, repeats: true)
             
-            let testId = UUID()
-            
             /// Send notifications request ke Notification Center
-            let request = UNNotificationRequest(identifier: testId.uuidString, content: reminderContent, trigger: timeTrigger)
-            print("time \(reminderTime)")
-            print("request edit\(request)")
+            let request = UNNotificationRequest(identifier: id.uuidString, content: reminderContent, trigger: timeTrigger)
             notifCenter.add(request, withCompletionHandler: nil)
             
-//            setReminder(weekday: isEditWeekday)
-            print(time)
             reminderModel.updateReminder(targetId: id, day: reminderModel.reminderDays[isEditSection], time: time)
             DispatchQueue.main.async {
                 self.dismiss(animated: true)
@@ -320,9 +312,7 @@ class AddReminderViewController: UIViewController {
                     
                     /// Send notifications request ke Notification Center
                     let request = UNNotificationRequest(identifier: id.uuidString, content: reminderContent, trigger: timeTrigger)
-                    print("request \(request)")
                     self.notifCenter.add(request, withCompletionHandler: nil)
-                    print("Yang asli \(id.uuidString)")
                     
                 }
                 else {
