@@ -37,7 +37,7 @@ class ActivityDetailsViewController: UIViewController {
         
         vwContainer2.layer.shadowColor = UIColor.black.cgColor
         vwContainer2.layer.shadowOffset = .zero
-        vwContainer2.layer.shadowOpacity = 1
+        vwContainer2.layer.shadowOpacity = 0.5
         vwContainer2.layer.shadowRadius = 15
         vwContainer2.layer.shadowPath = UIBezierPath(rect: vwContainer2.bounds).cgPath
         vwContainer2.layer.shouldRasterize = true

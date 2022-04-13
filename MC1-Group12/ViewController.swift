@@ -51,7 +51,7 @@ class ViewController: UIViewController {
         
         vwContainer.layer.shadowColor = UIColor.black.cgColor
         vwContainer.layer.shadowOffset = .zero
-        vwContainer.layer.shadowOpacity = 1
+        vwContainer.layer.shadowOpacity = 0.5
         vwContainer.layer.shadowRadius = 15
         vwContainer.layer.shadowPath = UIBezierPath(rect: vwContainer.bounds).cgPath
         vwContainer.layer.shouldRasterize = true
