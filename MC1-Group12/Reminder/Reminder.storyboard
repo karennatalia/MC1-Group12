@@ -180,7 +180,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="remindersTableView" destination="oYO-mm-sGL" id="kHL-PT-hTU"/>
-                        <outlet property="vwContainer3" destination="tjv-uI-8sE" id="KtK-sh-5cL"/>
+                        <outlet property="vwContainer3" destination="tjv-uI-8sE" id="6b4-x2-FsD"/>
                         <segue destination="Vuz-6E-XEm" kind="show" identifier="addReminder" id="dV7-l4-vQj"/>
                     </connections>
                 </viewController>
