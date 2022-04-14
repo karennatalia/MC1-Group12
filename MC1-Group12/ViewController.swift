@@ -3,23 +3,28 @@
 //  MC1-Group12
 //
 //  Created by Karen Natalia on 07/04/22.
-//
+//////
 
 import UIKit
 import UserNotifications
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var ActTableView: UITableView!
+    @IBOutlet weak var vwContainer:UIView!
     
+    @IBOutlet weak var ActTableView: UITableView!
+    let userDefaults = UserDefaults.standard
     var activityList = [ActivityClass]()
     var filteredActList = [ActivityClass]()
     var isSearching = false
+    var isDoneArray = [Bool]().self
     
     //Var for filter
     var isFiltering = false
     var receivedDurationFilter:Int = 0
     var receivedPreparationFilter: String = ""
+    var receivedStatusFilter: String = ""
+//    var receivedAgeFilter = [Int]()
     
     @IBOutlet weak var searchBar: UISearchBar!
     
@@ -41,13 +46,46 @@ class ViewController: UIViewController {
 
     let notifCenter = UNUserNotificationCenter.current()
     
+    func changeIsDoneVal() {
+        isDoneArray = activityList.map({ $0.isDone })
+        
+        var indicatorDefault = false
+        if userDefaults.value(forKey: "defaultIsDone") is [Bool] {
+            // Do something with anyString
+            indicatorDefault = true
+        } else {
+            userDefaults.set(isDoneArray, forKey: "defaultIsDone")
+            indicatorDefault = false
+        }
+        let defaultIsDone = indicatorDefault ? userDefaults.object(forKey: "defaultIsDone") as! [Bool] : isDoneArray
+        
+        for (index,item) in defaultIsDone.enumerated() {
+            activityList[index].isDone = item
+        }
+        ActTableView.reloadData()
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        changeIsDoneVal()
+    }
     override func viewDidLoad() {
+        
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+        
         activityList = ActivitySeeder().generateActivity()
+        changeIsDoneVal()
         getWelcomeTime()
         super.viewDidLoad()
         ActTableView?.delegate = self
         ActTableView.dataSource = self
         searchBar.delegate = self
+        
+        vwContainer.layer.shadowColor = UIColor.black.cgColor
+        vwContainer.layer.shadowOffset = .zero
+        vwContainer.layer.shadowOpacity = 0.5
+        vwContainer.layer.shadowRadius = 15
+        vwContainer.layer.shadowPath = UIBezierPath(rect: vwContainer.bounds).cgPath
+        vwContainer.layer.shouldRasterize = true
         
         // Do any additional setup after loading the view.
         notifCenter.requestAuthorization(options: [.alert, .sound]) { granted, error in
@@ -67,8 +105,10 @@ class ViewController: UIViewController {
             if let senderVC = sender.source as? FilterPopUpViewController {
                 receivedDurationFilter = senderVC.duration
                 receivedPreparationFilter = senderVC.preparation
+                receivedStatusFilter = senderVC.status
+//                receivedAgeFilter = senderVC.ages
             }
-            print(receivedPreparationFilter)
+//            print(receivedPreparationFilter)
             filterActivity()
         }
     }
@@ -104,19 +144,79 @@ class ViewController: UIViewController {
             }
             else {
                 for i in 0...activityList.count-1 {
-                    if activityList[i].preparation == receivedPreparationFilter {
+                    if activityList[i].preparation == receivedPreparationFilter && !filteredActList.contains(where: { $0.id == activityList[i].id }){
                         filteredActList.append(activityList[i])
                     }
                 }
-
                 isFiltering = true
                 ActTableView.reloadData()
             }
         }
+        
+        //Filter status
+        if receivedStatusFilter != "" {
+            var status = false
+//            print("received: \(receivedStatusFilter) \t status: \(status)")
+            
+            
+            if receivedStatusFilter == "Not Done" { status = false }
+            else { status = true }
+            
+            if filteredActList.count > 0 {
+                var statusFilteredAct = [ActivityClass]()
+
+                for i in 0...filteredActList.count-1 {
+                    if filteredActList[i].isDone == status && !statusFilteredAct.contains(where: { $0.id == filteredActList[i].id }) {
+                        statusFilteredAct.append(filteredActList[i])
+                    }
+                }
+                filteredActList = statusFilteredAct
+                isFiltering = true
+                ActTableView.reloadData()
+            }
+            else {
+                for i in 0...activityList.count-1 {
+                    if activityList[i].isDone == status && !filteredActList.contains(where: { $0.id == activityList[i].id }){
+                        filteredActList.append(activityList[i])
+                    }
+                }
+                isFiltering = true
+                ActTableView.reloadData()
+            }
+        }
+        
+        //Filter age
+//        if receivedAgeFilter.count > 0 {
+//            var ageFilteredAct = [ActivityClass]()
+//
+//            if filteredActList.count > 0 {
+//                for i in 0...filteredActList.count-1 {
+//                    for j in 0...receivedAgeFilter.count-1 {
+//
+//                        //Get age from substring
+//                        var age = filteredActList[i].age.replacingOccurrences(of: " y.o", with: "")
+//                        if age.count > 1 {
+//                            age = filteredActList[i].age.replacingOccurrences(of: " - ", with: "")
+//                        }
+//
+//                        if age.count == 1 {
+//                            if receivedAgeFilter == Int(age) && !ageFilteredAct.contains(where: { $0.id == filteredActList[i].id }) {
+//                                ageFilteredAct.append(filteredActList[i])
+//                            }
+//                        }
+//                    }
+//                }
+//            }
+//        }
     }
     
-    @IBAction func unwindToHome(_ unwindSegue: UIStoryboardSegue) {
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
     }
+    
+//    @IBAction func unwindToHome(_ unwindSegue: UIStoryboardSegue) {
+//    }
     
     @IBAction func toActivityDetails(_ sender: Any) {
         performSegue(withIdentifier: "toActivityDetail", sender: self)
@@ -146,18 +246,29 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
             actCell.ActivityDuration.setTitle(filteredActList[indexPath.section].duration, for: .normal)
             actCell.ActivityDuration.titleLabel?.font = UIFont(name: "SF Pro", size: 8)
             actCell.ActivityPreparation.setTitle(filteredActList[indexPath.section].preparation, for: .normal)
+            if filteredActList[indexPath.section].isDone == true {
+                actCell.isActivityDone.isHidden = false
+            } else if filteredActList[indexPath.section].isDone == false {
+                actCell.isActivityDone.isHidden = true
+            }
         } else {
             actCell.ActivityTitle?.text = activityList[indexPath.section].title
             actCell.ActivityAge?.text = activityList[indexPath.section].age
             actCell.ActivityDuration.setTitle(activityList[indexPath.section].duration, for: .normal)
             actCell.ActivityDuration.titleLabel?.font = UIFont(name: "SF Pro", size: 8)
             actCell.ActivityPreparation.setTitle(activityList[indexPath.section].preparation, for: .normal)
+            if activityList[indexPath.section].isDone == true {
+                actCell.isActivityDone.isHidden = false
+            } else if activityList[indexPath.section].isDone == false {
+                actCell.isActivityDone.isHidden = true
+            }
         }
         return actCell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.performSegue(withIdentifier: "toActivityDetail", sender: self)
+        print("\n\n\n\nSection: \(indexPath.section)\n\n\n\n")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -178,11 +289,17 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
 
 extension ViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print("searchtext", searchText)
 //        filteredActList = activityList.filter({$0.title.prefix(searchText.count) == searchText})
-        filteredActList = activityList.filter { text in
-            return text.title.lowercased().contains(searchText.lowercased())
+        if !isFiltering {
+            filteredActList = activityList.filter { text in
+                return text.title.lowercased().contains(searchText.lowercased())
+            }
+        } else {
+            filteredActList = activityList.filter { text in
+                return text.title.lowercased().contains(searchText.lowercased())
+            }
         }
+        
         if filteredActList.count == 0 && searchText == "" {
             filteredActList = activityList
         }
@@ -190,3 +307,4 @@ extension ViewController: UISearchBarDelegate {
         ActTableView.reloadData()
     }
 }
+

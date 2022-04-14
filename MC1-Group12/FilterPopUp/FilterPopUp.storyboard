@@ -30,7 +30,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Apply"/>
                                         <connections>
-                                            <segue destination="6Go-wr-eqX" kind="unwind" unwindAction="unwindFromFilter:" id="XQY-rh-QLX"/>
+                                            <segue destination="6Go-wr-eqX" kind="unwind" unwindAction="unwindFromFilter:" id="KpO-EK-kTY"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -42,13 +42,13 @@
                                     <constraint firstAttribute="height" constant="1" id="8Qq-YP-o9o"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Age" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cjC-fk-BpZ">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Age" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cjC-fk-BpZ">
                                 <rect key="frame" x="16" y="132" width="32.5" height="21.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="BdN-sh-G8X" userLabel="AgeButtonRow">
+                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="BdN-sh-G8X" userLabel="AgeButtonRow">
                                 <rect key="frame" x="16" y="167.5" width="213" height="31"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QMs-pR-ufq">
@@ -99,13 +99,13 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Max Duration" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qFJ-QE-H3u">
-                                <rect key="frame" x="16" y="222.5" width="110" height="21.5"/>
+                                <rect key="frame" x="16" y="132" width="110" height="21.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="X7j-xZ-EbR" userLabel="MaxDurButtonRow1">
-                                <rect key="frame" x="16" y="258" width="244.5" height="31"/>
+                                <rect key="frame" x="16" y="167.5" width="244.5" height="31"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KAe-RJ-LkN">
                                         <rect key="frame" x="0.0" y="0.0" width="73.5" height="31"/>
@@ -137,7 +137,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="bUC-Qa-dbh" userLabel="MaxDurButtonRow2">
-                                <rect key="frame" x="16" y="303" width="252" height="31"/>
+                                <rect key="frame" x="16" y="212.5" width="252" height="31"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iDN-XQ-vi5">
                                         <rect key="frame" x="0.0" y="0.0" width="76" height="31"/>
@@ -169,19 +169,19 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Preparation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QLy-Tl-N3B">
-                                <rect key="frame" x="16" y="358" width="96" height="21.5"/>
+                                <rect key="frame" x="16" y="267.5" width="96" height="21.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Activity Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Lq-BL-dmj">
-                                <rect key="frame" x="16" y="448.5" width="119.5" height="21.5"/>
+                                <rect key="frame" x="16" y="358" width="119.5" height="21.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="nOc-U8-JG8" userLabel="StatusButtonRow">
-                                <rect key="frame" x="16" y="484" width="183" height="31"/>
+                                <rect key="frame" x="16" y="393.5" width="183" height="31"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jns-bh-rJ2">
                                         <rect key="frame" x="0.0" y="0.0" width="85.5" height="31"/>
@@ -204,7 +204,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="left" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="lvJ-Bn-bbM" userLabel="PreparationButtonRow">
-                                <rect key="frame" x="16" y="393.5" width="121" height="31"/>
+                                <rect key="frame" x="16" y="303" width="121" height="31"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z4P-RG-cBt">
                                         <rect key="frame" x="0.0" y="0.0" width="54.5" height="31"/>
@@ -235,8 +235,8 @@
                             <constraint firstItem="bUC-Qa-dbh" firstAttribute="top" secondItem="X7j-xZ-EbR" secondAttribute="bottom" constant="14" id="2Th-8s-Mg2"/>
                             <constraint firstItem="Ehu-Ai-EH6" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="3h1-Yo-i0J"/>
                             <constraint firstItem="nOc-U8-JG8" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="5WH-cQ-5ip"/>
+                            <constraint firstItem="qFJ-QE-H3u" firstAttribute="top" secondItem="d2j-Ji-T1Q" secondAttribute="bottom" constant="24" id="6PY-lq-zNP"/>
                             <constraint firstItem="3Lq-BL-dmj" firstAttribute="top" secondItem="lvJ-Bn-bbM" secondAttribute="bottom" constant="24" id="8BV-yA-ObM"/>
-                            <constraint firstItem="qFJ-QE-H3u" firstAttribute="top" secondItem="BdN-sh-G8X" secondAttribute="bottom" constant="24" id="ADo-ea-iQn"/>
                             <constraint firstAttribute="trailing" secondItem="d2j-Ji-T1Q" secondAttribute="trailing" id="Cg4-rs-jth"/>
                             <constraint firstItem="QLy-Tl-N3B" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="ERU-nq-bQ0"/>
                             <constraint firstItem="d2j-Ji-T1Q" firstAttribute="top" secondItem="Ehu-Ai-EH6" secondAttribute="bottom" constant="12" id="G2U-UE-x4Z"/>

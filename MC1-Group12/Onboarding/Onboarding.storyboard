@@ -27,7 +27,7 @@
                                     <color key="baseBackgroundColor" red="0.50196078430000002" green="0.23137254900000001" blue="0.58039215690000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="k8i-bT-iIK" kind="show" id="6ox-bw-siR"/>
+                                    <segue destination="Nzt-8E-yS4" kind="show" id="J08-RQ-u45"/>
                                 </connections>
                             </button>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="o7w-xQ-21g">
@@ -60,6 +60,7 @@
                         <outlet property="getStartedBtn" destination="zyn-HL-G1N" id="lVl-lQ-4WM"/>
                         <outlet property="pageControl" destination="o7w-xQ-21g" id="Slh-gy-p6t"/>
                         <outlet property="scrollView" destination="Wuc-lb-OF7" id="B7t-BQ-8iv"/>
+                        <segue destination="Nzt-8E-yS4" kind="showDetail" identifier="toInformation" id="Ka4-FM-sds"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -95,9 +96,19 @@
             </objects>
             <point key="canvasLocation" x="633" y="-383"/>
         </scene>
+        <!--Information-->
+        <scene sceneID="eeP-32-sdk">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Information" id="Nzt-8E-yS4" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="qgG-db-YMD"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ily-RE-tGY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1067" y="54"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="6ox-bw-siR"/>
+        <segue reference="Ka4-FM-sds"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">

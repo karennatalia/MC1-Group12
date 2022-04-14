@@ -36,6 +36,8 @@ class FilterPopUpViewController: UIViewController {
     var selectedStatus = [false, false]
     var duration = 0
     var preparation = ""
+    var status = ""
+//    var ages = [Int]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -184,16 +186,20 @@ class FilterPopUpViewController: UIViewController {
         }
 //
 //        //get selected status
-//        if selectedStatus[0] {
-//            status.append(false)
-//        } else if selectedStatus[1] {
-//            status.append(true)
+        if selectedStatus[0] {
+            status = "Not Done"
+        } else if selectedStatus[1] {
+            status = "Done"
+        }
+        
+            //get selected age
+//        for i in 0...selectedAge.count-1 {
+//            if selectedAge[i] { ages.append(i+1) }
 //        }
 //
 //        browserPageController.receivedDurationFilter = duration
 //        browserPageController.receivedPreparationFilter = preparation
 //        browserPageController.receivedStatusFilter = status
-        print("tes")
     }
     
     
