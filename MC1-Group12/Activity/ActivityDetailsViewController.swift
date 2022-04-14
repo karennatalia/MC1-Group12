@@ -22,6 +22,8 @@ class ActivityDetailsViewController: UIViewController {
     @IBOutlet weak var detailDesc: UITextView!
     @IBOutlet weak var detailReflect: UITextView!
     
+    @IBOutlet weak var detailImage: UIImageView!
+    
     var selectedAct : ActivityClass!
     var nameActivity:String!
     
@@ -59,6 +61,7 @@ class ActivityDetailsViewController: UIViewController {
         detailDuration.text = selectedAct.duration
         detailDesc.text = selectedAct.description
         detailReflect.text = selectedAct.reflection
+        detailImage.image = UIImage(named: selectedAct.image) 
         
         let defaultIsDone2 = userDefaults.object(forKey: "defaultIsDone") as! [Bool]
         
