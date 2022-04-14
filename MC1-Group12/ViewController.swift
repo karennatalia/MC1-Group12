@@ -19,6 +19,13 @@ class ViewController: UIViewController {
     var isSearching = false
     var isDoneArray = [Bool]().self
     
+    //Var for filter
+    var isFiltering = false
+    var receivedDurationFilter:Int = 0
+    var receivedPreparationFilter: String = ""
+    var receivedStatusFilter: String = ""
+//    var receivedAgeFilter = [Int]()
+    
     @IBOutlet weak var searchBar: UISearchBar!
     
     @IBOutlet weak var welcomeLabel: UILabel!
@@ -89,6 +96,118 @@ class ViewController: UIViewController {
                 print("Permission Not Granted")
             }
         }
+        print(receivedDurationFilter)
+        filterActivity()
+    }
+    
+    @IBAction func unwindFromFilter(_ sender: UIStoryboardSegue) {
+        if sender.source is FilterPopUpViewController {
+            if let senderVC = sender.source as? FilterPopUpViewController {
+                receivedDurationFilter = senderVC.duration
+                receivedPreparationFilter = senderVC.preparation
+                receivedStatusFilter = senderVC.status
+//                receivedAgeFilter = senderVC.ages
+            }
+//            print(receivedPreparationFilter)
+            filterActivity()
+        }
+    }
+    
+    func filterActivity() {
+        filteredActList.removeAll()
+        
+        //Filter duration
+        if receivedDurationFilter != 0 {
+            for i in 0...activityList.count-1 {
+                if Int(activityList[i].duration.replacingOccurrences(of: " mins", with: "")) ?? 0 <= receivedDurationFilter && !filteredActList.contains(where: { $0.id == activityList[i].id }) {
+                    filteredActList.append(activityList[i])
+                }
+            }
+            isFiltering = true
+            ActTableView.reloadData()
+        }
+        
+        
+        //Filter preparation
+        if receivedPreparationFilter != "" {
+            if filteredActList.count > 0 {
+                var prepFilteredAct = [ActivityClass]()
+
+                for i in 0...filteredActList.count-1 {
+                    if filteredActList[i].preparation == receivedPreparationFilter && !prepFilteredAct.contains(where: { $0.id == filteredActList[i].id }) {
+                        prepFilteredAct.append(filteredActList[i])
+                    }
+                }
+                filteredActList = prepFilteredAct
+                isFiltering = true
+                ActTableView.reloadData()
+            }
+            else {
+                for i in 0...activityList.count-1 {
+                    if activityList[i].preparation == receivedPreparationFilter && !filteredActList.contains(where: { $0.id == activityList[i].id }){
+                        filteredActList.append(activityList[i])
+                    }
+                }
+                isFiltering = true
+                ActTableView.reloadData()
+            }
+        }
+        
+        //Filter status
+        if receivedStatusFilter != "" {
+            var status = false
+//            print("received: \(receivedStatusFilter) \t status: \(status)")
+            
+            
+            if receivedStatusFilter == "Not Done" { status = false }
+            else { status = true }
+            
+            if filteredActList.count > 0 {
+                var statusFilteredAct = [ActivityClass]()
+
+                for i in 0...filteredActList.count-1 {
+                    if filteredActList[i].isDone == status && !statusFilteredAct.contains(where: { $0.id == filteredActList[i].id }) {
+                        statusFilteredAct.append(filteredActList[i])
+                    }
+                }
+                filteredActList = statusFilteredAct
+                isFiltering = true
+                ActTableView.reloadData()
+            }
+            else {
+                for i in 0...activityList.count-1 {
+                    if activityList[i].isDone == status && !filteredActList.contains(where: { $0.id == activityList[i].id }){
+                        filteredActList.append(activityList[i])
+                    }
+                }
+                isFiltering = true
+                ActTableView.reloadData()
+            }
+        }
+        
+        //Filter age
+//        if receivedAgeFilter.count > 0 {
+//            var ageFilteredAct = [ActivityClass]()
+//
+//            if filteredActList.count > 0 {
+//                for i in 0...filteredActList.count-1 {
+//                    for j in 0...receivedAgeFilter.count-1 {
+//
+//                        //Get age from substring
+//                        var age = filteredActList[i].age.replacingOccurrences(of: " y.o", with: "")
+//                        if age.count > 1 {
+//                            age = filteredActList[i].age.replacingOccurrences(of: " - ", with: "")
+//                        }
+//
+//                        if age.count == 1 {
+//                            if receivedAgeFilter == Int(age) && !ageFilteredAct.contains(where: { $0.id == filteredActList[i].id }) {
+//                                ageFilteredAct.append(filteredActList[i])
+//                            }
+//                        }
+//                    }
+//                }
+//            }
+//        }
     }
     
     
@@ -108,7 +227,7 @@ class ViewController: UIViewController {
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        if isSearching {
+        if isSearching || isFiltering {
             return filteredActList.count
         }
         return activityList.count
@@ -121,7 +240,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let actCell = tableView.dequeueReusableCell(withIdentifier: "tableViewCellAct") as! TableViewCell
         
-        if isSearching {
+        if isSearching || isFiltering {
             actCell.ActivityTitle?.text = filteredActList[indexPath.section].title
             actCell.ActivityAge?.text = filteredActList[indexPath.section].age
             actCell.ActivityDuration.setTitle(filteredActList[indexPath.section].duration, for: .normal)
@@ -149,6 +268,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.performSegue(withIdentifier: "toActivityDetail", sender: self)
+        print("\n\n\n\nSection: \(indexPath.section)\n\n\n\n")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -156,7 +276,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
             let indexPath = self.ActTableView.indexPathForSelectedRow!
             let tableViewDetail = segue.destination as? ActivityDetailsViewController
             
-            if isSearching {
+            if isSearching || isFiltering {
                 tableViewDetail?.selectedAct = filteredActList[indexPath.section]
             } else {
                 tableViewDetail?.selectedAct = activityList[indexPath.section]
@@ -170,9 +290,16 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
 extension ViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
 //        filteredActList = activityList.filter({$0.title.prefix(searchText.count) == searchText})
-        filteredActList = activityList.filter { text in
-            return text.title.lowercased().contains(searchText.lowercased())
+        if !isFiltering {
+            filteredActList = activityList.filter { text in
+                return text.title.lowercased().contains(searchText.lowercased())
+            }
+        } else {
+            filteredActList = activityList.filter { text in
+                return text.title.lowercased().contains(searchText.lowercased())
+            }
         }
+        
         if filteredActList.count == 0 && searchText == "" {
             filteredActList = activityList
         }

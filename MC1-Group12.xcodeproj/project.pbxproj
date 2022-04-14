@@ -34,6 +34,8 @@
 		A1A231D12804936B0011295F /* ReminderCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A231D02804936B0011295F /* ReminderCellViewController.swift */; };
 		C2F6ED3F2803DB5900072047 /* SF-Pro-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C2F6ECF92803DAF500072047 /* SF-Pro-Italic.ttf */; };
 		C2F6ED5E2803DB5900072047 /* SF-Pro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C2F6ECE02803DAF100072047 /* SF-Pro.ttf */; };
+		E90AF703280566F000877916 /* FilterPopUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E90AF702280566F000877916 /* FilterPopUp.storyboard */; };
+		E90AF705280572BC00877916 /* FilterPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90AF704280572BC00877916 /* FilterPopUpViewController.swift */; };
 		E969ADEE2805289A00F5C5D1 /* FirstLaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E969ADED2805289A00F5C5D1 /* FirstLaunchViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +69,8 @@
 		A1A231D02804936B0011295F /* ReminderCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderCellViewController.swift; sourceTree = "<group>"; };
 		C2F6ECE02803DAF100072047 /* SF-Pro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro.ttf"; sourceTree = "<group>"; };
 		C2F6ECF92803DAF500072047 /* SF-Pro-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Italic.ttf"; sourceTree = "<group>"; };
+		E90AF702280566F000877916 /* FilterPopUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FilterPopUp.storyboard; sourceTree = "<group>"; };
+		E90AF704280572BC00877916 /* FilterPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterPopUpViewController.swift; sourceTree = "<group>"; };
 		E969ADED2805289A00F5C5D1 /* FirstLaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLaunchViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -129,6 +133,7 @@
 		5F1A069D27FE9E61000BEC17 /* MC1-Group12 */ = {
 			isa = PBXGroup;
 			children = (
+				E90AF7012805654D00877916 /* FilterPopUp */,
 				5F4C127E28040EAB00381BE6 /* Reminder */,
 				5F4C12792803F0C400381BE6 /* Information */,
 				39837A3A2803C9F100BA3192 /* Onboarding */,
@@ -187,6 +192,15 @@
 				C2F6ECE02803DAF100072047 /* SF-Pro.ttf */,
 			);
 			path = fonts;
+			sourceTree = "<group>";
+		};
+		E90AF7012805654D00877916 /* FilterPopUp */ = {
+			isa = PBXGroup;
+			children = (
+				E90AF702280566F000877916 /* FilterPopUp.storyboard */,
+				E90AF704280572BC00877916 /* FilterPopUpViewController.swift */,
+			);
+			path = FilterPopUp;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,6 +270,7 @@
 				5F4C128228040EE600381BE6 /* AddReminder.storyboard in Resources */,
 				C2F6ED5E2803DB5900072047 /* SF-Pro.ttf in Resources */,
 				39837A3C2803CA9500BA3192 /* Onboarding.storyboard in Resources */,
+				E90AF703280566F000877916 /* FilterPopUp.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,6 +293,7 @@
 				39837A462804882500BA3192 /* ActivitySeeder.swift in Sources */,
 				39837A442804759000BA3192 /* ActivityClass.swift in Sources */,
 				E969ADEE2805289A00F5C5D1 /* FirstLaunchViewController.swift in Sources */,
+				E90AF705280572BC00877916 /* FilterPopUpViewController.swift in Sources */,
 				5F1F7E3F280528BA003F91F2 /* AddReminderViewController.swift in Sources */,
 				5F1A069F27FE9E61000BEC17 /* AppDelegate.swift in Sources */,
 				39B497B127FF295F009B4FFA /* GradientViewClass.swift in Sources */,
