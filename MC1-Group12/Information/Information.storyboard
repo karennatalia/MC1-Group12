@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="Pqv-kT-Q7h" userLabel="ContentContainer">
-                                <rect key="frame" x="22" y="184" width="370" height="528.5"/>
+                                <rect key="frame" x="22" y="164.5" width="370" height="567.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Getting Started" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Twb-jR-Qgn">
                                         <rect key="frame" x="0.0" y="0.0" width="370" height="32.5"/>
@@ -26,7 +26,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="hPe-oj-c0v" userLabel="RowContainer">
-                                        <rect key="frame" x="9" y="82.5" width="352" height="346"/>
+                                        <rect key="frame" x="9" y="82.5" width="352" height="385"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="MtO-6I-mGm" userLabel="Row">
                                                 <rect key="frame" x="0.0" y="0.0" width="352" height="54"/>
@@ -91,7 +91,7 @@ based on age, time, and preparation preferences.</string>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ypV-aR-b4J" userLabel="Row">
-                                                <rect key="frame" x="0.0" y="195" width="352" height="33"/>
+                                                <rect key="frame" x="0.0" y="195" width="352" height="72"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.up.bin" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="bWn-3s-9iV">
                                                         <rect key="frame" x="0.0" y="0.5" width="46" height="32"/>
@@ -102,8 +102,8 @@ based on age, time, and preparation preferences.</string>
                                                         </constraints>
                                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="bold"/>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Preparation" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rlj-Mc-hHi">
-                                                        <rect key="frame" x="51" y="0.0" width="301" height="18"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Preparation. We categorize activities preparation into low (none-short preparation) and high (need some stuff or go outside)." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rlj-Mc-hHi">
+                                                        <rect key="frame" x="51" y="0.0" width="301" height="72"/>
                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                         <color key="textColor" red="0.54117647059999996" green="0.54117647059999996" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -111,7 +111,7 @@ based on age, time, and preparation preferences.</string>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="fa3-V7-1L0" userLabel="Row">
-                                                <rect key="frame" x="0.0" y="251" width="352" height="36"/>
+                                                <rect key="frame" x="0.0" y="290" width="352" height="36"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Duk-4a-TUK">
                                                         <rect key="frame" x="0.0" y="-0.5" width="46" height="34"/>
@@ -131,7 +131,7 @@ based on age, time, and preparation preferences.</string>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="yof-zY-ctZ" userLabel="Row">
-                                                <rect key="frame" x="0.0" y="310" width="352" height="36"/>
+                                                <rect key="frame" x="0.0" y="349" width="352" height="36"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bell" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="QkJ-Jd-PCv">
                                                         <rect key="frame" x="0.0" y="-0.5" width="46" height="34"/>
@@ -153,7 +153,7 @@ based on age, time, and preparation preferences.</string>
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zPN-8A-iSl">
-                                        <rect key="frame" x="0.0" y="478.5" width="370" height="50"/>
+                                        <rect key="frame" x="0.0" y="517.5" width="370" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="s7z-gL-NQU"/>
                                         </constraints>
