@@ -16,6 +16,11 @@ class ViewController: UIViewController {
     var filteredActList = [ActivityClass]()
     var isSearching = false
     
+    //Var for filter
+    var isFiltering = false
+    var receivedDurationFilter:Int = 0
+    var receivedPreparationFilter: String = ""
+    
     @IBOutlet weak var searchBar: UISearchBar!
     
     @IBOutlet weak var welcomeLabel: UILabel!
@@ -53,6 +58,61 @@ class ViewController: UIViewController {
                 print("Permission Not Granted")
             }
         }
+        print(receivedDurationFilter)
+        filterActivity()
+    }
+    
+    @IBAction func unwindFromFilter(_ sender: UIStoryboardSegue) {
+        if sender.source is FilterPopUpViewController {
+            if let senderVC = sender.source as? FilterPopUpViewController {
+                receivedDurationFilter = senderVC.duration
+                receivedPreparationFilter = senderVC.preparation
+            }
+            print(receivedPreparationFilter)
+            filterActivity()
+        }
+    }
+    
+    func filterActivity() {
+        filteredActList.removeAll()
+        
+        //Filter duration
+        if receivedDurationFilter != 0 {
+            for i in 0...activityList.count-1 {
+                if Int(activityList[i].duration.replacingOccurrences(of: " min", with: "")) ?? 0 <= receivedDurationFilter && !filteredActList.contains(where: { $0.id == activityList[i].id }) {
+                    filteredActList.append(activityList[i])
+                }
+            }
+            isFiltering = true
+            ActTableView.reloadData()
+        }
+        
+        
+        //Filter preparation
+        if receivedPreparationFilter != "" {
+            if filteredActList.count > 0 {
+                var prepFilteredAct = [ActivityClass]()
+
+                for i in 0...filteredActList.count-1 {
+                    if filteredActList[i].preparation == receivedPreparationFilter && !prepFilteredAct.contains(where: { $0.id == filteredActList[i].id }) {
+                        prepFilteredAct.append(filteredActList[i])
+                    }
+                }
+                filteredActList = prepFilteredAct
+                isFiltering = true
+                ActTableView.reloadData()
+            }
+            else {
+                for i in 0...activityList.count-1 {
+                    if activityList[i].preparation == receivedPreparationFilter {
+                        filteredActList.append(activityList[i])
+                    }
+                }
+
+                isFiltering = true
+                ActTableView.reloadData()
+            }
+        }
     }
     
     @IBAction func unwindToHome(_ unwindSegue: UIStoryboardSegue) {
@@ -67,7 +127,7 @@ class ViewController: UIViewController {
 extension ViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        if isSearching {
+        if isSearching || isFiltering {
             return filteredActList.count
         }
         return activityList.count
@@ -80,7 +140,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let actCell = tableView.dequeueReusableCell(withIdentifier: "tableViewCellAct") as! TableViewCell
         
-        if isSearching {
+        if isSearching || isFiltering {
             actCell.ActivityTitle?.text = filteredActList[indexPath.section].title
             actCell.ActivityAge?.text = filteredActList[indexPath.section].age
             actCell.ActivityDuration.setTitle(filteredActList[indexPath.section].duration, for: .normal)
@@ -105,7 +165,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
             let indexPath = self.ActTableView.indexPathForSelectedRow!
             let tableViewDetail = segue.destination as? ActivityDetailsViewController
             
-            if isSearching {
+            if isSearching || isFiltering {
                 tableViewDetail?.selectedAct = filteredActList[indexPath.section]
             } else {
                 tableViewDetail?.selectedAct = activityList[indexPath.section]

@@ -34,6 +34,8 @@ class FilterPopUpViewController: UIViewController {
     var selectedDuration = [false, false, false, false, false, false]
     var selectedPreparation = [false, false]
     var selectedStatus = [false, false]
+    var duration = 0
+    var preparation = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -162,35 +164,36 @@ class FilterPopUpViewController: UIViewController {
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let browserPageController = segue.destination as! ViewController
-        var duration = 0
-        var preparation = [String]()
-        var status = [Bool]()
-
+//        let browserPageController = segue.destination as! ViewController
+//        var duration = 0
+//        var preparation = [String]()
+//        var status = [Bool]()
+//
         //get selected duration
         for i in 0...selectedDuration.count-1 {
             if selectedDuration[i] {
                 duration = (i+1)*5
             }
         }
-        
-        //get selected preparation
+//
+//        //get selected preparation
         if selectedPreparation[0] {
-            preparation.append("Low")
+            preparation = "Low"
         } else if selectedPreparation[1] {
-            preparation.append("High")
+            preparation = "High"
         }
-        
-        //get selected status
-        if selectedStatus[0] {
-            status.append(false)
-        } else if selectedStatus[1] {
-            status.append(true)
-        }
-        
+//
+//        //get selected status
+//        if selectedStatus[0] {
+//            status.append(false)
+//        } else if selectedStatus[1] {
+//            status.append(true)
+//        }
+//
 //        browserPageController.receivedDurationFilter = duration
 //        browserPageController.receivedPreparationFilter = preparation
 //        browserPageController.receivedStatusFilter = status
+        print("tes")
     }
     
     

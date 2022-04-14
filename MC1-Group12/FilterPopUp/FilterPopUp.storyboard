@@ -30,7 +30,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Apply"/>
                                         <connections>
-                                            <segue destination="aAx-Go-4pe" kind="show" id="Cfb-Lw-a9Q"/>
+                                            <segue destination="6Go-wr-eqX" kind="unwind" unwindAction="unwindFromFilter:" id="XQY-rh-QLX"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -276,6 +276,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="6Go-wr-eqX" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="35" y="61"/>
         </scene>
