@@ -17,10 +17,10 @@ struct ActivityClass {
     var age: String = ""
     var preparation: String = ""
     var reflection: String = ""
-    var image: UIImage?
+    var image: String = ""
     var isDone: Bool = false
     
-    public init(id: String, title: String, description: String, duration: String, age: String, preparation: String, reflection: String, image: UIImage, isDone: Bool) {
+    public init(id: String, title: String, description: String, duration: String, age: String, preparation: String, reflection: String, image: String, isDone: Bool) {
         self.id = id
         self.title = title
         self.description = description
@@ -28,7 +28,7 @@ struct ActivityClass {
         self.age = age
         self.preparation = preparation
         self.reflection = reflection
-        self.image = UIImage()
+        self.image = image
         self.isDone = isDone
     }
 }

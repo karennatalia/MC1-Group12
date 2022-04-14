@@ -14,46 +14,57 @@ class ActivitySeeder {
         return [
             ActivityClass(
                 id: "1",
-                title: "Gardening Time",
-                description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-                duration: "15 min",
-                age: "3 - 5 y.o",
+                title: "Explain Like I’m 5!",
+                description: "Explain the what you have to do for work or a concept that you are learning on the job to our child! Be sure to not use big or fancy words that they might not understand, stick to a simple vocabulary. It helps to ask them questions like “have you ever heard of …?” and “do you know about …?”.\n\nOnce finished, ask our child to re-explain in their own words what you have told them! Through this activity, not only will our child have a better understanding of what you do they can also learn new concepts along the way!",
+                duration: "10 mins",
+                age: "4 - 5 y.o",
                 preparation: "Low",
-                reflection: "Do your child like gardening time?",
-                image: UIImage(),
+                reflection: "- What questions do you have about the job? - What do they think about your job?",
+                image: "explain_like_im_5.png",
                 isDone: false
             ),
             ActivityClass(
                 id: "2",
-                title: "Cooking",
-                description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-                duration: "25 min",
-                age: "3 - 5 y.o",
+                title: "Simon Says!",
+                description: "Simons Says is an activity where you give instruction to others with the sentence starting with “Simon Says”. Decide who will be the instruction giver and follower between you and your child. At first, you can start with simple instructions. After some time, you can experiment and gradually increase the instruction to be more complex. You can also incorporate some light physical activity within the instruction. \n \n Example: \"Simon says, close your eyes!\"\n \"Simon says, sing twinkle twinkle!\"\n \"Simon says, grab a toy!\"\n \"Simon says, jump as high as you can!\"",
+                duration: "10 mins",
+                age: "2 - 4 y.o",
                 preparation: "High",
-                reflection: "Do your child like to cook?",
-                image: UIImage(),
-                isDone: true
+                reflection: "- Which instruction in the most fun to do?\n- Which instruction do you think is the hardest?",
+                image: "Simon_s_Says.png",
+                isDone: false
             ),
             ActivityClass(
                 id: "3",
                 title: "Treasure Hunt!",
-                description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-                duration: "20 min",
-                age: "2 y.o",
+                description: "So pick up some items that you often use everyday, especially when our child is around example: pen, earphone, mask, glasses, water bottle, hat, etc.\n \nAsk our child to close their eyes and pick one item in front of them (without seeing it).\n \nWith eyes still closed, ask them to guess what item is it, it’s okay if they have no clue. Whatever their answer is, ask them to open their eyes and give some responses by repeating their answer and add to it.\n \nExample:\n‘Yes! You are right, it’s a pretty flower. The flower is bright red, and it smells good too!’\n‘Oh, it’s not a baseball stick, it’s a pretty flower. The flower is bright red and it smells good right?’ \n \nYou can also ask or tell them what is it for, and give responses as you’ve done before (as seen above). \n \nPro Tip! \nYou can pretend to give the wrong answer to provoke their response.",
+                duration: "30 mins",
+                age: "3 - 4 y.o",
                 preparation: "Low",
-                reflection: "Do your child like find it interesting? what's your child expression after found the treasure?",
-                image: UIImage(),
+                reflection: "- How do you feel right now? \n- Which item do you think is the most interesting? Why? \n- Which item do you think mom/dad often uses everyday? Ask them to explain more.",
+                image: "Treasure_Hunt.png",
                 isDone: false
             ),
             ActivityClass(
                 id: "4",
-                title: "Paper Plane",
-                description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. text field height fit to content",
-                duration: "15 min",
+                title: "Tell Me The Stories",
+                description: "Take one or a few objects (random item/your childs toy) and create a story with the objects together with your child. For example, you take a spoon and a small plate, then play with the object to create a story. You could start with naming the object, “Hi, my name is plato and my name is spoony” then start to elaborate a random story together. It could be like love story, war story, castle story, or anything.",
+                duration: "20 mins",
+                age: "2 - 5 y.o",
+                preparation: "Low",
+                reflection: "- How does the story end?\n- What lesson could you take from the story?",
+                image: "Tell_me_your_stories.png",
+                isDone: false
+            ),
+            ActivityClass(
+                id: "5",
+                title: "Shopping Toys on a Budget",
+                description: "In this activity we will let our child to interact with other people. We and our child go to toys shop to buy new toys on a budget. We prepare IDR 100,000 and tell our child to shop any toys they want. We observe our child from a distance when our child shopping. Our child will interact with shopkeeper while finding the toys they want and pay them at cashier.",
+                duration: "15 mins",
                 age: "3 - 5 y.o",
                 preparation: "High",
-                reflection: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-                image: UIImage(),
+                reflection: "- How's it going ?\n- What do you buy ? \n- Why do you buy it ? \n- Do you like it ?",
+                image: "Shopping.png",
                 isDone: false
             )
         ]

@@ -119,7 +119,7 @@ class ViewController: UIViewController {
         //Filter duration
         if receivedDurationFilter != 0 {
             for i in 0...activityList.count-1 {
-                if Int(activityList[i].duration.replacingOccurrences(of: " min", with: "")) ?? 0 <= receivedDurationFilter && !filteredActList.contains(where: { $0.id == activityList[i].id }) {
+                if Int(activityList[i].duration.replacingOccurrences(of: " mins", with: "")) ?? 0 <= receivedDurationFilter && !filteredActList.contains(where: { $0.id == activityList[i].id }) {
                     filteredActList.append(activityList[i])
                 }
             }
