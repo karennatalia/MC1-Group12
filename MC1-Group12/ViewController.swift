@@ -66,6 +66,8 @@ class ViewController: UIViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        filteredActList = activityList
+        isSearching = false
         changeIsDoneVal()
     }
     override func viewDidLoad() {
