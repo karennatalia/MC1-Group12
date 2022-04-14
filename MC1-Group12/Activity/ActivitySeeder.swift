@@ -15,7 +15,7 @@ class ActivitySeeder {
             ActivityClass(
                 id: "1",
                 title: "Explain Like I’m 5!",
-                description: "Explain the what you have to do for work or a concept that you are learning on the job to our child! Be sure to not use big or fancy words that they might not understand, stick to a simple vocabulary. It helps to ask them questions like “have you ever heard of …?” and “do you know about …?” . Once finished, ask our child to re-explain in their own words what you have told them! Through this activity, not only will our child have a better understanding of what you do they can also learn new concepts along the way!",
+                description: "Explain the what you have to do for work or a concept that you are learning on the job to our child! Be sure to not use big or fancy words that they might not understand, stick to a simple vocabulary. It helps to ask them questions like “have you ever heard of …?” and “do you know about …?”.\n\nOnce finished, ask our child to re-explain in their own words what you have told them! Through this activity, not only will our child have a better understanding of what you do they can also learn new concepts along the way!",
                 duration: "10 min",
                 age: "4 - 5 y.o",
                 preparation: "Low",
@@ -37,7 +37,7 @@ class ActivitySeeder {
             ActivityClass(
                 id: "3",
                 title: "Treasure Hunt!",
-                description: "So pick up some items that you often use everyday, especially when our child is around example: pen, earphone, mask, glasses, water bottle, hat, etc.\n \n Ask our child to close their eyes and pick one item in front of them (without seeing it).\n \n With eyes still closed, ask them to guess what item is it, it’s okay if they have no clue. Whatever their answer is, ask them to open their eyes and give some responses by repeating their answer and add to it.\n \n Example:\n ‘Yes! You are right, it’s a pretty flower. The flower is bright red, and it smells good too!’\n ‘Oh, it’s not a baseball stick, it’s a pretty flower. The flower is bright red and it smells good right?’ \n \n You can also ask or tell them what is it for, and give responses as you’ve done before (as seen above). \n \n Pro Tip! \n You can pretend to give the wrong answer to provoke their response.",
+                description: "So pick up some items that you often use everyday, especially when our child is around example: pen, earphone, mask, glasses, water bottle, hat, etc.\n \nAsk our child to close their eyes and pick one item in front of them (without seeing it).\n \nWith eyes still closed, ask them to guess what item is it, it’s okay if they have no clue. Whatever their answer is, ask them to open their eyes and give some responses by repeating their answer and add to it.\n \nExample:\n‘Yes! You are right, it’s a pretty flower. The flower is bright red, and it smells good too!’\n‘Oh, it’s not a baseball stick, it’s a pretty flower. The flower is bright red and it smells good right?’ \n \nYou can also ask or tell them what is it for, and give responses as you’ve done before (as seen above). \n \nPro Tip! \nYou can pretend to give the wrong answer to provoke their response.",
                 duration: "15 - 30 mins",
                 age: "3 - 4 y.o",
                 preparation: "Low",
