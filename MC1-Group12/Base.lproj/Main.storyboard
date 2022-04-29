@@ -80,7 +80,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="T"/>
                                 <connections>
-                                    <action selector="TuesdayBtn:" destination="w3j-t0-mPU" eventType="touchUpInside" id="70x-pS-2lS"/>
+                                    <action selector="TuesdayBtn:" destination="w3j-t0-mPU" eventType="touchUpInside" id="str-4N-rTt"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4pb-eJ-1df">
@@ -140,10 +140,19 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="fridayBtnUI" destination="InC-La-ont" id="cuh-kP-2gB"/>
+                        <outlet property="mondayBtnUI" destination="5G6-wz-jOq" id="WiF-Pg-u8U"/>
+                        <outlet property="saturdayBtnUI" destination="bB5-jI-AWk" id="ETy-TH-aTV"/>
+                        <outlet property="sundayBtnUI" destination="bit-rB-MaA" id="fgh-GJ-rxv"/>
+                        <outlet property="thursdayBtnUI" destination="eOD-ZB-ACh" id="vFh-Qo-Jf9"/>
                         <outlet property="timePicker" destination="38z-Pk-nQC" id="l19-eJ-bwA"/>
+                        <outlet property="tuesdayBtnUI" destination="dak-Fo-7cV" id="gJx-Np-Tbv"/>
+                        <outlet property="wednesdayBtnUI" destination="4pb-eJ-1df" id="1gX-gN-XUe"/>
+                        <segue destination="TYq-Kv-yxI" kind="unwind" identifier="unwindToHome" unwindAction="unwindToHome:" id="Jxr-Gg-Jjb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YDl-VN-9rl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="TYq-Kv-yxI" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="784" y="70"/>
         </scene>
